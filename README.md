@@ -1,3 +1,12 @@
+# Cara Install
+1. composer install
+2. ketik "cp .env.example .env" 
+3. buat database di phpmyadmin 
+4. koneksikan database dgn masukan nama database di file .env
+5. php artisan key:generate
+6. php artisan migrate --seed
+7. php artisan serve untuk menjalankan project
+
 # SPPR
 Website SPP Sekolah Dibuat Dengan : 
 - Framework Laravel 8
