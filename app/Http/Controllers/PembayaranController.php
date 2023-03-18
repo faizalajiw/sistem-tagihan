@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Validator;
 use App\Helpers\Bulan;
 use App\Models\Dokter;
-use Barryvdh\DomPDF\PDF as PDF;
+use PDF;
 use Yajra\DataTables\Facades\DataTables;
 
 class PembayaranController extends Controller

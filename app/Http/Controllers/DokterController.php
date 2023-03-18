@@ -9,7 +9,7 @@ use App\Models\Spp;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
-use Barryvdh\DomPDF\PDF as PDF;
+use PDF;
 
 class DokterController extends Controller
 {
