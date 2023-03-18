@@ -7,8 +7,7 @@
 6. php artisan migrate --seed
 7. php artisan serve untuk menjalankan project
 
-# SPPR
-Website SPP Sekolah Dibuat Dengan : 
+# Website E-Tagihan Dibuat Dengan : 
 - Framework Laravel 8
 - Template AdminLTE-3
 - Yajra Laravel DataTable Serverside
@@ -33,52 +32,52 @@ password : password
 username : elaina123
 password : password
 
-- SISWA
-username : diva123
+- Dokter
+username : dokterindonesia
 password : password
 
 # ROLE USER
 - admin
 - petugas
-- siswa
+- dokter
 
 # AUTENTIKASI
-Password default dari siswa , petugas , admin yang ditambahkan 
-adalah : sppr2021 (jika belum di ubah) / (jika bukan ditambahkan dari database seeder)
+Password default dari dokter , petugas , admin yang ditambahkan 
+adalah : idi2023 (jika belum di ubah) / (jika bukan ditambahkan dari database seeder)
 
 
 # FEATURES 
 1.ADMIN
 (CRUD AJAX NO RELOAD)
-- CRUD Siswa
-- CRUD Kelas
+- CRUD Dokter
+- CRUD Spesialis
 - CRUD Petugas
-- CRUD Tahun & Nominal SPP
+- CRUD Tahun & Nominal Tagihan
 - CRUD Admin
 - CRUD Role
 - CRUD Permission
 (CRUD AJAX NO RELOAD)
 
-- Membuat Pembayaran Spp
-- History Pembayaran Spp 
-- Lihat Status pembayaran spp
+- Membuat Tagihan Pembayaran
+- History Pembayaran Tagihan
+- Lihat Status Pembayaran Tagihan
 - PRINT Pdf History Pembayaran per-range tanggal
-- PRINT Pdf History Pembayaran Spp Per Siswa
+- PRINT Pdf History Pembayaran Tagihan Per Dokter
 - Setting (User Role & Permission) 
 
 2.PETUGAS
-- Read Siswa
-- Read Kelas
-- Read Tahun & Nominal Spp
-- Read Pembayaran Spp
-- Membuat Pembayaran Spp
-- History Pembayaran Spp
-- Lihat Status pembayaran spp
+- Read Dokter
+- Read Spesialis
+- Read Tahun & Nominal Tagihan
+- Read Pembayaran Tagihan
+- Membuat Pembayaran Tagihan
+- History Pembayaran Tagihan
+- Lihat Status pembayaran Tagihan
 - PRINT Pdf History Pembayaran per-range tanggal
-- PRINT Pdf History Pembayaran Spp per Siswa
+- PRINT Pdf History Pembayaran Tagihan per Dokter
 
-3.SISWA
-- History Pembayaran Spp
-- History Pembayaran Spp Per-Tahun
-- Lihat Status Pembayaran Spp
-- PRINT Pdf Laporan Pembayaran Spp Per-Tahun
+3.DOKTER
+- History Pembayaran Tagihan
+- History Pembayaran Tagihan Per-Tahun
+- Lihat Status Pembayaran Tagihan
+- PRINT Pdf Laporan Pembayaran Tagihan Per-Tahun
