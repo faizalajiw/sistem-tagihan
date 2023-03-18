@@ -97,7 +97,7 @@ class DokterController extends Controller
         if ($data['pembayaran']->count() > 0) {
             $pdf = PDF::loadView('dokter.laporan-preview', $data);
             return $pdf->download('pembayaran-spp-'.$dokter->nama_dokter.'-'.
-                $dokter->nisn.'-'.
+                $dokter->npa.'-'.
                 $request->tahun_bayar.'-'.
                 Str::random(9).'.pdf');
         }else{
