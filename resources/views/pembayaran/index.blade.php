@@ -60,9 +60,9 @@ $(function () {
       ajax: "{{ route('pembayaran.index') }}",
       columns: [
           {data: 'DT_RowIndex' , name: 'id'},
-          {data: 'nama_siswa', name: 'nama_siswa'},
-          {data: 'nisn', name: 'nisn'},
-          {data: 'kelas.nama_kelas', name: 'kelas.nama_kelas'},
+          {data: 'nama_dokter', name: 'nama_dokter'},
+          {data: 'npa', name: 'npa'},
+          {data: 'spesialis.nama_spesialis', name: 'spesialis.nama_spesialis'},
           {data: 'jenis_kelamin', name: 'jenis_kelamin'},
           {data: 'action', name: 'action', orderable: false, searchable: true},
       ]

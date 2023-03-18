@@ -26,9 +26,9 @@
     @foreach($pembayaran as $row)
     <tr>
       <th scope="row" style="font-family: sans-serif;">{{ $loop->iteration }}</th>
-      <td style="font-family: sans-serif;">{{ $row->siswa->nama_siswa }}</td>
-      <td style="font-family: sans-serif;">{{ $row->nisn }}</td>
-      <td style="font-family: sans-serif;">{{ $row->siswa->kelas->nama_kelas }}</td>
+      <td style="font-family: sans-serif;">{{ $row->dokter->nama_dokter }}</td>
+      <td style="font-family: sans-serif;">{{ $row->npa }}</td>
+      <td style="font-family: sans-serif;">{{ $row->dokter->spesialis->nama_spesialis }}</td>
       <td style="font-family: sans-serif;">
         {{ \Carbon\Carbon::parse($row->tanggal_bayar)->format('d-m-Y') }}
       </td>

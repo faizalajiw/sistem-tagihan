@@ -72,9 +72,9 @@ $(function () {
       ajax: "{{ route('pembayaran.history-pembayaran') }}",
       columns: [
           {data: 'DT_RowIndex' , name: 'id'},
-          {data: 'siswa.nama_siswa', name: 'siswa.nama_siswa'},
-          {data: 'siswa.kelas.nama_kelas', name: 'siswa.kelas.nama_kelas'},
-          {data: 'siswa.nisn', name: 'siswa.nisn'},
+          {data: 'dokter.nama_dokter', name: 'dokter.nama_dokter'},
+          {data: 'dokter.spesialis.nama_spesialis', name: 'dokter.spesialis.nama_spesialis'},
+          {data: 'dokter.npa', name: 'dokter.npa'},
           {data: 'tanggal_bayar', name: 'tanggal_bayar'},
           {data: 'petugas.nama_petugas', name: 'petugas.nama_petugas'},
           {data: 'bulan_bayar', name: 'bulan_bayar'},
