@@ -2,7 +2,7 @@
   <!-- Brand Logo -->
   <a href="" class="brand-link">
     <img src="{{ asset('templates/backend/AdminLTE-3.1.0') }}/dist/img/laravel.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">SPPR</span>
+    <span class="brand-text font-weight-light">E-Tagihan</span>
   </a>
 
   <!-- Sidebar -->
@@ -67,7 +67,7 @@
           <a href="{{ route('siswa.index') }}" class="nav-link {{ Request::segment(2) == 'siswa' ? 'active' : '' }}">
             <i class="nav-icon fas fa-users"></i>
             <p>
-              Siswa
+              Dokter
             </p>
           </a>
         </li>
@@ -83,7 +83,7 @@
           <a href="{{ route('kelas.index') }}" class="nav-link {{ Request::segment(2) == 'kelas' ? 'active' : '' }}">
             <i class="nav-icon fas fa-school"></i>
             <p>
-              Kelas
+              Spesialis
             </p>
           </a>
         </li>
@@ -99,7 +99,7 @@
           <a href="{{ route('user.index') }}" class="nav-link {{ Request::segment(2) == 'user' ? 'active' : '' }}">
             <i class="nav-icon fas fa-users"></i>
             <p>
-              User
+              Daftar Akun
             </p>
           </a>
         </li>
@@ -115,7 +115,7 @@
           <a href="{{ route('spp.index') }}" class="nav-link {{ Request::segment(2) == 'spp' ? 'active' : '' }}">
             <i class="nav-icon fas fa-money-bill"></i>
             <p>
-              SPP
+              Iuran
             </p>
           </a>
         </li>
@@ -151,7 +151,7 @@
           <a href="{{ route('spp.index') }}" class="nav-link {{ Request::segment(2) == 'spp' ? 'active' : '' }}">
             <i class="nav-icon fas fa-money-bill"></i>
             <p>
-              SPP
+              Iuran
             </p>
           </a>
         </li>
@@ -179,7 +179,7 @@
           <a href="{{ route('pembayaran.history-pembayaran') }}" class="nav-link {{ Request::segment(2) == 'history-pembayaran' ? 'active' : '' }}">
             <i class="nav-icon fas fa-history"></i>
             <p>
-              History Pembayaran
+              Riwayat Pembayaran
             </p>
           </a>
         </li>
@@ -207,7 +207,7 @@
           <a href="{{ route('siswa.history-pembayaran') }}" class="nav-link {{ Request::is('siswa/history-pembayaran') ? 'active' : '' }}">
             <i class="nav-icon fas fa-history"></i>
             <p>
-              History Pembayaran
+              Riwayat Pembayaran
             </p>
           </a>
         </li>

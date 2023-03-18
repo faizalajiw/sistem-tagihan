@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/select2/css/select2.min.css">
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 @endpush
-@section('content_title', 'Data Siswa')
+@section('content_title', 'Data Dokter')
 @section('content')
 <x-alert></x-alert>
 <div class="row">
@@ -30,9 +30,9 @@
           <thead>
           <tr>
             <th>No</th>
-            <th>Nama Siswa</th>
-            <th>Nisn</th>
-            <th>Kelas</th>
+            <th>Nama Dokter</th>
+            <th>NPA</th>
+            <th>Spesialis</th>
             <th>Jenis Kelamin</th>
             <th>No Telepon</th>
             <th>Aksi</th>
@@ -77,7 +77,7 @@
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="nama_siswa">Nama Siswa:</label>
+                <label for="nama_siswa">Nama Dokter:</label>
                 <input required="" type="text" name="nama_siswa" id="nama_siswa" class="form-control">
               </div>
             </div>
@@ -89,13 +89,13 @@
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="nisn">Nisn</label>
+                <label for="nisn">No ID</label>
                 <input required="" type="text" name="nisn" id="nisn" class="form-control">  
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="nis">Nis:</label>
+                <label for="nis">NPA:</label>
                 <input required="" type="text" name="nis" id="nis" class="form-control">  
               </div>
             </div>  

@@ -16,9 +16,9 @@
           <thead>
           <tr>
             <th>No</th>
-            <th>Nama Siswa</th>
-            <th>Nisn</th>
-            <th>Kelas</th>
+            <th>Nama Dokter</th>
+            <th>NPA</th>
+            <th>Spesialis</th>
             <th>Jenis Kelamin</th>
             <th>Detail</th>
           </tr>
