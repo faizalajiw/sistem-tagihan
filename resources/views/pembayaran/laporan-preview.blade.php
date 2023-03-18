@@ -10,13 +10,13 @@
 </center>
 <br>
 <b>Dari tanggal {{ \Carbon\Carbon::parse(request()->tanggal_mulai)->format('d-m-Y') }} - {{ \Carbon\Carbon::parse(request()->tanggal_selesai)->format('d-m-Y') }}</b><br><br>
-<table style="" border="1" cellspacing="0" cellpadding="10" width="100%">
+<table border="1" cellspacing="0" cellpadding="10" width="100%">
   <thead>
     <tr>
       <th scope="col" style="font-family: sans-serif;">No</th>
-      <th scope="col" style="font-family: sans-serif;">Nama Siswa</th>
-      <th scope="col" style="font-family: sans-serif;">Nisn</th>
-      <th scope="col" style="font-family: sans-serif;">Kelas</th>
+      <th scope="col" style="font-family: sans-serif;">Nama Dokter</th>
+      <th scope="col" style="font-family: sans-serif;">NPA</th>
+      <th scope="col" style="font-family: sans-serif;">Spesilais</th>
       <th scope="col" style="font-family: sans-serif;">Tanggal Bayar</th>
       <th scope="col" style="font-family: sans-serif;">Petugas</th>
       <th scope="col" style="font-family: sans-serif;">Jumlah Bayar</th>

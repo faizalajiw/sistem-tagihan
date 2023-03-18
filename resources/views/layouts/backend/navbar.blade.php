@@ -18,7 +18,7 @@
         </a>
         <div class="dropdown-divider"></div>
         <a href="javascript:void(0)" class="dropdown-item" data-toggle="modal" data-target="#modal-default">
-          <i class="fas fa-fw fa-sign-out-alt mr-2"></i> Logout
+          <i class="fas fa-fw fa-sign-out-alt mr-2"></i> Keluar
         </a>
       </div>
     </li>
@@ -29,16 +29,16 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Yakin Logout?</h4>
+        <h4 class="modal-title">Yakin Keluar?</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-footer justify-content-right">
       <form method="POST" action="{{ route('logout') }}">
-        <button type="button" class="btn btn-default mr-2" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default mr-2" data-dismiss="modal">Batal</button>
         @csrf
-        <button type="submit" class="btn btn-primary">Logout</button>
+        <button type="submit" class="btn btn-primary">Keluar</button>
       </form>
       </div>
     </div>

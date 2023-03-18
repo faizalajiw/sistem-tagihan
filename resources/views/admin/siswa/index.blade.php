@@ -1,5 +1,5 @@
 @extends('layouts.backend.app')
-@section('title', 'Data Siswa')
+@section('title', 'Data Dokter')
 @push('css')
 <!-- DataTables -->
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/select2/css/select2.min.css">
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 @endpush
-@section('content_title', 'Data Siswa')
+@section('content_title', 'Data Dokter')
 @section('content')
 <x-alert></x-alert>
 <div class="row">
@@ -30,11 +30,11 @@
           <thead>
           <tr>
             <th>No</th>
-            <th>Nama Siswa</th>
-            <th>Nisn</th>
-            <th>Kelas</th>
+            <th>Nama Dokter</th>
+            <th>NPA</th>
+            <th>Spesialis</th>
             <th>Jenis Kelamin</th>
-            <th>No Telepon</th>
+            <th>No Whatsapp</th>
             <th>Aksi</th>
           </tr>
           </thead>
@@ -77,7 +77,7 @@
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="nama_siswa">Nama Siswa:</label>
+                <label for="nama_siswa">Nama Dokter:</label>
                 <input required="" type="text" name="nama_siswa" id="nama_siswa" class="form-control">
               </div>
             </div>
@@ -89,7 +89,7 @@
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="nisn">Nisn</label>
+                <label for="nisn">NPA</label>
                 <input required="" type="text" name="nisn" id="nisn" class="form-control">  
               </div>
             </div>
@@ -119,13 +119,13 @@
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="no_telepon">No Telepon:</label>
+                <label for="no_telepon">No Whatsapp:</label>
                 <input required="" type="text" name="no_telepon" id="no_telepon" class="form-control">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="kelas_id">Kelas:</label>
+                <label for="kelas_id">Spesialis:</label>
                 <select required="" name="kelas_id" id="kelas_id" class="form-control select2bs4">
                   <option disabled="" selected="">- PILIH KELAS -</option>
                   @foreach($kelas as $row)
@@ -166,7 +166,7 @@
           <div class="row">
             <div class="col-lg-6">
               <div class="form-group">
-                <label for="nama_siswa_edit">Nama Siswa:</label>
+                <label for="nama_siswa_edit">Nama Dokter:</label>
                 <input type="hidden" name="id_edit" id="id_edit" class="form-control" readonly="">
                 <input required="" type="text" name="nama_siswa" id="nama_siswa_edit" class="form-control">
               </div>
@@ -190,13 +190,13 @@
             </div>
             <div class="col-lg-4">
               <div class="form-group">
-                <label for="no_telepon_edit">No Telepon:</label>
+                <label for="no_telepon_edit">No Whatsapp:</label>
                 <input required="" type="text" name="no_telepon" id="no_telepon_edit" class="form-control">
               </div>
             </div>
             <div class="col-lg-4">
               <div class="form-group">
-                <label for="kelas_id_edit">Kelas:</label>
+                <label for="kelas_id_edit">Spesialis:</label>
                 <select required="" name="kelas_id" id="kelas_id_edit" class="form-control">
                   @foreach($kelas as $row)
                     <option value="{{ $row->id }}">{{ $row->nama_kelas }}</option>

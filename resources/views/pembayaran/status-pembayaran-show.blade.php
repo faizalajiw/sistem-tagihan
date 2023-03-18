@@ -23,9 +23,9 @@
           <thead>
           <tr>
             <th>No</th>
-            <th>Nama Siswa</th>
-            <th>Kelas</th>
-            <th>Nisn</th>
+            <th>Nama Dokter</th>
+            <th>Spesialis</th>
+            <th>NPA</th>
             <th>Tanggal Bayar</th>
             <th>Nama Petugas</th>
             <th>Untuk Bulan</th>
@@ -108,7 +108,7 @@
         @else
         <div class="alert alert-danger" role="alert">
           <h4 class="alert-heading">Data Status Pembayaran Tidak Tersedia!</h4>
-          <p>Status Pembayaran Spp {{ $siswa->nama_siswa }} di Tahun {{ $spp->tahun }} tidak tersedia.</p>
+          <p>Status Pembayaran Tagihan {{ $siswa->nama_siswa }} di Tahun {{ $spp->tahun }} tidak tersedia.</p>
         </div>
         @endif
       </div>

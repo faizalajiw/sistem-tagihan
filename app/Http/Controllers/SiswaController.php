@@ -8,8 +8,8 @@ use App\Models\Siswa;
 use App\Models\Spp;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
-use DataTables;
-use PDF;
+use Yajra\DataTables\DataTables;
+use Barryvdh\DomPDF\PDF as PDF;
 
 class SiswaController extends Controller
 {

@@ -20,9 +20,9 @@
           <thead>
           <tr>
             <th>No</th>
-            <th>Nama Siswa</th>
-            <th>Kelas</th>
-            <th>Nisn</th>
+            <th>Nama Dokter</th>
+            <th>Spesialis</th>
+            <th>NPA</th>
             <th>Tanggal Bayar</th>
             <th>Nama Petugas</th>
             <th>Untuk Bulan</th>

@@ -1,5 +1,5 @@
 @extends('layouts.backend.app')
-@section('title', 'Data Spp')
+@section('title', 'Data Tagihan')
 @push('css')
 <!-- DataTables -->
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -7,7 +7,7 @@
 <!-- Sweetalert 2 -->
 <link rel="stylesheet" type="text/css" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/sweetalert2/sweetalert2.min.css">
 @endpush
-@section('content_title', 'Data Spp')
+@section('content_title', 'Data Tagihan')
 @section('content')
 <x-alert></x-alert>
 <div class="row">

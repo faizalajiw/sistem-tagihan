@@ -48,7 +48,7 @@
 			<div class="row">
 				<div class="col-lg-4">
 					<div class="form-group">
-						<label for="username">Nama Siswa:</label>
+						<label for="username">Nama Dokter:</label>
 						<input type="" name="" value="{{ Universe::siswa()->nama_siswa }}" readonly="" id="" class="form-control">
 					</div>
 				</div>

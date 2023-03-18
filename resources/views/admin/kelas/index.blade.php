@@ -1,5 +1,5 @@
 @extends('layouts.backend.app')
-@section('title', 'Data Kelas')
+@section('title', 'Data Spesialis')
 @push('css')
 <!-- DataTables -->
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
@@ -7,7 +7,7 @@
 <!-- Sweetalert 2 -->
 <link rel="stylesheet" type="text/css" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/sweetalert2/sweetalert2.min.css">
 @endpush
-@section('content_title', 'Data Kelas')
+@section('content_title', 'Data Spesialis')
 @section('content')
 <div class="row">
   <div class="col-12">
@@ -65,7 +65,7 @@
             <ul></ul>
           </div>
           <div class="form-group">
-            <label for="nama_kelas_create">Nama Kelas:</label>
+            <label for="nama_kelas_create">Spesialis:</label>
             <input required type="" name="nama_kelas" id="nama_kelas_create" class="form-control">
           </div>
           <div class="form-group">

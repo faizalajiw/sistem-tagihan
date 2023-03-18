@@ -8,9 +8,9 @@
 	        <h5>Info Siswa:</h5>
 
 	        <p>	
-	        	Nama Siswa : <b>{{ $siswa->nama_siswa }}</b><br>
-		        Nisn : <b>{{ $siswa->nisn }}</b><br>
-		        Kelas : <b>{{ $siswa->kelas->nama_kelas }}</b>
+	        	Nama Dokter : <b>{{ $siswa->nama_siswa }}</b><br>
+		        NPA : <b>{{ $siswa->nisn }}</b><br>
+		        Spesialis : <b>{{ $siswa->kelas->nama_kelas }}</b>
 	    	</p>
       	</div>
       	<div class="callout callout-danger">
