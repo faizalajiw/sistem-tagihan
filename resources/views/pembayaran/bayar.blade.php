@@ -23,7 +23,7 @@
 					<div class="row">
 						<div class="col-lg-3">
 							<div class="form-group">
-								<label for="nama_siswa">Nama Siswa:</label>
+								<label for="nama_siswa">Nama Dokter:</label>
 								<input required="" type="hidden" name="siswa_id" value="{{ $siswa->id }}" readonly id="siswa_id" class="form-control">
 								<input required="" type="text" name="nama_siswa" value="{{ $siswa->nama_siswa }}" readonly id="nama_siswa" class="form-control">
 								@error('nama_siswa')
@@ -33,7 +33,7 @@
 						</div>
 						<div class="col-lg-3">
 							<div class="form-group">
-								<label for="nisn">Nisn</label>
+								<label for="nisn">NPA</label>
 								<input required="" type="text" name="nisn" value="{{ $siswa->nisn }}" readonly id="nisn" class="form-control">
 								@error('nisn')
 									<small class="text-danger">{{ $message }}</small>
@@ -42,7 +42,7 @@
 						</div>
 						<div class="col-lg-3">
 							<div class="form-group">
-								<label for="nis">Nis:</label>
+								<label for="nis">NIS:</label>
 								<input required="" type="text" name="nis" value="{{ $siswa->nis }}" readonly id="nis" class="form-control">
 								@error('nis')
 									<small class="text-danger">{{ $message }}</small>
@@ -51,7 +51,7 @@
 						</div>
 						<div class="col-lg-3">
 							<div class="form-group">
-								<label for="kelas">Kelas:</label>
+								<label for="kelas">Spesialis:</label>
 								<input required="" type="text" name="kelas" value="{{ $siswa->kelas->nama_kelas }}" readonly id="kelas" class="form-control">
 								@error('kelas')
 									<small class="text-danger">{{ $message }}</small>
@@ -73,7 +73,7 @@
 						</div>
 						<div class="col-lg-3">
 							<div class="form-group">
-								<label for="jumlah_bayar" id="nominal_spp_label">Nominal Spp:</label>
+								<label for="jumlah_bayar" id="nominal_spp_label">Nominal Pembayaran:</label>
 								<input type="" name="nominal" readonly="" id="nominal" class="form-control">
 								<input required="" type="hidden" name="jumlah_bayar" readonly="" id="jumlah_bayar" class="form-control">
 								@error('jumlah_bayar')

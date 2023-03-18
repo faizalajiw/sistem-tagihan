@@ -15,7 +15,7 @@
       <div class="inner">
         <h3>{{ $total_siswa }}</h3>
 
-        <p>Siswa</p>
+        <p>Dokter</p>
       </div>
       <div class="icon">
         <i class="fas fa-users"></i>
@@ -31,7 +31,7 @@
       <div class="inner">
         <h3>{{ $total_kelas }}</h3>
 
-        <p>Kelas</p>
+        <p>Spesialis</p>
       </div>
       <div class="icon">
         <i class="fas fa-school"></i>
@@ -76,7 +76,7 @@
     <div class="row">
         <div class="col-md-10 offset-md-1">
             <div class="card">
-                <div class="card-header">Siswa</div>
+                <div class="card-header">Grafik Tagihan</div>
                 <div class="card-body">
                     <canvas id="canvas" height="200" width="500"></canvas>
                 </div>
@@ -93,7 +93,7 @@ var ctx = document.getElementById("canvas").getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ["Siswa Laki-laki", "Siswa Perempuan"],
+      labels: ["Dokter Laki-laki", "Dokter Perempuan"],
       datasets: [{
         label: '',
         data: [

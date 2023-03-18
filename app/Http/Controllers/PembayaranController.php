@@ -82,7 +82,7 @@ class PembayaranController extends Controller
             DB::transaction(function() use($request, $petugas) {
                 foreach ($request->bulan_bayar as $bulan) {   
                     Pembayaran::create([
-                        'kode_pembayaran' => 'SPPR'.Str::upper(Str::random(5)),
+                        'kode_pembayaran' => 'IDIBBS'.Str::upper(Str::random(5)),
                         'petugas_id' => $petugas->id,
                         'siswa_id' => $request->siswa_id,
                         'nisn' => $request->nisn,
@@ -98,8 +98,8 @@ class PembayaranController extends Controller
                 ->with('success', 'Pembayaran berhasil disimpan!');
         }else{
             return back()
-                ->with('error', 'Siswa Dengan Nama : '.$request->nama_siswa.' , NISN : '.
-                $request->nisn.' Sudah Membayar Spp di bulan yang diinput ('.
+                ->with('error', 'Dokter Dengan Nama : '.$request->nama_siswa.' , No ID : '.
+                $request->nisn.' Sudah Membayar Tagihan di bulan yang diinput ('.
                 implode($pembayaran,',').")".' , di Tahun : '.$request->tahun_bayar.' , Pembayaran Dibatalkan');
         }
     }

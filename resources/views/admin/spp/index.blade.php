@@ -7,7 +7,7 @@
 <!-- Sweetalert 2 -->
 <link rel="stylesheet" type="text/css" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/sweetalert2/sweetalert2.min.css">
 @endpush
-@section('content_title', 'Data Spp')
+@section('content_title', 'Data Tagihan')
 @section('content')
 <x-alert></x-alert>
 <div class="row">

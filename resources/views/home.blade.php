@@ -13,7 +13,7 @@
 		@role('siswa')
 		  <h1 class="display-4">Hello, {{ Universe::siswa()->nama_siswa }}!</h1>
 		@endrole
-		  <p class="lead">Selamat datang di WEB SPPR.</p>
+		  <p class="lead">Selamat datang di E-Tagihan IDI Brebes.</p>
 		  <hr class="my-4">
 		</div>
 	</div>
