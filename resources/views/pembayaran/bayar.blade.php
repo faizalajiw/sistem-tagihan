@@ -40,7 +40,7 @@
 								@enderror
 							</div>
 						</div>
-						<div class="col-lg-3">
+						<!-- <div class="col-lg-3">
 							<div class="form-group">
 								<label for="nis">No ID:</label>
 								<input required="" type="text" name="nis" value="{{ $dokter->nis }}" readonly id="nis" class="form-control">
@@ -48,7 +48,7 @@
 									<small class="text-danger">{{ $message }}</small>
 								@enderror
 							</div>
-						</div>
+						</div> -->
 						<div class="col-lg-3">
 							<div class="form-group">
 								<label for="spesialis">Spesialis:</label>
