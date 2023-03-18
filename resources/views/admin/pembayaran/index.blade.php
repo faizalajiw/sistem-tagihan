@@ -76,9 +76,9 @@
       ajax: "{{ route('pembayaran-spp.index') }}",
       columns: [
           {data: 'DT_RowIndex' , name: 'id'},
-          {data: 'siswa.nama_siswa', name: 'siswa.nama_siswa'},
-          {data: 'siswa.kelas.nama_kelas', name: 'siswa.kelas.nama_kelas'},
-          {data: 'nisn', name: 'nisn'},
+          {data: 'dokter.nama_dokter', name: 'dokter.nama_dokter'},
+          {data: 'dokter.spesialis.nama_spesialis', name: 'dokter.spesialis.nama_spesialis'},
+          {data: 'npa', name: 'npa'},
           {data: 'tanggal_bayar', name: 'tanggal_bayar'},
           {data: 'petugas.nama_petugas', name: 'petugas.nama_petugas'},
           {data: 'bulan_bayar', name: 'bulan_bayar'},

@@ -1,18 +1,15 @@
-<script> 
+<script>
 $(function () {
   
   var table = $("#dataTable2").DataTable({
       processing: true,
       serverSide: true,
       "responsive": true,
-      ajax: "{{ route('siswa.index') }}",
+      ajax: "{{ route('spesialis.index') }}",
       columns: [
           {data: 'DT_RowIndex' , name: 'id'},
-          {data: 'nama_siswa', name: 'nama_siswa'},
-          {data: 'nisn', name: 'nisn'},
-          {data: 'kelas.nama_kelas', name: 'kelas.nama_kelas'},
-          {data: 'jenis_kelamin', name: 'jenis_kelamin'},
-          {data: 'no_telepon', name: 'no_telepon'},
+          {data: 'nama_spesialis', name: 'nama_spesialis'},
+          {data: 'kompetensi_keahlian', name: 'kompetensi_keahlian'},
           {data: 'action', name: 'action', orderable: false, searchable: true},
       ]
   });
@@ -20,20 +17,16 @@ $(function () {
 });
 
 // Reset Form
-function resetForm(){
-    $("[name='nama_siswa']").val("")
-    $("[name='username']").val("")
-    $("[name='nisn']").val("")
-    $("[name='nis']").val("")
-    $("[name='alamat']").val("")
-    $("[name='no_telepon']").val("")
-}
+  function resetForm(){
+      $("[name='nama_spesialis']").val("")
+      $("[name='kompetensi_keahlian']").val("")
+  }
 
 // create
 $("#store").on("submit", function(e) {
   e.preventDefault()
   $.ajax({
-    url: "{{ route('siswa.store') }}",
+    url: "{{ route('spesialis.store') }}",
     method: "POST",
     data: $(this).serialize(),
     success:function(response) {
@@ -48,6 +41,15 @@ $("#store").on("submit", function(e) {
         resetForm()
       }else{
         printErrorMsg(response.error)
+      }
+    },
+    error: function(err) {
+      if (err.status == 403) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Not allowed!'
+        })
       }
     }
   });
@@ -66,15 +68,13 @@ function printErrorMsg(msg) {
 $("body").on("click", ".btn-edit", function() {
   var id = $(this).attr("id")
   $.ajax({
-    url: "/admin/siswa/"+id+"/edit",
+    url: "/admin/spesialis/"+id+"/edit",
     method: "GET",
     success: function(response) {
       $("#id_edit").val(response.data.id)
-      $("#nama_siswa_edit").val(response.data.nama_siswa)
-      $("#alamat_edit").val(response.data.alamat)
-      $("#no_telepon_edit").val(response.data.no_telepon)
-      $("#jenis_kelamin_edit").val(response.data.jenis_kelamin)
-      $("#kelas_id_edit").val(response.data.kelas_id)
+      $("#nama_spesialis_edit").val(response.data.nama_spesialis)
+      $("#nama_spesialis_edit").val(response.data.nama_spesialis)
+      $("#kompetensi_keahlian_edit").val(response.data.kompetensi_keahlian)
       $("#editModal").modal("show")
     },
     error: function(err) {
@@ -94,7 +94,7 @@ $("#update").on("submit", function(e) {
   e.preventDefault()
   var id = $("#id_edit").val()
   $.ajax({
-    url: "/admin/siswa/"+id,
+    url: "/admin/spesialis/"+id,
     method: "PATCH",
     data: $(this).serialize(),
     success: function(response) {
@@ -137,7 +137,7 @@ $("body").on("click", ".btn-delete", function() {
   }).then((result) => {
     if (result.isConfirmed) {
       $.ajax({
-        url: "/admin/siswa/"+id,
+        url: "/admin/spesialis/"+id,
         method: "DELETE",
         success: function(response) {
           $('#dataTable2').DataTable().ajax.reload()
@@ -160,12 +160,4 @@ $("body").on("click", ".btn-delete", function() {
     }
   })
 })
-
-//Initialize Select2 Elements
-$('.select2').select2()
-
-//Initialize Select2 Elements
-$('.select2bs4').select2({
-  theme: 'bootstrap4'
-})  
 </script>

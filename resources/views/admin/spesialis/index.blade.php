@@ -13,7 +13,7 @@
   <div class="col-12">
     <div class="card">
       <div class="card-header">
-      @can('create-kelas')
+      @can('create-spesialis')
       	<a href="javascript:void(0)" class="btn btn-primary btn-sm" 
         data-toggle="modal" data-target="#createModal">
           <i class="fas fa-plus fa-fw"></i> Tambah Data
@@ -65,8 +65,8 @@
             <ul></ul>
           </div>
           <div class="form-group">
-            <label for="nama_kelas_create">Spesialis:</label>
-            <input required type="" name="nama_kelas" id="nama_kelas_create" class="form-control">
+            <label for="nama_spesialis_create">Spesialis:</label>
+            <input required type="" name="nama_spesialis" id="nama_spesialis_create" class="form-control">
           </div>
           <div class="form-group">
             <label for="kompetensi_keahlian_create">Komptensi Keahlian:</label>
@@ -101,9 +101,9 @@
             <ul></ul>
           </div>
           <div class="form-group">
-            <label for="nama_kelas_edit">Nama Kelas:</label>
+            <label for="nama_spesialis_edit">Nama Spesialis:</label>
             <input required type="hidden" readonly="" name="id" id="id_edit" class="form-control">
-            <input type="" name="nama_kelas" id="nama_kelas_edit" class="form-control">
+            <input type="" name="nama_spesialis" id="nama_spesialis_edit" class="form-control">
           </div>
           <div class="form-group">
             <label for="kompetensi_keahlian_edit">Komptensi Keahlian:</label>
@@ -132,5 +132,5 @@
 <script src="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- Sweetalert 2 -->
 <script type="text/javascript" src="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/sweetalert2/sweetalert2.min.js"></script>
-@include('admin.kelas.ajax')
+@include('admin.spesialis.ajax')
 @endpush
