@@ -89,7 +89,7 @@
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="nisn">No ID</label>
+                <label for="nisn">NPA</label>
                 <input required="" type="text" name="nisn" id="nisn" class="form-control">  
               </div>
             </div>
