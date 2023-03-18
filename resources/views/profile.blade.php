@@ -124,7 +124,6 @@
 	<div class="col-lg-7">
     	<div class="callout callout-danger">
 	        <h5>Pemberitahuan!</h5>
-	        <!-- <p>Password default / Password bawaan dari WEB SPPR adalah : <b>sppr2021</b></p> -->
 	        <p>Password default / Password bawaan dari WEB E-Tagihan adalah : <b>idi2023</b></p>
       </div>
   	</div>
