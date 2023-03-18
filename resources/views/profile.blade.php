@@ -37,7 +37,7 @@
 </div>
 @endrole
 
-@role('siswa')
+@role('dokter')
 <div class="row">
 <div class="col-lg">
 	<div class="card">
@@ -49,27 +49,27 @@
 				<div class="col-lg-4">
 					<div class="form-group">
 						<label for="username">Nama Dokter:</label>
-						<input type="" name="" value="{{ Universe::siswa()->nama_siswa }}" readonly="" id="" class="form-control">
+						<input type="" name="" value="{{ Universe::dokter()->nama_dokter }}" readonly="" id="" class="form-control">
 					</div>
 				</div>
 				<div class="col-lg-4">
 					<div class="form-group">
 						<label for="username">Spesialis:</label>
-						<input type="" name="" value="{{ Universe::siswa()->kelas->nama_kelas }}" readonly="" id="" class="form-control">
+						<input type="" name="" value="{{ Universe::dokter()->spesialis->nama_spesialis }}" readonly="" id="" class="form-control">
 					</div>
 				</div>
 				<div class="col-lg-4">
 					<div class="form-group">
 						<label for="username">NPA:</label>
-						<input type="" name="" value="{{ Universe::siswa()->nisn }}" readonly="" id="" class="form-control">
+						<input type="" name="" value="{{ Universe::dokter()->npa }}" readonly="" id="" class="form-control">
 					</div>
 				</div>
-				<div class="col-lg-6">
+				<!-- <div class="col-lg-6">
 					<div class="form-group">
 						<label for="username">Nis:</label>
-						<input type="" name="" value="{{ Universe::siswa()->nis }}" readonly="" id="" class="form-control">
+						<input type="" name="" value="{{ Universe::dokter()->nis }}" readonly="" id="" class="form-control">
 					</div>
-				</div>
+				</div> -->
 				<div class="col-lg-6">
 					<div class="form-group">
 						<label for="username">Username Login:</label>
