@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Petugas;
-use App\Models\Siswa;
+use App\Models\Dokter;
 use Carbon\Carbon;
 
 class Pembayaran extends Model
@@ -17,8 +17,8 @@ class Pembayaran extends Model
     protected $fillable = [
     	'kode_pembayaran',
     	'petugas_id',
-        'siswa_id',
-    	'nisn',
+        'dokter_id',
+    	'npa',
     	'tanggal_bayar',
     	'bulan_bayar',
     	'tahun_bayar',
@@ -40,8 +40,8 @@ class Pembayaran extends Model
         return $this->belongsTo(Petugas::class);
     }
 
-    public function siswa()
+    public function dokter()
     {
-        return $this->belongsTo(Siswa::class);
+        return $this->belongsTo(Dokter::class);
     }
 }

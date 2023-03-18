@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 @endpush
-@section('content_title', 'History Pembayaran')
+@section('content_title', 'Riwayat Pembayaran')
 @section('content')
 <x-alert></x-alert>
 <div class="row">

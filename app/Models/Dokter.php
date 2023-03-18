@@ -5,27 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
-use App\Models\Kelas;
 use App\Models\Spp;
 use App\Models\Petugas;
 use App\Models\Pembayaran;
+use App\Models\Spesialis;
 
-class Siswa extends Model
+class Dokter extends Model
 {
     use HasFactory;
 
-    protected $table = 'siswa';
+    protected $table = 'dokter';
 
     protected $fillable = [
         'user_id',
-    	'kode_siswa',
-    	'nisn',
-    	'nis',
-    	'nama_siswa',
+    	'kode_dokter',
+    	'npa',
+    	'nama_dokter',
         'jenis_kelamin',
     	'alamat',
     	'no_telepon',
-    	'kelas_id',
+    	'spesialis_id',
     ];
 
     public function user()
@@ -33,9 +32,9 @@ class Siswa extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function kelas()
+    public function spesialis()
     {
-        return $this->belongsTo(Kelas::class);
+        return $this->belongsTo(Spesialis::class);
     }
 
     public function petugas()

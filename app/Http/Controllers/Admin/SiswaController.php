@@ -2,28 +2,28 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\DataTables\DokterDataTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Kelas;
-use App\Models\Siswa;
+use App\Models\Dokter;
 use App\Models\Spp;
 use App\Models\Petugas;
+use App\Models\Spesialis;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use App\DataTables\SiswaDataTable;
 
-class SiswaController extends Controller
+class DokterController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['permission:read-siswa'])->only(['index', 'show']);
-        $this->middleware(['permission:create-siswa'])->only(['create', 'store']);
-        $this->middleware(['permission:update-siswa'])->only(['edit', 'update']);
-        $this->middleware(['permission:delete-siswa'])->only(['destroy']);
+        $this->middleware(['permission:read-dokter'])->only(['index', 'show']);
+        $this->middleware(['permission:create-dokter'])->only(['create', 'store']);
+        $this->middleware(['permission:update-dokter'])->only(['edit', 'update']);
+        $this->middleware(['permission:delete-dokter'])->only(['destroy']);
     }
 
     /**
@@ -31,17 +31,17 @@ class SiswaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, SiswaDataTable $datatable)
+    public function index(Request $request, DokterDataTable $datatable)
     {
         if ($request->ajax()) {
             return $datatable->data();
         }
 
-        $siswa = Siswa::all();
+        $dokter = Dokter::all();
         $spp = Spp::all();
-        $kelas = Kelas::all();
+        $spesialis = Spesialis::all();
 
-        return view('admin.siswa.index', compact('siswa', 'spp', 'kelas'));
+        return view('admin.dokter.index', compact('dokter', 'spp', 'spesialis'));
     }
 
     /**
@@ -53,10 +53,9 @@ class SiswaController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nama_siswa' => 'required',
+            'nama_dokter' => 'required',
             'username' => 'required|unique:users',
-            'nisn' => 'required|unique:siswa',
-            'nis' => 'required|unique:siswa',
+            'npa' => 'required|unique:dokter',
             'alamat' => 'required',
             'no_telepon' => 'required',
         ]);
@@ -68,18 +67,17 @@ class SiswaController extends Controller
                     'password' => Hash::make('sppr2021'),
                 ]);
 
-                $user->assignRole('siswa');
+                $user->assignRole('dokter');
 
-                Siswa::create([
+                Dokter::create([
                     'user_id' => $user->id,
-                    'kode_siswa' => 'SSWR'.Str::upper(Str::random(5)),
-                    'nisn' => $request->nisn,
-                    'nis' => $request->nis,
-                    'nama_siswa' => $request->nama_siswa,
+                    'kode_dokter' => 'DR'.Str::upper(Str::random(6)),
+                    'npa' => $request->npa,
+                    'nama_dokter' => $request->nama_dokter,
                     'jenis_kelamin' => $request->jenis_kelamin,
                     'alamat' => $request->alamat,
                     'no_telepon' => $request->no_telepon,
-                    'kelas_id' => $request->kelas_id,
+                    'spesialis_id' => $request->spesialis_id,
                 ]);
             });
 
@@ -97,8 +95,8 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-        $siswa = Siswa::with(['kelas', 'spp'])->findOrFail($id);
-        return response()->json(['data' => $siswa]);
+        $dokter = Dokter::with(['spesialis', 'spp'])->findOrFail($id);
+        return response()->json(['data' => $dokter]);
     }
 
     /**
@@ -111,18 +109,18 @@ class SiswaController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'nama_siswa' => 'required',
+            'nama_dokter' => 'required',
             'alamat' => 'required',
             'no_telepon' => 'required',
         ]);
 
         if ($validator->passes()) {
-            Siswa::findOrFail($id)->update([
-                'nama_siswa' => $request->nama_siswa,
+            Dokter::findOrFail($id)->update([
+                'nama_dokter' => $request->nama_dokter,
                 'jenis_kelamin' => $request->jenis_kelamin,
                 'alamat' => $request->alamat,
                 'no_telepon' => $request->no_telepon,
-                'kelas_id' => $request->kelas_id,
+                'spesialis_id' => $request->spesialis_id,
             ]);
 
             return response()->json(['message' => 'Data berhasil diupdate!']);
@@ -139,9 +137,9 @@ class SiswaController extends Controller
      */
     public function destroy($id)
     {
-        $siswa = Siswa::findOrFail($id);
-        User::findOrFail($siswa->user_id)->delete();
-        $siswa->delete();
+        $dokter = Dokter::findOrFail($id);
+        User::findOrFail($dokter->user_id)->delete();
+        $dokter->delete();
         return response()->json(['message' => 'Data berhasil dihapus!']);
     }
 }

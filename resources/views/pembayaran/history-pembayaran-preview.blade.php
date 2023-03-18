@@ -6,7 +6,7 @@
 <body>
 <br><br>
 <center>
-  <h2 style="font-family: sans-serif;">History Pembayaran Tagihan</h2>
+  <h2 style="font-family: sans-serif;">Riwayat Pembayaran</h2>
 </center>
 <br>
 <div style="float: left;">

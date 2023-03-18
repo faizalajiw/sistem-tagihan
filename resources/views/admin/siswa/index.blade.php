@@ -93,12 +93,12 @@
                 <input required="" type="text" name="nisn" id="nisn" class="form-control">  
               </div>
             </div>
-            <div class="col-lg-3">
+            <!-- <div class="col-lg-3">
               <div class="form-group">
-                <label for="nis">Nis:</label>
+                <label for="nis">NIS:</label>
                 <input required="" type="text" name="nis" id="nis" class="form-control">  
               </div>
-            </div>  
+            </div>   -->
           </div>
           <div class="row">
             <div class="col-lg-3">

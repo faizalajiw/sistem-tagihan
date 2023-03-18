@@ -42,7 +42,7 @@
 						</div>
 						<div class="col-lg-3">
 							<div class="form-group">
-								<label for="nis">Nis:</label>
+								<label for="nis">No ID:</label>
 								<input required="" type="text" name="nis" value="{{ $siswa->nis }}" readonly id="nis" class="form-control">
 								@error('nis')
 									<small class="text-danger">{{ $message }}</small>
@@ -73,7 +73,7 @@
 						</div>
 						<div class="col-lg-3">
 							<div class="form-group">
-								<label for="jumlah_bayar" id="nominal_spp_label">Nominal Tagihan:</label>
+								<label for="jumlah_bayar" id="nominal_spp_label">Nominal Pembayaran:</label>
 								<input type="" name="nominal" readonly="" id="nominal" class="form-control">
 								<input required="" type="hidden" name="jumlah_bayar" readonly="" id="jumlah_bayar" class="form-control">
 								@error('jumlah_bayar')

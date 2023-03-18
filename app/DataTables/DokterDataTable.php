@@ -2,14 +2,14 @@
 
 namespace App\DataTables;
 
-use App\Models\Kelas;
+use App\Models\Dokter;
 use Yajra\DataTables\DataTables;
 
-class KelasDataTable
+class DokterDataTable
 {
         public function data()
         {
-                $data = Kelas::latest();
+                $data = Dokter::with(['spesialis'])->latest();
                 return DataTables::of($data)
                         ->addIndexColumn()
                         ->addColumn('action', function ($row) {

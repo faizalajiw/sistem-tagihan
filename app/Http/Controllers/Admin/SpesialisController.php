@@ -4,18 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Kelas;
 use Illuminate\Support\Facades\Validator;
-use App\DataTables\KelasDataTable;
+use App\DataTables\SpesialisDataTable;
+use App\Models\Spesialis;
 
-class KelasController extends Controller
+class SpesialisController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['permission:read-kelas'])->only(['index', 'show']);
-        $this->middleware(['permission:create-kelas'])->only(['create', 'store']);
-        $this->middleware(['permission:update-kelas'])->only(['edit', 'update']);
-        $this->middleware(['permission:delete-kelas'])->only(['destroy']);
+        $this->middleware(['permission:read-spesialis'])->only(['index', 'show']);
+        $this->middleware(['permission:create-spesialis'])->only(['create', 'store']);
+        $this->middleware(['permission:update-spesialis'])->only(['edit', 'update']);
+        $this->middleware(['permission:delete-spesialis'])->only(['destroy']);
     }
 
     /**
@@ -23,13 +23,13 @@ class KelasController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, KelasDataTable $datatable)
+    public function index(Request $request, SpesialisDataTable $datatable)
     {
         if ($request->ajax()) {
             return $datatable->data();    
         }
 
-        return view('admin.kelas.index');
+        return view('admin.spesialis.index');
     }
 
     /**
@@ -41,16 +41,16 @@ class KelasController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nama_kelas' => 'required|unique:kelas',
+            'nama_spesialis' => 'required|unique:spesialis',
             'kompetensi_keahlian' => 'required',
         ],[
-            'nama_kelas.required' => 'nama kelas tidak boleh kosong!',
-            'nama_kelas.unique' => 'nama kelas sudah terdaftar!',
+            'nama_spesialis.required' => 'spesialis tidak boleh kosong!',
+            'nama_spesialis.unique' => 'spesialis sudah terdaftar!',
             'kompetensi_keahlian.required' => 'kompetensi keahlian tidak boleh kosong!',
         ]);
 
         if ($validator->passes()) {
-            Kelas::create($request->all());
+            Spesialis::create($request->all());
 
             return response()->json(['message' => 'Data berhasil disimpan!']);
         }
@@ -66,9 +66,9 @@ class KelasController extends Controller
      */
     public function edit($id)
     {
-        $kelas = Kelas::findOrFail($id);
+        $spesialis = Spesialis::findOrFail($id);
 
-        return response()->json(['data' => $kelas]);
+        return response()->json(['data' => $spesialis]);
     }
 
     /**
@@ -81,15 +81,15 @@ class KelasController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'nama_kelas' => 'required',
+            'nama_spesialis' => 'required',
             'kompetensi_keahlian' => 'required',
         ],[
-            'nama_kelas.required' => 'nama kelas tidak boleh kosong!',
+            'nama_spesialis.required' => 'nama spesialis tidak boleh kosong!',
             'kompetensi_keahlian.required' => 'kompetensi keahlian tidak boleh kosong!',
         ]);
 
         if ($validator->passes()) {
-            Kelas::findOrFail($id)->update($request->all());
+            Spesialis::findOrFail($id)->update($request->all());
 
             return response()->json(['message' => 'Data berhasil diupdate!']);
         }
@@ -105,7 +105,7 @@ class KelasController extends Controller
      */
     public function destroy($id)
     {
-        Kelas::findOrFail($id)->delete();
+        Spesialis::findOrFail($id)->delete();
 
         return response()->json(['message' => 'Data berhasil dihapus!']);
     }

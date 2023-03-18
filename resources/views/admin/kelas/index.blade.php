@@ -7,7 +7,7 @@
 <!-- Sweetalert 2 -->
 <link rel="stylesheet" type="text/css" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/sweetalert2/sweetalert2.min.css">
 @endpush
-@section('content_title', 'Data Spesialis')
+@section('content_title', 'Daftar Spesialis')
 @section('content')
 <div class="row">
   <div class="col-12">
@@ -27,7 +27,7 @@
           <tr>
             <th>No</th>
             <th>Spesialis</th>
-            <th>Kompetensi Keahlian</th>
+            <th>Keahlian</th>
             <th>Aksi</th>
           </tr>
           </thead>

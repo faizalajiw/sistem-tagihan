@@ -17,8 +17,8 @@ class CreatePembayaranTable extends Migration
             $table->id();
             $table->string('kode_pembayaran')->nullable();
             $table->foreignId('petugas_id')->constrained('petugas')->onUpdate('cascade')->onDelete('cascade');
-            $table->foreignId('siswa_id')->constrained('siswa')->onUpdate('cascade')->onDelete('cascade');
-            $table->string('nisn')->nullable();
+            $table->foreignId('dokter_id')->constrained('dokter')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('npa')->nullable();
             $table->string('tanggal_bayar')->nullable();
             $table->string('bulan_bayar')->nullable();
             $table->string('tahun_bayar')->nullable();
