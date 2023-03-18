@@ -1,15 +1,18 @@
-<script>
+<script> 
 $(function () {
   
   var table = $("#dataTable2").DataTable({
       processing: true,
       serverSide: true,
       "responsive": true,
-      ajax: "{{ route('kelas.index') }}",
+      ajax: "{{ route('dokter.index') }}",
       columns: [
           {data: 'DT_RowIndex' , name: 'id'},
-          {data: 'nama_kelas', name: 'nama_kelas'},
-          {data: 'kompetensi_keahlian', name: 'kompetensi_keahlian'},
+          {data: 'nama_dokter', name: 'nama_dokter'},
+          {data: 'npa', name: 'npa'},
+          {data: 'spesialis.nama_spesialis', name: 'spesialis.nama_spesialis'},
+          {data: 'jenis_kelamin', name: 'jenis_kelamin'},
+          {data: 'no_telepon', name: 'no_telepon'},
           {data: 'action', name: 'action', orderable: false, searchable: true},
       ]
   });
@@ -17,16 +20,19 @@ $(function () {
 });
 
 // Reset Form
-  function resetForm(){
-      $("[name='nama_kelas']").val("")
-      $("[name='kompetensi_keahlian']").val("")
-  }
+function resetForm(){
+    $("[name='nama_dokter']").val("")
+    $("[name='username']").val("")
+    $("[name='npa']").val("")
+    $("[name='alamat']").val("")
+    $("[name='no_telepon']").val("")
+}
 
 // create
 $("#store").on("submit", function(e) {
   e.preventDefault()
   $.ajax({
-    url: "{{ route('kelas.store') }}",
+    url: "{{ route('dokter.store') }}",
     method: "POST",
     data: $(this).serialize(),
     success:function(response) {
@@ -41,15 +47,6 @@ $("#store").on("submit", function(e) {
         resetForm()
       }else{
         printErrorMsg(response.error)
-      }
-    },
-    error: function(err) {
-      if (err.status == 403) {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Not allowed!'
-        })
       }
     }
   });
@@ -68,13 +65,15 @@ function printErrorMsg(msg) {
 $("body").on("click", ".btn-edit", function() {
   var id = $(this).attr("id")
   $.ajax({
-    url: "/admin/kelas/"+id+"/edit",
+    url: "/admin/dokter/"+id+"/edit",
     method: "GET",
     success: function(response) {
       $("#id_edit").val(response.data.id)
-      $("#nama_kelas_edit").val(response.data.nama_kelas)
-      $("#nama_kelas_edit").val(response.data.nama_kelas)
-      $("#kompetensi_keahlian_edit").val(response.data.kompetensi_keahlian)
+      $("#nama_dokter_edit").val(response.data.nama_dokter)
+      $("#alamat_edit").val(response.data.alamat)
+      $("#no_telepon_edit").val(response.data.no_telepon)
+      $("#jenis_kelamin_edit").val(response.data.jenis_kelamin)
+      $("#spesialis_id_edit").val(response.data.spesialis_id)
       $("#editModal").modal("show")
     },
     error: function(err) {
@@ -94,7 +93,7 @@ $("#update").on("submit", function(e) {
   e.preventDefault()
   var id = $("#id_edit").val()
   $.ajax({
-    url: "/admin/kelas/"+id,
+    url: "/admin/dokter/"+id,
     method: "PATCH",
     data: $(this).serialize(),
     success: function(response) {
@@ -137,7 +136,7 @@ $("body").on("click", ".btn-delete", function() {
   }).then((result) => {
     if (result.isConfirmed) {
       $.ajax({
-        url: "/admin/kelas/"+id,
+        url: "/admin/dokter/"+id,
         method: "DELETE",
         success: function(response) {
           $('#dataTable2').DataTable().ajax.reload()
@@ -160,4 +159,12 @@ $("body").on("click", ".btn-delete", function() {
     }
   })
 })
+
+//Initialize Select2 Elements
+$('.select2').select2()
+
+//Initialize Select2 Elements
+$('.select2bs4').select2({
+  theme: 'bootstrap4'
+})  
 </script>

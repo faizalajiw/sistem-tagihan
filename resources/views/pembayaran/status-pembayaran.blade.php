@@ -1,11 +1,11 @@
 @extends('layouts.backend.app')
-@section('title', 'Status Pembayaran Siswa')
+@section('title', 'Status Pembayaran Dokter')
 @push('css')
 <!-- DataTables -->
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 @endpush
-@section('content_title', 'Data Siswa')
+@section('content_title', 'Data Dokter')
 @section('content')
 <x-alert></x-alert>
 <div class="row">
@@ -60,9 +60,9 @@ $(function () {
       ajax: "{{ route('pembayaran.status-pembayaran') }}",
       columns: [
           {data: 'DT_RowIndex' , name: 'id'},
-          {data: 'nama_siswa', name: 'nama_siswa'},
-          {data: 'nisn', name: 'nisn'},
-          {data: 'kelas.nama_kelas', name: 'kelas.nama_kelas'},
+          {data: 'nama_dokter', name: 'nama_dokter'},
+          {data: 'npa', name: 'npa'},
+          {data: 'spesialis.nama_spesialis', name: 'spesialis.nama_spesialis'},
           {data: 'jenis_kelamin', name: 'jenis_kelamin'},
           {data: 'action', name: 'action', orderable: false, searchable: true},
       ]

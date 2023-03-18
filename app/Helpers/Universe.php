@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Pembayaran;
 use App\Models\User;
 use App\Models\Petugas;
-use App\Models\Siswa;
+use App\Models\Dokter;
 
 class Universe
 {	
@@ -15,9 +15,9 @@ class Universe
 		return Petugas::where('user_id', Auth::user()->id)->first();
 	}
 
-	public static function siswa()
+	public static function dokter()
 	{
-		return Siswa::where('user_id', Auth::user()->id)->first(); 
+		return Dokter::where('user_id', Auth::user()->id)->first(); 
 	}
 
 	public static function bulanAll()
@@ -74,13 +74,13 @@ class Universe
 		]);
 	}
 
-	// cek status pembayaran (diakses oleh siswa)
+	// cek status pembayaran (diakses oleh dokter)
 	public static function statusPembayaranBulan($bulan, $spp_tahun)
 	{
-		$siswa = Siswa::where('user_id', Auth::user()->id)
+		$dokter = Dokter::where('user_id', Auth::user()->id)
             ->first();
 
-	    $pembayaran = Pembayaran::where('siswa_id', $siswa->id)
+	    $pembayaran = Pembayaran::where('dokter_id', $dokter->id)
 	        ->where('tahun_bayar', $spp_tahun)
 	        ->oldest()
 	        ->pluck('bulan_bayar')->toArray();
@@ -98,9 +98,9 @@ class Universe
 
 
 	// cek status pembayaran (diakses oleh petugas)
-	public static function statusPembayaran($siswa_id, $tahun, $bulan)
+	public static function statusPembayaran($dokter_id, $tahun, $bulan)
 	{
-	    $pembayaran = Pembayaran::where('siswa_id', $siswa_id)
+	    $pembayaran = Pembayaran::where('dokter_id', $dokter_id)
 	        ->where('tahun_bayar', $tahun)
 	        ->oldest()
 	        ->pluck('bulan_bayar')->toArray();

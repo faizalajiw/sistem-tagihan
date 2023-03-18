@@ -2,8 +2,8 @@
   <!-- Brand Logo -->
   <!-- <a href="" class="brand-link">
     <img src="{{ asset('templates/backend/AdminLTE-3.1.0') }}/dist/img/laravel.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">E - Tagihan</span>
-  </a> -->
+    <span class="brand-text font-weight-light">E-Tagihan</span>
+  </a>
 
   <!-- Sidebar -->
   <div class="sidebar">
@@ -50,7 +50,7 @@
             </p>
           </a>
         </li>
-        @elserole('siswa')
+        @elserole('dokter')
         <li class="nav-item">
           <a href="{{ route('home.index') }}" class="nav-link {{ Request::segment(1) == 'home' ? 'active' : '' }}">
             <i class="nav-icon fas fa-home"></i>
@@ -64,7 +64,7 @@
         @role('admin')
         <li class="nav-header">MANAJEMEN DATA</li>
         <li class="nav-item">
-          <a href="{{ route('siswa.index') }}" class="nav-link {{ Request::segment(2) == 'siswa' ? 'active' : '' }}">
+          <a href="{{ route('dokter.index') }}" class="nav-link {{ Request::segment(2) == 'dokter' ? 'active' : '' }}">
             <i class="nav-icon fas fa-users"></i>
             <p>
               Dokter
@@ -80,7 +80,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('kelas.index') }}" class="nav-link {{ Request::segment(2) == 'kelas' ? 'active' : '' }}">
+          <a href="{{ route('spesialis.index') }}" class="nav-link {{ Request::segment(2) == 'spesialis' ? 'active' : '' }}">
             <i class="nav-icon fas fa-school"></i>
             <p>
               Spesialis
@@ -99,7 +99,7 @@
           <a href="{{ route('user.index') }}" class="nav-link {{ Request::segment(2) == 'user' ? 'active' : '' }}">
             <i class="nav-icon fas fa-users"></i>
             <p>
-              User
+              Daftar Akun
             </p>
           </a>
         </li>
@@ -124,10 +124,10 @@
         @role('petugas')
         <li class="nav-header">MANAJEMEN DATA</li>
         <li class="nav-item">
-          <a href="{{ route('siswa.index') }}" class="nav-link {{ Request::segment(2) == 'siswa' ? 'active' : '' }}">
+          <a href="{{ route('dokter.index') }}" class="nav-link {{ Request::segment(2) == 'dokter' ? 'active' : '' }}">
             <i class="nav-icon fas fa-users"></i>
             <p>
-              Siswa
+              Dokter
             </p>
           </a>
         </li>
@@ -140,7 +140,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('kelas.index') }}" class="nav-link {{ Request::segment(2) == 'kelas' ? 'active' : '' }}">
+          <a href="{{ route('spesialis.index') }}" class="nav-link {{ Request::segment(2) == 'spesialis' ? 'active' : '' }}">
             <i class="nav-icon fas fa-school"></i>
             <p>
               Spesialis
@@ -151,7 +151,7 @@
           <a href="{{ route('spp.index') }}" class="nav-link {{ Request::segment(2) == 'spp' ? 'active' : '' }}">
             <i class="nav-icon fas fa-money-bill"></i>
             <p>
-              SPP
+              Tagihan
             </p>
           </a>
         </li>
@@ -179,7 +179,7 @@
           <a href="{{ route('pembayaran.history-pembayaran') }}" class="nav-link {{ Request::segment(2) == 'history-pembayaran' ? 'active' : '' }}">
             <i class="nav-icon fas fa-history"></i>
             <p>
-              History Pembayaran
+              Riwayat Pembayaran
             </p>
           </a>
         </li>
@@ -193,10 +193,10 @@
         </li>
         @endrole
         
-        @role('siswa')
+        @role('dokter')
         <li class="nav-header">PEMBAYARAN</li>
         <li class="nav-item">
-          <a href="{{ route('siswa.pembayaran-spp') }}" class="nav-link {{ Request::segment(2) == 'pembayaran-spp' ? 'active' : '' }}">
+          <a href="{{ route('dokter.pembayaran-spp') }}" class="nav-link {{ Request::segment(2) == 'pembayaran-spp' ? 'active' : '' }}">
             <i class="nav-icon fas fa-money-bill"></i>
             <p>
               Pembayaran
@@ -204,15 +204,15 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('siswa.history-pembayaran') }}" class="nav-link {{ Request::is('siswa/history-pembayaran') ? 'active' : '' }}">
+          <a href="{{ route('dokter.history-pembayaran') }}" class="nav-link {{ Request::is('dokter/history-pembayaran') ? 'active' : '' }}">
             <i class="nav-icon fas fa-history"></i>
             <p>
-              History Pembayaran
+              Riwayat Pembayaran
             </p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('siswa.laporan-pembayaran') }}" class="nav-link {{ Request::is('siswa/laporan-pembayaran') ? 'active' : '' }}">
+          <a href="{{ route('dokter.laporan-pembayaran') }}" class="nav-link {{ Request::is('dokter/laporan-pembayaran') ? 'active' : '' }}">
             <i class="nav-icon fas fa-file"></i>
             <p>
               Laporan

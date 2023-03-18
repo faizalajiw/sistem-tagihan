@@ -5,8 +5,8 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Petugas;
-use App\Models\Kelas;
-use App\Models\Siswa;
+use App\Models\Dokter;
+use App\Models\Spesialis;
 use App\Models\Spp;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -24,21 +24,21 @@ class DatabaseSeeder extends Seeder
     {   
         // seed permission
 
-        // siswa
+        // dokter
         Permission::create([
-            'name' => 'create-siswa',
+            'name' => 'create-dokter',
         ]);
 
         Permission::create([
-            'name' => 'read-siswa',
+            'name' => 'read-dokter',
         ]);
 
         Permission::create([
-            'name' => 'update-siswa',
+            'name' => 'update-dokter',
         ]);
 
         Permission::create([
-            'name' => 'delete-siswa',
+            'name' => 'delete-dokter',
         ]);
 
         // users
@@ -75,21 +75,21 @@ class DatabaseSeeder extends Seeder
             'name' => 'delete-spp',
         ]);
 
-        // kelas
+        // Spesialis
         Permission::create([
-            'name' => 'create-kelas',
+            'name' => 'create-spesialis',
         ]);
 
         Permission::create([
-            'name' => 'read-kelas',
+            'name' => 'read-spesialis',
         ]);
 
         Permission::create([
-            'name' => 'update-kelas',
+            'name' => 'update-spesialis',
         ]);
 
         Permission::create([
-            'name' => 'delete-kelas',
+            'name' => 'delete-spesialis',
         ]);
 
         // roles
@@ -165,8 +165,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $role1->syncPermissions([
-            'create-siswa', 'read-siswa', 'update-siswa', 'delete-siswa', 
-            'create-kelas', 'read-kelas', 'update-kelas', 'delete-kelas',
+            'create-dokter', 'read-dokter', 'update-dokter', 'delete-dokter', 
+            'create-spesialis', 'read-spesialis', 'update-spesialis', 'delete-spesialis',
             'create-spp', 'read-spp', 'update-spp', 'delete-spp',
             'create-users', 'read-users', 'update-users', 'delete-users',
             'create-roles', 'read-roles', 'update-roles', 'delete-roles',
@@ -179,30 +179,25 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $role2->syncPermissions([
-            'create-siswa', 'read-siswa', 'update-siswa', 'delete-siswa',
-            'create-kelas', 'read-kelas', 'update-kelas', 'delete-kelas',
+            'create-dokter', 'read-dokter', 'update-dokter', 'delete-dokter',
+            'create-spesialis', 'read-spesialis', 'update-spesialis', 'delete-spesialis',
             'create-spp', 'read-spp', 'update-spp', 'delete-spp',
             'create-pembayaran', 'read-pembayaran', 'update-pembayaran', 'delete-pembayaran',
         ]);
 
         $role3 = Role::create([
-            'name' => 'siswa'
+            'name' => 'dokter'
         ]);
 
-        // seed kelas
-        $kelas1 = Kelas::create([
-            'nama_kelas' => 'X RPL 1',
-            'kompetensi_keahlian' => 'Rekayasa Perangkat Lunak',
+        // seed spesialis
+        $spesialis1 = Spesialis::create([
+            'nama_spesialis' => 'Anak',
+            'kompetensi_keahlian' => 'Memeriksa kesehatan anak',
         ]);
 
-        $kelas2 = Kelas::create([
-            'nama_kelas' => 'X RPL 2',
-            'kompetensi_keahlian' => 'Rekayasa Perangkat Lunak',
-        ]);
-
-        $kelas3 = Kelas::create([
-            'nama_kelas' => 'X MM',
-            'kompetensi_keahlian' => 'Multimedia',
+        $spesialis2 = Spesialis::create([
+            'nama_spesialis' => 'Kandungan',
+            'kompetensi_keahlian' => 'Memeriksa kesehatan ibu hamil',
         ]);
 
     	$user1 = User::create([
@@ -210,7 +205,6 @@ class DatabaseSeeder extends Seeder
     		'email' => 'admin@example.com',
     		'password' => Hash::make('password'),
     	]);
-
         $user1->assignRole('admin');
 
         $petugas1 = Petugas::create([
@@ -225,7 +219,6 @@ class DatabaseSeeder extends Seeder
     		'email' => 'elaina@example.com',
     		'password' => Hash::make('password'),
     	]);
-
         $user2->assignRole('petugas');
 
         $petugas2 = Petugas::create([
@@ -236,45 +229,21 @@ class DatabaseSeeder extends Seeder
         ]);
 
     	$user3 = User::create([
-    		'username' => 'diva123',
-    		'email' => 'diva@example.com',
+    		'username' => 'dokterindonesia',
+    		'email' => 'dokterindonesia@example.com',
     		'password' => Hash::make('password'),
     	]);
+        $user3->assignRole('dokter');
 
-        $user3->assignRole('siswa');
-
-        Siswa::create([
+        Dokter::create([
             'user_id' => $user3->id,
-            'kode_siswa' => 'SSW'.Str::upper(Str::random(5)),
-            'nisn' => '08909978',
-            'nis' => '08909955',
-            'nama_siswa' => 'Diva',
+            'kode_dokter' => 'DR'.Str::upper(Str::random(6)),
+            'npa' => '08909978',
+            'nama_dokter' => 'Dokter Indonesia',
             'jenis_kelamin' => 'Perempuan',
             'alamat' => 'Metal Float',
             'no_telepon' => '08599876098',
-            'kelas_id' => $kelas1->id,
+            'spesialis_id' => $spesialis1->id,
         ]);
-
-    	$user4 = User::create([
-    		'username' => 'yuu123',
-    		'email' => 'yuu@example.com',
-    		'password' => Hash::make('password'),
-    	]);    	
-
-        $user4->assignRole('siswa');
-
-        Siswa::create([
-            'user_id' => $user4->id,
-            'kode_siswa' => 'SSW'.Str::upper(Str::random(5)),
-            'nisn' => '08909096',
-            'nis' => '08909842',
-            'nama_siswa' => 'Sonoda Yuu',
-            'jenis_kelamin' => 'Perempuan',
-            'alamat' => 'Tokyo',
-            'no_telepon' => '08599865056',
-            'kelas_id' => $kelas2->id,
-        ]);
-    	
-        // \App\Models\User::factory(10)->create();
     }
 }

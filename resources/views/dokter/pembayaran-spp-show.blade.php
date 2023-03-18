@@ -12,7 +12,7 @@
   <div class="col-12">
     <div class="card">
       <div class="card-header">
-        <a href="{{ route('siswa.pembayaran-spp') }}" class="btn btn-danger btn-sm">
+        <a href="{{ route('dokter.pembayaran-spp') }}" class="btn btn-danger btn-sm">
           <i class="fas fa-fw fa-arrow-left"></i> KEMBALI
         </a>
       </div>
@@ -23,9 +23,9 @@
           <thead>
           <tr>
             <th>No</th>
-            <th>Nama Siswa</th>
-            <th>Kelas</th>
-            <th>Nisn</th>
+            <th>Nama Dokter</th>
+            <th>Spesialis</th>
+            <th>NPA</th>
             <th>Tanggal Bayar</th>
             <th>Nama Petugas</th>
             <th>Untuk Bulan</th>
@@ -38,9 +38,9 @@
           @foreach($pembayaran as $row)
           <tr>
           	<td>{{ $loop->iteration }}</td>
-            <td>{{ $row->siswa->nama_siswa }}</td>
-            <td>{{ $row->siswa->kelas->nama_kelas }}</td>
-            <td>{{ $row->nisn }}</td>
+            <td>{{ $row->dokter->nama_dokter }}</td>
+            <td>{{ $row->dokter->spesialis->nama_spesialis }}</td>
+            <td>{{ $row->npa }}</td>
             <td>{{ \Carbon\Carbon::parse($row->tanggal_bayar)->format('d-m-Y') }}</td>
             <td>{{ $row->petugas->nama_petugas }}</td>
             <td>{{ $row->bulan_bayar }}</td>

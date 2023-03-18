@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 @endpush
-@section('content_title', 'History Pembayaran')
+@section('content_title', 'Riwayat Pembayaran')
 @section('content')
 <x-alert></x-alert>
 <div class="row">
@@ -72,9 +72,9 @@ $(function () {
       ajax: "{{ route('pembayaran.history-pembayaran') }}",
       columns: [
           {data: 'DT_RowIndex' , name: 'id'},
-          {data: 'siswa.nama_siswa', name: 'siswa.nama_siswa'},
-          {data: 'siswa.kelas.nama_kelas', name: 'siswa.kelas.nama_kelas'},
-          {data: 'siswa.nisn', name: 'siswa.nisn'},
+          {data: 'dokter.nama_dokter', name: 'dokter.nama_dokter'},
+          {data: 'dokter.spesialis.nama_spesialis', name: 'dokter.spesialis.nama_spesialis'},
+          {data: 'dokter.npa', name: 'dokter.npa'},
           {data: 'tanggal_bayar', name: 'tanggal_bayar'},
           {data: 'petugas.nama_petugas', name: 'petugas.nama_petugas'},
           {data: 'bulan_bayar', name: 'bulan_bayar'},

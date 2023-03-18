@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
-use App\Models\Siswa;
+use App\Models\Dokter;
 use App\Models\Pembayaran;
 
 class Petugas extends Model
@@ -24,9 +24,9 @@ class Petugas extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function siswa()
+    public function dokter()
     {
-    	return $this->hasMany(Siswa::class);
+    	return $this->hasMany(Dokter::class);
     }
 
     public function pembayaran()

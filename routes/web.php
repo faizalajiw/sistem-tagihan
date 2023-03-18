@@ -24,16 +24,16 @@ Route::middleware(['auth'])->group(function(){
 
 Route::prefix('pembayaran')->middleware(['auth', 'role:admin|petugas'])->group(function(){
 	Route::get('bayar', 'PembayaranController@index')->name('pembayaran.index');
-	Route::get('bayar/{nisn}', 'PembayaranController@bayar')->name('pembayaran.bayar');
+	Route::get('bayar/{npa}', 'PembayaranController@bayar')->name('pembayaran.bayar');
 	Route::get('spp/{tahun}', 'PembayaranController@spp')->name('pembayaran.spp');
-	Route::post('bayar/{nisn}', 'PembayaranController@prosesBayar')->name('pembayaran.proses-bayar');
+	Route::post('bayar/{npa}', 'PembayaranController@prosesBayar')->name('pembayaran.proses-bayar');
 	Route::get('status-pembayaran', 'PembayaranController@statusPembayaran')
 		->name('pembayaran.status-pembayaran');
 
-	Route::get('status-pembayaran/{siswa:nisn}', 'PembayaranController@statusPembayaranShow')
+	Route::get('status-pembayaran/{dokter:npa}', 'PembayaranController@statusPembayaranShow')
 		->name('pembayaran.status-pembayaran.show');
 
-	Route::get('status-pembayaran/{nisn}/{tahun}', 'PembayaranController@statusPembayaranShowStatus')
+	Route::get('status-pembayaran/{npa}/{tahun}', 'PembayaranController@statusPembayaranShowStatus')
 		->name('pembayaran.status-pembayaran.show-status');
 	
 	Route::get('history-pembayaran', 'PembayaranController@historyPembayaran')
@@ -76,22 +76,22 @@ Route::prefix('admin')
 	Route::middleware(['role:admin|petugas'])->group(function(){
 		Route::resource('spp', 'SppController');
 		Route::resource('pembayaran-spp', 'PembayaranController');
-		Route::resource('kelas', 'KelasController');
-		Route::resource('siswa', 'SiswaController');
-		Route::delete('delete-all-siswa', 'CheckBoxDeleteController@deleteAllSiswa')
-			->name('delete-all-siswa');
+		Route::resource('spesialis', 'SpesialisController');
+		Route::resource('dokter', 'DokterController');
+		Route::delete('delete-all-dokter', 'CheckBoxDeleteController@deleteAllDokter')
+			->name('delete-all-dokter');
 	});
 });
 
-Route::prefix('siswa')
-->middleware(['auth', 'role:siswa'])
+Route::prefix('dokter')
+->middleware(['auth', 'role:dokter'])
 ->group(function(){
-	Route::get('pembayaran-spp', 'SiswaController@pembayaranSpp')->name('siswa.pembayaran-spp');
-	Route::get('pembayaran-spp/{spp:tahun}', 'SiswaController@pembayaranSppShow')->name('siswa.pembayaran-spp.pembayaranSppShow');
-	Route::get('history-pembayaran', 'SiswaController@historyPembayaran')->name('siswa.history-pembayaran');
-	Route::get('history-pembayaran/preview/{id}', 'SiswaController@previewHistoryPembayaran')->name('siswa.history-pembayaran.preview');
-	Route::get('laporan-pembayaran', 'SiswaController@laporanPembayaran')->name('siswa.laporan-pembayaran');
-	Route::post('laporan-pembayaran', 'SiswaController@printPdf')->name('siswa.laporan-pembayaran.print-pdf');
+	Route::get('pembayaran-spp', 'DokterController@pembayaranSpp')->name('dokter.pembayaran-spp');
+	Route::get('pembayaran-spp/{spp:tahun}', 'DokterController@pembayaranSppShow')->name('dokter.pembayaran-spp.pembayaranSppShow');
+	Route::get('history-pembayaran', 'DokterController@historyPembayaran')->name('dokter.history-pembayaran');
+	Route::get('history-pembayaran/preview/{id}', 'DokterController@previewHistoryPembayaran')->name('dokter.history-pembayaran.preview');
+	Route::get('laporan-pembayaran', 'DokterController@laporanPembayaran')->name('dokter.laporan-pembayaran');
+	Route::post('laporan-pembayaran', 'DokterController@printPdf')->name('dokter.laporan-pembayaran.print-pdf');
 });
 
 Route::prefix('profile')

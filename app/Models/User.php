@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use App\Models\Petugas;
-use App\Models\Siswa;
+use App\Models\Dokter;
 
 class User extends Authenticatable
 {
@@ -50,8 +50,8 @@ class User extends Authenticatable
         return $this->hasOne(Petugas::class);
     }
 
-    public function siswa()
+    public function dokter()
     {
-        return $this->hasOne(Siswa::class);
+        return $this->hasOne(Dokter::class);
     }
 }

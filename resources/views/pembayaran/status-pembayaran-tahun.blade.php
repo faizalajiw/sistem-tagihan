@@ -1,16 +1,16 @@
 @extends('layouts.backend.app')
-@section('title', 'Pembayaran Spp '.$siswa->nama_siswa)
-@section('content_title', 'Pembayaran Spp '.$siswa->nama_siswa)
+@section('title', 'Pembayaran Spp '.$dokter->nama_dokter)
+@section('content_title', 'Pembayaran Spp '.$dokter->nama_dokter)
 @section('content')
 <div class="row">
 	<div class="col-lg-6">
     	<div class="callout callout-success">
-	        <h5>Info Siswa:</h5>
+	        <h5>Info Dokter:</h5>
 
 	        <p>	
-	        	Nama Dokter : <b>{{ $siswa->nama_siswa }}</b><br>
-		        NPA : <b>{{ $siswa->nisn }}</b><br>
-		        Spesialis : <b>{{ $siswa->kelas->nama_kelas }}</b>
+	        	Nama Dokter : <b>{{ $dokter->nama_dokter }}</b><br>
+		        NPA : <b>{{ $dokter->npa }}</b><br>
+		        Spesialis : <b>{{ $dokter->spesialis->nama_spesialis }}</b>
 	    	</p>
       	</div>
       	<div class="callout callout-danger">
@@ -34,11 +34,11 @@
 				<div class="list-group">
 				  @foreach($spp as $row)
 				  	@if($row->tahun == date('Y'))
-				  	<a href="{{ route('pembayaran.status-pembayaran.show-status', [$siswa->nisn,$row->tahun]) }}" class="list-group-item list-group-item-action active">
+				  	<a href="{{ route('pembayaran.status-pembayaran.show-status', [$dokter->npa,$row->tahun]) }}" class="list-group-item list-group-item-action active">
 				  		{{ $row->tahun }}
 				  	</a>
 				  	@else
-				  	<a href="{{ route('pembayaran.status-pembayaran.show-status', [$siswa->nisn,$row->tahun]) }}" class="list-group-item list-group-item-action">
+				  	<a href="{{ route('pembayaran.status-pembayaran.show-status', [$dokter->npa,$row->tahun]) }}" class="list-group-item list-group-item-action">
 				  		{{ $row->tahun }}
 				  	</a>
 				  	@endif

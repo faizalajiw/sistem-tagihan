@@ -6,14 +6,14 @@
 <body>
 <br><br>
 <center>
-  <h2 style="font-family: sans-serif;">History Pembayaran Tagihan</h2>
+  <h2 style="font-family: sans-serif;">Riwayat Pembayaran</h2>
 </center>
 <br>
 <div style="float: left;">
-  <b style="font-family: sans-serif;">Nama Dokter : {{ $pembayaran->siswa->nama_siswa }}</h3><br>
-  <b style="font-family: sans-serif;">Spesialis : {{ $pembayaran->siswa->kelas->nama_kelas }}</b><br>
-  <b style="font-family: sans-serif;">NPA : {{ $pembayaran->siswa->nisn }}</b><br>
-  <b style="font-family: sans-serif;">Nis : {{ $pembayaran->siswa->nis }}</b><br>
+  <b style="font-family: sans-serif;">Nama Dokter : {{ $pembayaran->dokter->nama_dokter }}</h3><br>
+  <b style="font-family: sans-serif;">Spesialis : {{ $pembayaran->dokter->spesialis->nama_spesialis }}</b><br>
+  <b style="font-family: sans-serif;">NPA : {{ $pembayaran->dokter->npa }}</b><br>
+  <b style="font-family: sans-serif;">Nis : {{ $pembayaran->dokter->nis }}</b><br>
 </div>
 
 <br><br><br><br><br>

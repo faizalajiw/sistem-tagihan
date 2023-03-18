@@ -9,8 +9,8 @@ class PembayaranDataTable
 {
     public function data()
     {
-        $data = Pembayaran::with(['siswa' => function ($query) {
-            $query->with('kelas');
+        $data = Pembayaran::with(['dokter' => function ($query) {
+            $query->with('spesialis');
         }, 'petugas'])->latest();
         return DataTables::of($data)
             ->addIndexColumn()

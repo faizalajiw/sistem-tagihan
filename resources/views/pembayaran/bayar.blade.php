@@ -18,32 +18,32 @@
 			    </a>
 			</div>
 			<div class="card-body">
-				<form method="POST" action="{{ route('pembayaran.proses-bayar', $siswa->nisn) }}">
+				<form method="POST" action="{{ route('pembayaran.proses-bayar', $dokter->npa) }}">
 					@csrf
 					<div class="row">
 						<div class="col-lg-3">
 							<div class="form-group">
-								<label for="nama_siswa">Nama Dokter:</label>
-								<input required="" type="hidden" name="siswa_id" value="{{ $siswa->id }}" readonly id="siswa_id" class="form-control">
-								<input required="" type="text" name="nama_siswa" value="{{ $siswa->nama_siswa }}" readonly id="nama_siswa" class="form-control">
-								@error('nama_siswa')
+								<label for="nama_dokter">Nama Dokter:</label>
+								<input required="" type="hidden" name="dokter_id" value="{{ $dokter->id }}" readonly id="dokter_id" class="form-control">
+								<input required="" type="text" name="nama_dokter" value="{{ $dokter->nama_dokter }}" readonly id="nama_dokter" class="form-control">
+								@error('nama_dokter')
 									<small class="text-danger">{{ $message }}</small>
 								@enderror
 							</div>
 						</div>
 						<div class="col-lg-3">
 							<div class="form-group">
-								<label for="nisn">NPA</label>
-								<input required="" type="text" name="nisn" value="{{ $siswa->nisn }}" readonly id="nisn" class="form-control">
-								@error('nisn')
+								<label for="npa">NPA</label>
+								<input required="" type="text" name="npa" value="{{ $dokter->npa }}" readonly id="npa" class="form-control">
+								@error('npa')
 									<small class="text-danger">{{ $message }}</small>
 								@enderror
 							</div>
 						</div>
 						<div class="col-lg-3">
 							<div class="form-group">
-								<label for="nis">Nis:</label>
-								<input required="" type="text" name="nis" value="{{ $siswa->nis }}" readonly id="nis" class="form-control">
+								<label for="nis">No ID:</label>
+								<input required="" type="text" name="nis" value="{{ $dokter->nis }}" readonly id="nis" class="form-control">
 								@error('nis')
 									<small class="text-danger">{{ $message }}</small>
 								@enderror
@@ -51,9 +51,9 @@
 						</div>
 						<div class="col-lg-3">
 							<div class="form-group">
-								<label for="kelas">Spesialis:</label>
-								<input required="" type="text" name="kelas" value="{{ $siswa->kelas->nama_kelas }}" readonly id="kelas" class="form-control">
-								@error('kelas')
+								<label for="spesialis">Spesialis:</label>
+								<input required="" type="text" name="spesialis" value="{{ $dokter->spesialis->nama_spesialis }}" readonly id="spesialis" class="form-control">
+								@error('spesialis')
 									<small class="text-danger">{{ $message }}</small>
 								@enderror
 							</div>
@@ -73,7 +73,7 @@
 						</div>
 						<div class="col-lg-3">
 							<div class="form-group">
-								<label for="jumlah_bayar" id="nominal_spp_label">Nominal Tagihan:</label>
+								<label for="jumlah_bayar" id="nominal_spp_label">Nominal Pembayaran:</label>
 								<input type="" name="nominal" readonly="" id="nominal" class="form-control">
 								<input required="" type="hidden" name="jumlah_bayar" readonly="" id="jumlah_bayar" class="form-control">
 								@error('jumlah_bayar')

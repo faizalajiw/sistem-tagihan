@@ -7,18 +7,18 @@
 <br><br>
 <center>
   <h2 style="font-family: sans-serif;">Laporan Pembayaran Spp</h2><br><br>
-  <b style="font-family: sans-serif;">Nama Siswa : {{ $data_siswa->nama_siswa }}</b><br><br>
-  <b style="font-family: sans-serif;">NISN : {{ $data_siswa->nisn }}</b><br><br>
-  <b style="font-family: sans-serif;">Kelas : {{ $data_siswa->kelas->nama_kelas }}</b><br><br>
+  <b style="font-family: sans-serif;">Nama Dokter : {{ $data_dokter->nama_dokter }}</b><br><br>
+  <b style="font-family: sans-serif;">NPA : {{ $data_dokter->npa }}</b><br><br>
+  <b style="font-family: sans-serif;">Spesialis : {{ $data_dokter->spesialis->nama_spesialis }}</b><br><br>
 </center>
 <br>
 <b>Untuk Tahun : {{ request()->tahun_bayar }}</b><br><br>
-<table style="" border="1" cellspacing="0" cellpadding="10" width="100%">
+<table border="1" cellspacing="0" cellpadding="10" width="100%">
   <thead>
     <tr>
       <th style="font-family: sans-serif;">No</th>
-      <th style="font-family: sans-serif;">Nama Siswa</th>
-      <th style="font-family: sans-serif;">Nisn</th>
+      <th style="font-family: sans-serif;">Nama Dokter</th>
+      <th style="font-family: sans-serif;">NPA</th>
       <th style="font-family: sans-serif;">Tanggal Bayar</th>
       <th style="font-family: sans-serif;">Nama Petugas</th>
       <th style="font-family: sans-serif;">Untuk Bulan</th>
@@ -30,8 +30,8 @@
     @foreach($pembayaran as $row)
     <tr>
       <td style="font-family: sans-serif;">{{ $loop->iteration }}</td>
-      <td style="font-family: sans-serif;">{{ $row->siswa->nama_siswa }}</td>
-      <td style="font-family: sans-serif;">{{ $row->nisn }}</td>
+      <td style="font-family: sans-serif;">{{ $row->dokter->nama_dokter }}</td>
+      <td style="font-family: sans-serif;">{{ $row->npa }}</td>
       <td style="font-family: sans-serif;">{{ \Carbon\Carbon::parse($row->tanggal_bayar)->format('d-m-Y') }}</td>
       <td style="font-family: sans-serif;">{{ $row->petugas->nama_petugas }}</td>
       <td style="font-family: sans-serif;">{{ $row->bulan_bayar }}</td>

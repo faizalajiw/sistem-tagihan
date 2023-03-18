@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Siswa;
+use App\Models\Dokter;
 
 class Spp extends Model
 {
@@ -17,8 +17,8 @@ class Spp extends Model
     	'nominal',
     ];
 
-    public function siswa()
+    public function dokter()
     {
-    	return $this->hasMany(Siswa::class);
+    	return $this->hasMany(Dokter::class);
     }
 }

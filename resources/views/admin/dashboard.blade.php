@@ -13,14 +13,14 @@
     <!-- small box -->
     <div class="small-box bg-info">
       <div class="inner">
-        <h3>{{ $total_siswa }}</h3>
+        <h3>{{ $total_dokter }}</h3>
 
         <p>Dokter</p>
       </div>
       <div class="icon">
         <i class="fas fa-users"></i>
       </div>
-      <a href="{{ route('siswa.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+      <a href="{{ route('dokter.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <!-- ./col -->
@@ -29,14 +29,14 @@
     <!-- small box -->
     <div class="small-box bg-danger">
       <div class="inner">
-        <h3>{{ $total_kelas }}</h3>
+        <h3>{{ $total_spesialis }}</h3>
 
         <p>Spesialis</p>
       </div>
       <div class="icon">
         <i class="fas fa-school"></i>
       </div>
-      <a href="{{ route('kelas.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+      <a href="{{ route('spesialis.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <!-- ./col -->
@@ -76,7 +76,7 @@
     <div class="row">
         <div class="col-md-10 offset-md-1">
             <div class="card">
-                <div class="card-header">Dokter</div>
+                <div class="card-header">Grafik Tagihan</div>
                 <div class="card-body">
                     <canvas id="canvas" height="200" width="500"></canvas>
                 </div>
@@ -93,12 +93,12 @@ var ctx = document.getElementById("canvas").getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ["Siswa Laki-laki", "Siswa Perempuan"],
+      labels: ["Dokter Laki-laki", "Dokter Perempuan"],
       datasets: [{
         label: '',
         data: [
-        {!! $siswa_laki_laki !!},
-        {!! $siswa_perempuan !!},
+        {!! $dokter_laki_laki !!},
+        {!! $dokter_perempuan !!},
         ],
         backgroundColor: [
         'rgba(255, 99, 132, 0.2)',

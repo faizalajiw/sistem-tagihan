@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Siswa;
 use App\Models\Spp;
 use App\Models\Petugas;
 use App\Models\Pembayaran;
@@ -15,19 +14,20 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Validator;
 use App\Helpers\Bulan;
-use PDF;
-use DataTables;
+use App\Models\Dokter;
+use Barryvdh\DomPDF\PDF as PDF;
+use Yajra\DataTables\Facades\DataTables;
 
 class PembayaranController extends Controller
 {
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Siswa::with(['kelas'])->latest();
+            $data = Dokter::with(['spesialis'])->latest();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row) {
-                    $btn = '<div class="row"><a href="'.route('pembayaran.bayar', $row->nisn).'"class="btn btn-primary btn-sm ml-2">
+                    $btn = '<div class="row"><a href="'.route('pembayaran.bayar', $row->npa).'"class="btn btn-primary btn-sm ml-2">
                     <i class="fas fa-money-check"></i> BAYAR
                     </a>';
                     return $btn;
@@ -39,15 +39,15 @@ class PembayaranController extends Controller
     	return view('pembayaran.index');
     }
 
-    public function bayar($nisn)
+    public function bayar($npa)
     {	
-    	$siswa = Siswa::with(['kelas'])
-            ->where('nisn', $nisn)
+    	$dokter = Dokter::with(['spesialis'])
+            ->where('npa', $npa)
             ->first();
 
         $spp = Spp::all();
 
-    	return view('pembayaran.bayar', compact('siswa', 'spp'));
+    	return view('pembayaran.bayar', compact('dokter', 'spp'));
     }
 
     public function spp($tahun)
@@ -61,7 +61,7 @@ class PembayaranController extends Controller
         ]);
     }
 
-    public function prosesBayar(Request $request, $nisn)
+    public function prosesBayar(Request $request, $npa)
     {
         $request->validate([
             'jumlah_bayar' => 'required',
@@ -74,7 +74,7 @@ class PembayaranController extends Controller
         
         $pembayaran = Pembayaran::whereIn('bulan_bayar', $request->bulan_bayar)
             ->where('tahun_bayar', $request->tahun_bayar)
-            ->where('siswa_id', $request->siswa_id)
+            ->where('dokter_id', $request->dokter_id)
             ->pluck('bulan_bayar')
             ->toArray();
 
@@ -82,10 +82,10 @@ class PembayaranController extends Controller
             DB::transaction(function() use($request, $petugas) {
                 foreach ($request->bulan_bayar as $bulan) {   
                     Pembayaran::create([
-                        'kode_pembayaran' => 'SPPR'.Str::upper(Str::random(5)),
+                        'kode_pembayaran' => 'IDIBBS'.Str::upper(Str::random(5)),
                         'petugas_id' => $petugas->id,
-                        'siswa_id' => $request->siswa_id,
-                        'nisn' => $request->nisn,
+                        'dokter_id' => $request->dokter_id,
+                        'npa' => $request->npa,
                         'tanggal_bayar' => Carbon::now('Asia/Jakarta'),
                         'tahun_bayar' => $request->tahun_bayar,
                         'bulan_bayar' => $bulan,
@@ -98,8 +98,8 @@ class PembayaranController extends Controller
                 ->with('success', 'Pembayaran berhasil disimpan!');
         }else{
             return back()
-                ->with('error', 'Siswa Dengan Nama : '.$request->nama_siswa.' , NISN : '.
-                $request->nisn.' Sudah Membayar Spp di bulan yang diinput ('.
+                ->with('error', 'Dokter Dengan Nama : '.$request->nama_dokter.' , No ID : '.
+                $request->npa.' Sudah Membayar Tagihan di bulan yang diinput ('.
                 implode($pembayaran,',').")".' , di Tahun : '.$request->tahun_bayar.' , Pembayaran Dibatalkan');
         }
     }
@@ -107,14 +107,14 @@ class PembayaranController extends Controller
     public function statusPembayaran(Request $request)
     {
         if ($request->ajax()) {
-            $data = Siswa::with(['kelas'])
+            $data = Dokter::with(['spesialis'])
                 ->latest()
                 ->get();
                 
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row) {
-                    $btn = '<div class="row"><a href="'.route('pembayaran.status-pembayaran.show',$row->nisn).
+                    $btn = '<div class="row"><a href="'.route('pembayaran.status-pembayaran.show',$row->npa).
                     '"class="btn btn-primary btn-sm">DETAIL</a>';
                     return $btn;
                 })
@@ -125,33 +125,33 @@ class PembayaranController extends Controller
         return view('pembayaran.status-pembayaran');
     }
 
-    public function statusPembayaranShow(Siswa $siswa)
+    public function statusPembayaranShow(Dokter $dokter)
     {
         $spp = Spp::all();
-        return view('pembayaran.status-pembayaran-tahun', compact('siswa', 'spp'));
+        return view('pembayaran.status-pembayaran-tahun', compact('dokter', 'spp'));
     }
 
-    public function statusPembayaranShowStatus($nisn, $tahun)
+    public function statusPembayaranShowStatus($npa, $tahun)
     {
-        $siswa = Siswa::where('nisn', $nisn)
+        $dokter = Dokter::where('npa', $npa)
             ->first();
         
         $spp = Spp::where('tahun', $tahun)
             ->first();
 
-        $pembayaran = Pembayaran::with(['siswa'])
-            ->where('siswa_id', $siswa->id)
+        $pembayaran = Pembayaran::with(['dokter'])
+            ->where('dokter_id', $dokter->id)
             ->where('tahun_bayar', $spp->tahun)
             ->get();
 
-        return view('pembayaran.status-pembayaran-show', compact('siswa', 'spp', 'pembayaran'));
+        return view('pembayaran.status-pembayaran-show', compact('dokter', 'spp', 'pembayaran'));
     }
 
     public function historyPembayaran(Request $request)
     {
         if ($request->ajax()) {
-            $data = Pembayaran::with(['petugas', 'siswa' => function($query){
-                $query->with('kelas');
+            $data = Pembayaran::with(['petugas', 'dokter' => function($query){
+                $query->with('spesialis');
             }])
                 ->latest()->get();
 
@@ -171,7 +171,7 @@ class PembayaranController extends Controller
 
     public function printHistoryPembayaran($id)
     {
-        $data['pembayaran'] = Pembayaran::with(['petugas', 'siswa'])
+        $data['pembayaran'] = Pembayaran::with(['petugas', 'dokter'])
             ->where('id', $id)
             ->first();
 
@@ -191,7 +191,7 @@ class PembayaranController extends Controller
             'tanggal_selesai' => 'required',
         ]);
 
-        $data['pembayaran'] = Pembayaran::with(['petugas', 'siswa'])
+        $data['pembayaran'] = Pembayaran::with(['petugas', 'dokter'])
             ->whereBetween('tanggal_bayar', $tanggal)->get();
 
         if ($data['pembayaran']->count() > 0) {

@@ -9,7 +9,7 @@
 		<div class="card">
 			<div class="card-header">Laporan Pembayaran</div>
 			<div class="card-body">
-				<form method="POST" action="{{ route('siswa.laporan-pembayaran.print-pdf') }}">
+				<form method="POST" action="{{ route('dokter.laporan-pembayaran.print-pdf') }}">
 					@csrf
 					<div class="form-group">
 						<label for="tahun_bayar">Tahun</label>
