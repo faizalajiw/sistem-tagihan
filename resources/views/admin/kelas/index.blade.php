@@ -26,7 +26,7 @@
           <thead>
           <tr>
             <th>No</th>
-            <th>Nama Kelas</th>
+            <th>Spesialis</th>
             <th>Kompetensi Keahlian</th>
             <th>Aksi</th>
           </tr>

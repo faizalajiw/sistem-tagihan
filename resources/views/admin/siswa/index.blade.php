@@ -127,7 +127,7 @@
               <div class="form-group">
                 <label for="kelas_id">Spesialis:</label>
                 <select required="" name="kelas_id" id="kelas_id" class="form-control select2bs4">
-                  <option disabled="" selected="">- PILIH KELAS -</option>
+                  <option disabled="" selected="">- PILIH SPESIALIS -</option>
                   @foreach($kelas as $row)
                     <option value="{{ $row->id }}">{{ $row->nama_kelas }}</option>
                   @endforeach

@@ -54,13 +54,13 @@
 				</div>
 				<div class="col-lg-4">
 					<div class="form-group">
-						<label for="username">Kelas:</label>
+						<label for="username">Spesialis:</label>
 						<input type="" name="" value="{{ Universe::siswa()->kelas->nama_kelas }}" readonly="" id="" class="form-control">
 					</div>
 				</div>
 				<div class="col-lg-4">
 					<div class="form-group">
-						<label for="username">Nisn:</label>
+						<label for="username">NPA:</label>
 						<input type="" name="" value="{{ Universe::siswa()->nisn }}" readonly="" id="" class="form-control">
 					</div>
 				</div>

@@ -83,7 +83,7 @@
           <a href="{{ route('kelas.index') }}" class="nav-link {{ Request::segment(2) == 'kelas' ? 'active' : '' }}">
             <i class="nav-icon fas fa-school"></i>
             <p>
-              Kelas
+              Spesialis
             </p>
           </a>
         </li>
@@ -143,7 +143,7 @@
           <a href="{{ route('kelas.index') }}" class="nav-link {{ Request::segment(2) == 'kelas' ? 'active' : '' }}">
             <i class="nav-icon fas fa-school"></i>
             <p>
-              Kelas
+              Spesialis
             </p>
           </a>
         </li>
