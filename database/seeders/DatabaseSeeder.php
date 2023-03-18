@@ -191,18 +191,13 @@ class DatabaseSeeder extends Seeder
 
         // seed spesialis
         $spesialis1 = Spesialis::create([
-            'nama_spesialis' => 'X RPL 1',
-            'kompetensi_keahlian' => 'Rekayasa Perangkat Lunak',
+            'nama_spesialis' => 'Anak',
+            'kompetensi_keahlian' => 'Memeriksa kesehatan anak',
         ]);
 
         $spesialis2 = Spesialis::create([
-            'nama_spesialis' => 'X RPL 2',
-            'kompetensi_keahlian' => 'Rekayasa Perangkat Lunak',
-        ]);
-
-        $spesialis3 = Spesialis::create([
-            'nama_spesialis' => 'X MM',
-            'kompetensi_keahlian' => 'Multimedia',
+            'nama_spesialis' => 'Kandungan',
+            'kompetensi_keahlian' => 'Memeriksa kesehatan ibu hamil',
         ]);
 
     	$user1 = User::create([
@@ -210,7 +205,6 @@ class DatabaseSeeder extends Seeder
     		'email' => 'admin@example.com',
     		'password' => Hash::make('password'),
     	]);
-
         $user1->assignRole('admin');
 
         $petugas1 = Petugas::create([
@@ -225,7 +219,6 @@ class DatabaseSeeder extends Seeder
     		'email' => 'elaina@example.com',
     		'password' => Hash::make('password'),
     	]);
-
         $user2->assignRole('petugas');
 
         $petugas2 = Petugas::create([
@@ -236,45 +229,21 @@ class DatabaseSeeder extends Seeder
         ]);
 
     	$user3 = User::create([
-    		'username' => 'diva123',
-    		'email' => 'diva@example.com',
+    		'username' => 'dokterindonesia',
+    		'email' => 'dokterindonesia@example.com',
     		'password' => Hash::make('password'),
     	]);
-
         $user3->assignRole('dokter');
 
         Dokter::create([
             'user_id' => $user3->id,
             'kode_dokter' => 'DR'.Str::upper(Str::random(6)),
-            'nisn' => '08909978',
-            'nis' => '08909955',
-            'nama_dokter' => 'Diva',
+            'npa' => '08909978',
+            'nama_dokter' => 'Dokter Indonesia',
             'jenis_kelamin' => 'Perempuan',
             'alamat' => 'Metal Float',
             'no_telepon' => '08599876098',
             'spesialis_id' => $spesialis1->id,
         ]);
-
-    	$user4 = User::create([
-    		'username' => 'yuu123',
-    		'email' => 'yuu@example.com',
-    		'password' => Hash::make('password'),
-    	]);    	
-
-        $user4->assignRole('dokter');
-
-        Dokter::create([
-            'user_id' => $user4->id,
-            'kode_dokter' => 'DR'.Str::upper(Str::random(6)),
-            'nisn' => '08909096',
-            'nis' => '08909842',
-            'nama_dokter' => 'Sonoda Yuu',
-            'jenis_kelamin' => 'Perempuan',
-            'alamat' => 'Tokyo',
-            'no_telepon' => '08599865056',
-            'spesialis_id' => $spesialis2->id,
-        ]);
-    	
-        // \App\Models\User::factory(10)->create();
     }
 }
