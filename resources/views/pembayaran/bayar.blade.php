@@ -42,7 +42,7 @@
 						</div>
 						<div class="col-lg-3">
 							<div class="form-group">
-								<label for="nis">No ID:</label>
+								<label for="nis">NIS:</label>
 								<input required="" type="text" name="nis" value="{{ $siswa->nis }}" readonly id="nis" class="form-control">
 								@error('nis')
 									<small class="text-danger">{{ $message }}</small>
