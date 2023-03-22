@@ -56,7 +56,7 @@
         @else
         <div class="alert alert-danger" role="alert">
           <h4 class="alert-heading">Data Pembayaran Tidak Tersedia!</h4>
-          <p>Pembayaran Spp {{ $dokter->nama_dokter }} di Tahun {{ $spp->tahun }} tidak tersedia.</p>
+          <p>Pembayaran {{ $dokter->nama_dokter }} di Tahun {{ $spp->tahun }} tidak tersedia.</p>
         </div>
         @endif
       </div>

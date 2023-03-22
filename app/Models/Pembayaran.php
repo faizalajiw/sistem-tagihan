@@ -18,6 +18,7 @@ class Pembayaran extends Model
     	'kode_pembayaran',
     	'petugas_id',
         'dokter_id',
+        'nama_dokter',
     	'npa',
     	'tanggal_bayar',
     	'bulan_bayar',

@@ -6,7 +6,7 @@
 <body>
 <br><br>
 <center>
-  <h2 style="font-family: sans-serif;">Laporan Pembayaran Spp</h2><br><br>
+  <h2 style="font-family: sans-serif;">Laporan Pembayaran</h2><br><br>
   <b style="font-family: sans-serif;">Nama Dokter : {{ $data_dokter->nama_dokter }}</b><br><br>
   <b style="font-family: sans-serif;">NPA : {{ $data_dokter->npa }}</b><br><br>
   <b style="font-family: sans-serif;">Spesialis : {{ $data_dokter->spesialis->nama_spesialis }}</b><br><br>

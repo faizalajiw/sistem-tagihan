@@ -101,7 +101,7 @@ class DokterController extends Controller
                 $request->tahun_bayar.'-'.
                 Str::random(9).'.pdf');
         }else{
-            return back()->with('error', 'Data Pembayaran Spp Anda Tahun '.$request->tahun_bayar.' tidak tersedia');
+            return back()->with('error', 'Data Pembayaran Tagihan Anda Tahun '.$request->tahun_bayar.' tidak tersedia');
         }
     }
 }

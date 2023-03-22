@@ -201,7 +201,7 @@ class PembayaranController extends Controller
             Carbon::parse($request->tanggal_selesai)->format('d-m-Y').
             Str::random(9).'.pdf');   
         }else{
-            return back()->with('error', 'Data pembayaran spp tanggal '.
+            return back()->with('error', 'Data pembayaran tanggal '.
                 Carbon::parse($request->tanggal_mulai)->format('d-m-Y').' sampai dengan '.
                 Carbon::parse($request->tanggal_selesai)->format('d-m-Y').' Tidak Tersedia');
         }
