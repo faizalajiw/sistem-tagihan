@@ -56,7 +56,7 @@
         @else
         <div class="alert alert-danger" role="alert">
           <h4 class="alert-heading">Data Pembayaran Tidak Tersedia!</h4>
-          <p>Pembayaran Spp Anda di Tahun {{ $spp->tahun }} tidak tersedia.</p>
+          <p>Pembayaran Anda di Tahun {{ $spp->tahun }} tidak tersedia.</p>
         </div>
         @endif
       </div>
@@ -108,7 +108,7 @@
         @else
         <div class="alert alert-danger" role="alert">
           <h4 class="alert-heading">Data Status Pembayaran Tidak Tersedia!</h4>
-          <p>Status Pembayaran Spp Anda di Tahun {{ $spp->tahun }} tidak tersedia.</p>
+          <p>Status Pembayaran Anda di Tahun {{ $spp->tahun }} tidak tersedia.</p>
         </div>
         @endif
       </div>

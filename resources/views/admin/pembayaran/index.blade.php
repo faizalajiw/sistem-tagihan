@@ -67,7 +67,7 @@
 <!-- Sweetalert 2 -->
 <script type="text/javascript" src="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/sweetalert2/sweetalert2.min.js"></script>
 <script>
- $(function () {
+$(function () {
   
   var table = $("#dataTable2").DataTable({
       processing: true,
