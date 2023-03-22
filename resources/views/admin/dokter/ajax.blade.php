@@ -10,7 +10,6 @@ $(function () {
           {data: 'DT_RowIndex' , name: 'id'},
           {data: 'nama_dokter', name: 'nama_dokter'},
           {data: 'npa', name: 'npa'},
-          {data: 'spesialis.nama_spesialis', name: 'spesialis.nama_spesialis'},
           {data: 'jenis_kelamin', name: 'jenis_kelamin'},
           {data: 'no_telepon', name: 'no_telepon'},
           {data: 'action', name: 'action', orderable: false, searchable: true},
@@ -73,7 +72,6 @@ $("body").on("click", ".btn-edit", function() {
       $("#alamat_edit").val(response.data.alamat)
       $("#no_telepon_edit").val(response.data.no_telepon)
       $("#jenis_kelamin_edit").val(response.data.jenis_kelamin)
-      $("#spesialis_id_edit").val(response.data.spesialis_id)
       $("#editModal").modal("show")
     },
     error: function(err) {

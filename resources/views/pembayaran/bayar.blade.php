@@ -40,24 +40,6 @@
 								@enderror
 							</div>
 						</div>
-						<!-- <div class="col-lg-3">
-							<div class="form-group">
-								<label for="nis">No ID:</label>
-								<input required="" type="text" name="nis" value="{{ $dokter->nis }}" readonly id="nis" class="form-control">
-								@error('nis')
-									<small class="text-danger">{{ $message }}</small>
-								@enderror
-							</div>
-						</div> -->
-						<div class="col-lg-3">
-							<div class="form-group">
-								<label for="spesialis">Spesialis:</label>
-								<input required="" type="text" name="spesialis" value="{{ $dokter->spesialis->nama_spesialis }}" readonly id="spesialis" class="form-control">
-								@error('spesialis')
-									<small class="text-danger">{{ $message }}</small>
-								@enderror
-							</div>
-						</div>	
 					</div>
 					<div class="row">
 						<div class="col-lg-3">

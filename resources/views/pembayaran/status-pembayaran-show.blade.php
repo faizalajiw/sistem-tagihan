@@ -24,7 +24,6 @@
           <tr>
             <th>No</th>
             <th>Nama Dokter</th>
-            <th>Spesialis</th>
             <th>NPA</th>
             <th>Tanggal Bayar</th>
             <th>Nama Petugas</th>
@@ -39,7 +38,6 @@
           <tr>
           	<td>{{ $loop->iteration }}</td>
             <td>{{ $row->dokter->nama_dokter }}</td>
-            <td>{{ $row->dokter->spesialis->nama_spesialis }}</td>
             <td>{{ $row->npa }}</td>
             <td>{{ \Carbon\Carbon::parse($row->tanggal_bayar)->format('d-m-Y') }}</td>
             <td>{{ $row->petugas->nama_petugas }}</td>
