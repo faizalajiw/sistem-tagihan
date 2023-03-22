@@ -13,7 +13,6 @@
   <b style="font-family: sans-serif;">Nama Dokter : {{ $pembayaran->dokter->nama_dokter }}</h3><br>
   <b style="font-family: sans-serif;">Spesialis : {{ $pembayaran->dokter->spesialis->nama_spesialis }}</b><br>
   <b style="font-family: sans-serif;">NPA : {{ $pembayaran->dokter->npa }}</b><br>
-  <b style="font-family: sans-serif;">Nis : {{ $pembayaran->dokter->nis }}</b><br>
 </div>
 
 <br><br><br><br><br>

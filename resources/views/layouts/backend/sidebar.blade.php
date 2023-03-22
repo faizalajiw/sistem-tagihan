@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-light-blue elevation-4">
   <!-- Brand Logo -->
   <!-- <a href="" class="brand-link">
     <img src="{{ asset('templates/backend/AdminLTE-3.1.0') }}/dist/img/laravel.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -10,7 +10,7 @@
     <!-- Sidebar user panel (optional) -->
     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
       <div class="my-auto ml-3">
-        <i class="nav-icon fas fa-user-circle fa-2x text-light"></i>
+        <i class="nav-icon fas fa-user-circle fa-2x text-dark"></i>
       </div>
       <div class="info">
         <a href="javascript:void(0)" class="d-block">{{ Auth::user()->username }}</a>
@@ -163,7 +163,7 @@
           <a href="{{ route('pembayaran.index') }}" class="nav-link {{ Request::segment(2) == 'bayar' ? 'active' : '' }}">
             <i class="nav-icon fas fa-money-check"></i>
             <p>
-              Pembayaran
+              Pembayaran Tagihan
             </p>
           </a>
         </li>

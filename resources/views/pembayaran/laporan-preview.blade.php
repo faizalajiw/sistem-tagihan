@@ -6,7 +6,7 @@
 <body>
 <br><br>
 <center>
-  <h2 style="font-family: sans-serif;">Laporan Pembayaran Spp</h2>
+  <h2 style="font-family: sans-serif;">Laporan Pembayaran</h2>
 </center>
 <br>
 <b>Dari tanggal {{ \Carbon\Carbon::parse(request()->tanggal_mulai)->format('d-m-Y') }} - {{ \Carbon\Carbon::parse(request()->tanggal_selesai)->format('d-m-Y') }}</b><br><br>
