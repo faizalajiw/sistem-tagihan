@@ -76,7 +76,6 @@ Route::prefix('admin')
 	Route::middleware(['role:admin|petugas'])->group(function(){
 		Route::resource('spp', 'SppController');
 		Route::resource('pembayaran-spp', 'PembayaranController');
-		Route::resource('spesialis', 'SpesialisController');
 		Route::resource('dokter', 'DokterController');
 		Route::delete('delete-all-dokter', 'CheckBoxDeleteController@deleteAllDokter')
 			->name('delete-all-dokter');

@@ -32,16 +32,13 @@
             <th>No</th>
             <th>Nama Dokter</th>
             <th>NPA</th>
-            <th>Spesialis</th>
-            <th>Jenis Kelamin</th>
+            <!-- <th>Jenis Kelamin</th> -->
             <th>No Whatsapp</th>
             <th>Aksi</th>
           </tr>
           </thead>
           <tbody>
           <tr>
-          	<td></td>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -93,15 +90,9 @@
                 <input required="" type="text" name="npa" id="npa" class="form-control">  
               </div>
             </div>
-            <!-- <div class="col-lg-3">
-              <div class="form-group">
-                <label for="nis">NIS:</label>
-                <input required="" type="text" name="nis" id="nis" class="form-control">  
-              </div>
-            </div>   -->
           </div>
           <div class="row">
-            <div class="col-lg-3">
+            <!-- <div class="col-lg-3">
               <div class="form-group">
                 <label for="jenis_kelamin">Jenis Kelamin:</label>
                 <select required="" name="jenis_kelamin" id="jenis_kelamin" class="form-control select2bs4">
@@ -110,7 +101,7 @@
                     <option value="Perempuan">Perempuan</option>
                 </select>
               </div>
-            </div>
+            </div> -->
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="alamat">Alamat:</label>
@@ -121,17 +112,6 @@
               <div class="form-group">
                 <label for="no_telepon">No Whatsapp:</label>
                 <input required="" type="text" name="no_telepon" id="no_telepon" class="form-control">
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="form-group">
-                <label for="spesialis_id">Spesialis:</label>
-                <select required="" name="spesialis_id" id="spesialis_id" class="form-control select2bs4">
-                  <option disabled="" selected="">- PILIH SPESIALIS -</option>
-                  @foreach($spesialis as $row)
-                    <option value="{{ $row->id }}">{{ $row->nama_spesialis }}</option>
-                  @endforeach
-                </select>
               </div>
             </div>  
           </div>
@@ -179,7 +159,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-lg-4">
+            <!-- <div class="col-lg-4">
               <div class="form-group">
                 <label for="jenis_kelamin_edit">Jenis Kelamin:</label>
                 <select required="" name="jenis_kelamin" id="jenis_kelamin_edit" class="form-control">
@@ -187,23 +167,13 @@
                     <option value="Perempuan">Perempuan</option>
                 </select>
               </div>
-            </div>
+            </div> -->
             <div class="col-lg-4">
               <div class="form-group">
                 <label for="no_telepon_edit">No Whatsapp:</label>
                 <input required="" type="text" name="no_telepon" id="no_telepon_edit" class="form-control">
               </div>
             </div>
-            <div class="col-lg-4">
-              <div class="form-group">
-                <label for="spesialis_id_edit">Spesialis:</label>
-                <select required="" name="spesialis_id" id="spesialis_id_edit" class="form-control">
-                  @foreach($spesialis as $row)
-                    <option value="{{ $row->id }}">{{ $row->nama_spesialis }}</option>
-                  @endforeach
-                </select>
-              </div>
-            </div>  
           </div>
       </div>
       <div class="modal-footer">

@@ -6,7 +6,6 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Petugas;
 use App\Models\Dokter;
-use App\Models\Spesialis;
 use App\Models\Spp;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -73,23 +72,6 @@ class DatabaseSeeder extends Seeder
 
         Permission::create([
             'name' => 'delete-spp',
-        ]);
-
-        // Spesialis
-        Permission::create([
-            'name' => 'create-spesialis',
-        ]);
-
-        Permission::create([
-            'name' => 'read-spesialis',
-        ]);
-
-        Permission::create([
-            'name' => 'update-spesialis',
-        ]);
-
-        Permission::create([
-            'name' => 'delete-spesialis',
         ]);
 
         // roles
@@ -166,7 +148,6 @@ class DatabaseSeeder extends Seeder
 
         $role1->syncPermissions([
             'create-dokter', 'read-dokter', 'update-dokter', 'delete-dokter', 
-            'create-spesialis', 'read-spesialis', 'update-spesialis', 'delete-spesialis',
             'create-spp', 'read-spp', 'update-spp', 'delete-spp',
             'create-users', 'read-users', 'update-users', 'delete-users',
             'create-roles', 'read-roles', 'update-roles', 'delete-roles',
@@ -180,24 +161,12 @@ class DatabaseSeeder extends Seeder
 
         $role2->syncPermissions([
             'create-dokter', 'read-dokter', 'update-dokter', 'delete-dokter',
-            'create-spesialis', 'read-spesialis', 'update-spesialis', 'delete-spesialis',
             'create-spp', 'read-spp', 'update-spp', 'delete-spp',
             'create-pembayaran', 'read-pembayaran', 'update-pembayaran', 'delete-pembayaran',
         ]);
 
         $role3 = Role::create([
             'name' => 'dokter'
-        ]);
-
-        // seed spesialis
-        $spesialis1 = Spesialis::create([
-            'nama_spesialis' => 'Anak',
-            'kompetensi_keahlian' => 'Memeriksa kesehatan anak',
-        ]);
-
-        $spesialis2 = Spesialis::create([
-            'nama_spesialis' => 'Kandungan',
-            'kompetensi_keahlian' => 'Memeriksa kesehatan ibu hamil',
         ]);
 
     	$user1 = User::create([
@@ -211,7 +180,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user1->id,
             'kode_petugas' => 'PTG'.Str::upper(Str::random(5)),
             'nama_petugas' => 'Administrator',
-            'jenis_kelamin' => 'Laki-laki',
+            // 'jenis_kelamin' => 'Laki-laki',
         ]);
 
 		$user2 = User::create([
@@ -225,7 +194,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user2->id,
             'kode_petugas' => 'PTG'.Str::upper(Str::random(5)),
             'nama_petugas' => 'Elaina San',
-            'jenis_kelamin' => 'Perempuan',
+            // 'jenis_kelamin' => 'Perempuan',
         ]);
 
     	$user3 = User::create([
@@ -240,10 +209,9 @@ class DatabaseSeeder extends Seeder
             'kode_dokter' => 'DR'.Str::upper(Str::random(6)),
             'npa' => '08909978',
             'nama_dokter' => 'Dokter Indonesia',
-            'jenis_kelamin' => 'Perempuan',
+            // 'jenis_kelamin' => 'Perempuan',
             'alamat' => 'Metal Float',
             'no_telepon' => '08599876098',
-            'spesialis_id' => $spesialis1->id,
         ]);
     }
 }

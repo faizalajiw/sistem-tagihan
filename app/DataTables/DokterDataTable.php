@@ -9,7 +9,7 @@ class DokterDataTable
 {
         public function data()
         {
-                $data = Dokter::with(['spesialis'])->latest();
+                $data = Dokter::latest();
                 return DataTables::of($data)
                         ->addIndexColumn()
                         ->addColumn('action', function ($row) {

@@ -9,7 +9,6 @@
   <h2 style="font-family: sans-serif;">Laporan Pembayaran</h2><br><br>
   <b style="font-family: sans-serif;">Nama Dokter : {{ $data_dokter->nama_dokter }}</b><br><br>
   <b style="font-family: sans-serif;">NPA : {{ $data_dokter->npa }}</b><br><br>
-  <b style="font-family: sans-serif;">Spesialis : {{ $data_dokter->spesialis->nama_spesialis }}</b><br><br>
 </center>
 <br>
 <b>Untuk Tahun : {{ request()->tahun_bayar }}</b><br><br>

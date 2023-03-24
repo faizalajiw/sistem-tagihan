@@ -10,7 +10,6 @@
 	        <p>	
 	        	Nama Dokter : <b>{{ $dokter->nama_dokter }}</b><br>
 		        NPA : <b>{{ $dokter->npa }}</b><br>
-		        Spesialis : <b>{{ $dokter->spesialis->nama_spesialis }}</b>
 	    	</p>
       	</div>
       	<div class="callout callout-danger">

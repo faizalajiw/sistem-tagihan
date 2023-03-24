@@ -9,7 +9,6 @@ use App\Models\User;
 use App\Models\Dokter;
 use App\Models\Spp;
 use App\Models\Petugas;
-use App\Models\Spesialis;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -39,9 +38,10 @@ class DokterController extends Controller
 
         $dokter = Dokter::all();
         $spp = Spp::all();
-        $spesialis = Spesialis::all();
+        // $spesialis = Spesialis::all();
 
-        return view('admin.dokter.index', compact('dokter', 'spp', 'spesialis'));
+        return view('admin.dokter.index', compact('dokter', 'spp'));
+        // return view('admin.dokter.index', compact('dokter', 'spp', 'spesialis'));
     }
 
     /**
@@ -74,10 +74,10 @@ class DokterController extends Controller
                     'kode_dokter' => 'DR'.Str::upper(Str::random(6)),
                     'npa' => $request->npa,
                     'nama_dokter' => $request->nama_dokter,
-                    'jenis_kelamin' => $request->jenis_kelamin,
+                    // 'jenis_kelamin' => $request->jenis_kelamin,
                     'alamat' => $request->alamat,
                     'no_telepon' => $request->no_telepon,
-                    'spesialis_id' => $request->spesialis_id,
+                    // 'spesialis_id' => $request->spesialis_id,
                 ]);
             });
 
@@ -95,7 +95,8 @@ class DokterController extends Controller
      */
     public function edit($id)
     {
-        $dokter = Dokter::with(['spesialis', 'spp'])->findOrFail($id);
+        $dokter = Dokter::with(['spp'])->findOrFail($id);
+        // $dokter = Dokter::with(['spesialis', 'spp'])->findOrFail($id);
         return response()->json(['data' => $dokter]);
     }
 
@@ -117,10 +118,10 @@ class DokterController extends Controller
         if ($validator->passes()) {
             Dokter::findOrFail($id)->update([
                 'nama_dokter' => $request->nama_dokter,
-                'jenis_kelamin' => $request->jenis_kelamin,
+                // 'jenis_kelamin' => $request->jenis_kelamin,
                 'alamat' => $request->alamat,
                 'no_telepon' => $request->no_telepon,
-                'spesialis_id' => $request->spesialis_id,
+                // 'spesialis_id' => $request->spesialis_id,
             ]);
 
             return response()->json(['message' => 'Data berhasil diupdate!']);

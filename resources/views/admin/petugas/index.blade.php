@@ -26,7 +26,7 @@
           <tr>
             <th>No</th>
             <th>Nama Petugas</th>
-            <th>Jenis Kelamin</th>
+            <!-- <th>Jenis Kelamin</th> -->
             <th>Kode Petugas</th>
             <th>Aksi</th>
           </tr>
@@ -34,7 +34,6 @@
           <tbody>
           <tr>
           	<td></td>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -73,14 +72,14 @@
             <label for="nama_petugas">Nama Petugas:</label>
             <input required="" type="text" name="nama_petugas" id="nama_petugas" class="form-control">
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="jenis_kelamin">Jenis Kelamin:</label>
             <select required="" name="jenis_kelamin" id="jenis_kelamin" class="form-control">
                 <option disabled="" selected="">- PILIH JENIS KELAMIN -</option>
                 <option value="Laki-laki">Laki-laki</option>
                 <option value="Perempuan">Perempuan</option>
             </select>
-          </div>            
+          </div>             -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -115,14 +114,14 @@
             <input required="" readonly="" type="hidden" name="id" id="id_edit" class="form-control">
             <input required="" type="text" name="nama_petugas" id="nama_petugas_edit" class="form-control">
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="jenis_kelamin_edit">Jenis Kelamin:</label>
             <select required="" name="jenis_kelamin" id="jenis_kelamin_edit" class="form-control">
                 <option disabled="" selected="">- PILIH JENIS KELAMIN -</option>
                 <option value="Laki-laki">Laki-laki</option>
                 <option value="Perempuan">Perempuan</option>
             </select>
-          </div>            
+          </div>             -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
