@@ -23,7 +23,8 @@ class PembayaranController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Dokter::with(['spesialis'])->latest();
+            $data = Dokter::latest();
+            // $data = Dokter::with(['spesialis'])->latest();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row) {
@@ -41,8 +42,8 @@ class PembayaranController extends Controller
 
     public function bayar($npa)
     {	
-    	$dokter = Dokter::with(['spesialis'])
-            ->where('npa', $npa)
+    	$dokter = Dokter::where('npa', $npa)
+    	// $dokter = Dokter::with(['spesialis'])
             ->first();
 
         $spp = Spp::all();
@@ -107,8 +108,8 @@ class PembayaranController extends Controller
     public function statusPembayaran(Request $request)
     {
         if ($request->ajax()) {
-            $data = Dokter::with(['spesialis'])
-                ->latest()
+            $data = Dokter::latest()
+            // $data = Dokter::with(['spesialis'])
                 ->get();
                 
             return DataTables::of($data)
@@ -150,9 +151,8 @@ class PembayaranController extends Controller
     public function historyPembayaran(Request $request)
     {
         if ($request->ajax()) {
-            $data = Pembayaran::with(['petugas', 'dokter' => function($query){
-                $query->with('spesialis');
-            }])
+            $data = Pembayaran::with(['petugas', 'dokter'])
+                // $query->with('spesialis');
                 ->latest()->get();
 
             return DataTables::of($data)

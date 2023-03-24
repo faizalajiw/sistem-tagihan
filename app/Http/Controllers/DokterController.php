@@ -40,9 +40,7 @@ class DokterController extends Controller
             $dokter = Dokter::where('user_id', Auth::user()->id)
                 ->first();
             
-            $data = Pembayaran::with(['petugas', 'dokter' => function($query) {
-                $query->with(['spesialis']);
-            }])
+            $data = Pembayaran::with(['petugas', 'dokter'])
                 ->where('dokter_id', $dokter->id)
                 ->latest()
                 ->get();
