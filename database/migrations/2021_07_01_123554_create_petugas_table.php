@@ -18,7 +18,7 @@ class CreatePetugasTable extends Migration
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('kode_petugas')->nullable();
             $table->string('nama_petugas')->nullable();
-            $table->string('jenis_kelamin')->nullable();
+            // $table->string('jenis_kelamin')->nullable();
             $table->timestamps();
         });
     }
