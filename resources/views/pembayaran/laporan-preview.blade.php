@@ -16,7 +16,6 @@
       <th scope="col" style="font-family: sans-serif;">No</th>
       <th scope="col" style="font-family: sans-serif;">Nama Dokter</th>
       <th scope="col" style="font-family: sans-serif;">NPA</th>
-      <th scope="col" style="font-family: sans-serif;">Spesilais</th>
       <th scope="col" style="font-family: sans-serif;">Tanggal Bayar</th>
       <th scope="col" style="font-family: sans-serif;">Petugas</th>
       <th scope="col" style="font-family: sans-serif;">Jumlah Bayar</th>

@@ -18,13 +18,12 @@
             <th>No</th>
             <th>Nama Dokter</th>
             <th>NPA</th>
-            <th>Jenis Kelamin</th>
+            <!-- <th>Jenis Kelamin</th> -->
             <th>Detail</th>
           </tr>
           </thead>
           <tbody>
           <tr>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -60,7 +59,7 @@ $(function () {
           {data: 'DT_RowIndex' , name: 'id'},
           {data: 'nama_dokter', name: 'nama_dokter'},
           {data: 'npa', name: 'npa'},
-          {data: 'jenis_kelamin', name: 'jenis_kelamin'},
+          // {data: 'jenis_kelamin', name: 'jenis_kelamin'},
           {data: 'action', name: 'action', orderable: false, searchable: true},
       ]
   });
