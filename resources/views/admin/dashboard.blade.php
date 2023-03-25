@@ -24,11 +24,25 @@
     </div>
   </div>
   <!-- ./col -->
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-success">
+      <div class="inner">
+        <h3>{{ $pembayaran }}</h3>
+
+        <p>Pembayaran</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-money-bill"></i>
+      </div>
+      <a href="{{ route('pembayaran-spp.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
   <!-- ./col -->
   <!-- ./col -->
   <div class="col-lg-3 col-6">
     <!-- small box -->
-    <div class="small-box bg-success">
+    <div class="small-box bg-primary">
       <div class="inner">
         <h3>{{ $total_petugas }}</h3>
 
@@ -40,10 +54,10 @@
       <a href="{{ route('petugas.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
     </div>
   </div>
+
   <!-- ./col -->
   <div class="col-lg-3 col-6">
-    <!-- small box -->
-    <div class="small-box bg-warning">
+  <div class="small-box bg-danger">
       <div class="inner">
         <h3>{{ $total_admin }}</h3>
 
@@ -52,9 +66,12 @@
       <div class="icon">
         <i class="fas fa-user-secret"></i>
       </div>
-      <a href="{{ route('admin-list.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+      <a href="{{ route('pembayaran-spp.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
     </div>
   </div>
+  
+  <!-- ./col -->
+  
 </div>
 <!-- /.row -->
 
