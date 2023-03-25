@@ -20,9 +20,11 @@ class Dokter extends Model
     	'kode_dokter',
     	'npa',
     	'nama_dokter',
-        // 'jenis_kelamin',
     	'alamat',
     	'no_telepon',
+    	'praktek1',
+    	'praktek2',
+    	'praktek3',
     ];
 
     public function user()

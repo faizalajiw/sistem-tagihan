@@ -58,6 +58,9 @@ class DokterController extends Controller
             'npa' => 'required|unique:dokter',
             'alamat' => 'required',
             'no_telepon' => 'required',
+            'praktek1' => 'required',
+            'praktek2' => 'nullable',
+            'praktek3' => 'nullable',
         ]);
 
         if ($validator->passes()) {
@@ -74,10 +77,11 @@ class DokterController extends Controller
                     'kode_dokter' => 'DR'.Str::upper(Str::random(6)),
                     'npa' => $request->npa,
                     'nama_dokter' => $request->nama_dokter,
-                    // 'jenis_kelamin' => $request->jenis_kelamin,
                     'alamat' => $request->alamat,
                     'no_telepon' => $request->no_telepon,
-                    // 'spesialis_id' => $request->spesialis_id,
+                    'praktek1' => $request->praktek1,
+                    'praktek2' => $request->praktek2,
+                    'praktek3' => $request->praktek3,
                 ]);
             });
 
@@ -113,15 +117,19 @@ class DokterController extends Controller
             'nama_dokter' => 'required',
             'alamat' => 'required',
             'no_telepon' => 'required',
+            'praktek1' => 'required',
+            'praktek2' => 'nullable',
+            'praktek3' => 'nullable',
         ]);
 
         if ($validator->passes()) {
             Dokter::findOrFail($id)->update([
                 'nama_dokter' => $request->nama_dokter,
-                // 'jenis_kelamin' => $request->jenis_kelamin,
                 'alamat' => $request->alamat,
                 'no_telepon' => $request->no_telepon,
-                // 'spesialis_id' => $request->spesialis_id,
+                'praktek1' => $request->praktek1,
+                'praktek2' => $request->praktek2,
+                'praktek3' => $request->praktek3,
             ]);
 
             return response()->json(['message' => 'Data berhasil diupdate!']);
