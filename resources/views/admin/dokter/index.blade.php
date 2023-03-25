@@ -32,13 +32,21 @@
             <th>No</th>
             <th>Nama Dokter</th>
             <th>NPA</th>
+            <th>Alamat Rumah</th>
             <!-- <th>Jenis Kelamin</th> -->
             <th>No Whatsapp</th>
+            <th>Praktek 1</th>
+            <th>Praktek 2</th>
+            <th>Praktek 3</th>
             <th>Aksi</th>
           </tr>
           </thead>
           <tbody>
           <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -71,6 +79,7 @@
           <div class="alert alert-danger print-error-msg" style="display: none;">
             <ul></ul>
           </div>
+          <!-- BARIS KE 1 -->
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
@@ -90,31 +99,43 @@
                 <input required="" type="text" name="npa" id="npa" class="form-control">  
               </div>
             </div>
-          </div>
-          <div class="row">
-            <!-- <div class="col-lg-3">
-              <div class="form-group">
-                <label for="jenis_kelamin">Jenis Kelamin:</label>
-                <select required="" name="jenis_kelamin" id="jenis_kelamin" class="form-control select2bs4">
-                    <option disabled="" selected="">- PILIH JENIS KELAMIN -</option>
-                    <option value="Laki-laki">Laki-laki</option>
-                    <option value="Perempuan">Perempuan</option>
-                </select>
-              </div>
-            </div> -->
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="alamat">Alamat:</label>
-                <input required="" type="text" name="alamat" id="alamat" class="form-control">
+                <label for="alamat">Alamat Rumah:</label>
+                <input type="text" name="alamat" id="alamat" class="form-control">
               </div>
             </div>
+          </div>
+          <!-- AKHIR BARIS KE 1 -->
+
+          <!-- BARIS KE 2 -->
+          <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="no_telepon">No Whatsapp:</label>
                 <input required="" type="text" name="no_telepon" id="no_telepon" class="form-control">
               </div>
             </div>  
+            <div class="col-lg-3">
+              <div class="form-group">
+                <label for="no_telepon">Praktek 1:</label>
+                <input type="text" name="praktek1" id="praktek1" class="form-control">
+              </div>
+            </div>  
+            <div class="col-lg-3">
+              <div class="form-group">
+                <label for="no_telepon">Praktek 2:</label>
+                <input type="text" name="praktek2" id="praktek2" class="form-control">
+              </div>
+            </div>  
+            <div class="col-lg-3">
+              <div class="form-group">
+                <label for="no_telepon">Praktek 3:</label>
+                <input type="text" name="praktek3" id="praktek3" class="form-control">
+              </div>
+            </div>  
           </div>
+          <!-- AKHIR BARIS KE 2 -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
@@ -143,38 +164,58 @@
           <div class="alert alert-danger print-error-msg" style="display: none;">
             <ul></ul>
           </div>
+          <!-- BARIS KE 1 -->
           <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-3">
               <div class="form-group">
                 <label for="nama_dokter_edit">Nama Dokter:</label>
                 <input type="hidden" name="id_edit" id="id_edit" class="form-control" readonly="">
                 <input required="" type="text" name="nama_dokter" id="nama_dokter_edit" class="form-control">
               </div>
             </div>  
-            <div class="col-lg-6">
+            <div class="col-lg-3">
               <div class="form-group">
-                <label for="alamat_edit">Alamat:</label>
-                <input required="" type="text" name="alamat" id="alamat_edit" class="form-control">
+                <label for="npa">NPA</label>
+                <input required="" type="text" name="npa" id="npa_edit" class="form-control" readonly="">  
               </div>
             </div>
-          </div>
-          <div class="row">
-            <!-- <div class="col-lg-4">
+            <div class="col-lg-3">
               <div class="form-group">
-                <label for="jenis_kelamin_edit">Jenis Kelamin:</label>
-                <select required="" name="jenis_kelamin" id="jenis_kelamin_edit" class="form-control">
-                    <option value="Laki-laki">Laki-laki</option>
-                    <option value="Perempuan">Perempuan</option>
-                </select>
+                <label for="alamat">Alamat Rumah:</label>
+                <input type="text" name="alamat" id="alamat_edit" class="form-control">
               </div>
-            </div> -->
-            <div class="col-lg-4">
+            </div>
+            <div class="col-lg-3">
               <div class="form-group">
-                <label for="no_telepon_edit">No Whatsapp:</label>
+                <label for="no_telepon">No Whatsapp:</label>
                 <input required="" type="text" name="no_telepon" id="no_telepon_edit" class="form-control">
               </div>
-            </div>
+            </div>  
           </div>
+          <!-- AKHIR BARIS KE 1 -->
+
+          <!-- BARIS KE 2 -->
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="form-group">
+                <label for="no_telepon">Praktek 1:</label>
+                <input type="text" name="praktek1" id="praktek1_edit" class="form-control">
+              </div>
+            </div>  
+            <div class="col-lg-3">
+              <div class="form-group">
+                <label for="no_telepon">Praktek 2:</label>
+                <input type="text" name="praktek2" id="praktek2_edit" class="form-control">
+              </div>
+            </div>  
+            <div class="col-lg-3">
+              <div class="form-group">
+                <label for="no_telepon">Praktek 3:</label>
+                <input type="text" name="praktek3" id="praktek3_edit" class="form-control">
+              </div>
+            </div>  
+          </div>
+          <!-- AKHIR BARIS KE 2 -->
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE</button>
