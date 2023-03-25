@@ -18,8 +18,8 @@ class DashboardController extends Controller
     		'total_dokter' => DB::table('dokter')->count(),
     		'total_admin' => DB::table('model_has_roles')->where('role_id', 1)->count(),
     		'total_petugas' => DB::table('petugas')->count(),
-            'dokter_laki_laki' => $dokter_laki_laki,
-            'dokter_perempuan' => $dokter_perempuan,
+            // 'dokter_laki_laki' => $dokter_laki_laki,
+            // 'dokter_perempuan' => $dokter_perempuan,
     	]);
     }
 }

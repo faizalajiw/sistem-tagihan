@@ -83,8 +83,7 @@ var ctx = document.getElementById("canvas").getContext('2d');
       datasets: [{
         label: '',
         data: [
-        {!! $dokter_laki_laki !!},
-        {!! $dokter_perempuan !!},
+        {!! $total_dokter !!},
         ],
         backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
