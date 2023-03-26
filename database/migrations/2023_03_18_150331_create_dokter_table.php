@@ -18,9 +18,11 @@ class CreateDokterTable extends Migration
             $table->string('kode_dokter')->nullable();
             $table->string('npa')->nullable();
             $table->string('nama_dokter')->nullable();
-            // $table->string('jenis_kelamin')->nullable();
             $table->string('alamat')->nullable();
             $table->string('no_telepon')->nullable();
+            $table->string('praktek1')->nullable();
+            $table->string('praktek2')->nullable();
+            $table->string('praktek3')->nullable();
             $table->foreignId('user_id')->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
