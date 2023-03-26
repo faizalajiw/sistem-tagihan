@@ -32,7 +32,7 @@
             <th>No</th>
             <th>Nama Dokter</th>
             <th>NPA</th>
-            <th>Alamat Rumah</th>
+            <th>Alamat</th>
             <!-- <th>Jenis Kelamin</th> -->
             <th>No Whatsapp</th>
             <th>Praktek 1</th>
@@ -101,7 +101,7 @@
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="alamat">Alamat Rumah:</label>
+                <label for="alamat">Alamat:</label>
                 <input type="text" name="alamat" id="alamat" class="form-control">
               </div>
             </div>
@@ -181,7 +181,7 @@
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="alamat">Alamat Rumah:</label>
+                <label for="alamat">Alamat:</label>
                 <input type="text" name="alamat" id="alamat_edit" class="form-control">
               </div>
             </div>
