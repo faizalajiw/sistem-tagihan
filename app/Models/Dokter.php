@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
-use App\Models\Spp;
+use App\Models\Tagihan;
 use App\Models\Petugas;
 use App\Models\Pembayaran;
 
@@ -37,9 +37,9 @@ class Dokter extends Model
         return $this->belongsTo(Petugas::class);
     }
 
-    public function spp()
+    public function tagihan()
     {
-        return $this->belongsTo(Spp::class);
+        return $this->belongsTo(Tagihan::class);
     }
 
     public function pembayaran()

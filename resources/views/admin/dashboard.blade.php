@@ -35,7 +35,7 @@
       <div class="icon">
         <i class="fas fa-money-bill"></i>
       </div>
-      <a href="{{ route('pembayaran-spp.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+      <a href="{{ route('pembayaran-tagihan.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <!-- ./col -->
@@ -66,7 +66,7 @@
       <div class="icon">
         <i class="fas fa-user-secret"></i>
       </div>
-      <a href="{{ route('pembayaran-spp.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+      <a href="{{ route('pembayaran-tagihan.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
     </div>
   </div>
   

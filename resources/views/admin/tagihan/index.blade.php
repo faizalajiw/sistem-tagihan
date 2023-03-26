@@ -14,7 +14,7 @@
   <div class="col-12">
     <div class="card">
       <div class="card-header">
-      @can('create-spp')
+      @can('create-tagihan')
         <a href="javascript:void(0)" class="btn btn-primary btn-sm" 
         data-toggle="modal" data-target="#createModal">
           <i class="fas fa-plus fa-fw"></i> Tambah Data
@@ -133,5 +133,5 @@
 <script src="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <!-- Sweetalert 2 -->
 <script type="text/javascript" src="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/sweetalert2/sweetalert2.min.js"></script>
-@include('admin.spp.ajax')
+@include('admin.tagihan.ajax')
 @endpush

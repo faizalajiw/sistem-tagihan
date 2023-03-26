@@ -75,13 +75,13 @@ class Universe
 	}
 
 	// cek status pembayaran (diakses oleh dokter)
-	public static function statusPembayaranBulan($bulan, $spp_tahun)
+	public static function statusPembayaranBulan($bulan, $tagihan_tahun)
 	{
 		$dokter = Dokter::where('user_id', Auth::user()->id)
             ->first();
 
 	    $pembayaran = Pembayaran::where('dokter_id', $dokter->id)
-	        ->where('tahun_bayar', $spp_tahun)
+	        ->where('tahun_bayar', $tagihan_tahun)
 	        ->oldest()
 	        ->pluck('bulan_bayar')->toArray();
 

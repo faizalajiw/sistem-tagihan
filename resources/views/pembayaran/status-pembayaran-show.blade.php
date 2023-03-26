@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 @endpush
-@section('content_title', 'Pembayaran Tahun '.$spp->tahun)
+@section('content_title', 'Pembayaran Tahun '.$tagihan->tahun)
 @section('content')
 <x-alert></x-alert>
 <div class="row">
@@ -54,7 +54,7 @@
         @else
         <div class="alert alert-danger" role="alert">
           <h4 class="alert-heading">Data Pembayaran Tidak Tersedia!</h4>
-          <p>Pembayaran {{ $dokter->nama_dokter }} di Tahun {{ $spp->tahun }} tidak tersedia.</p>
+          <p>Pembayaran {{ $dokter->nama_dokter }} di Tahun {{ $tagihan->tahun }} tidak tersedia.</p>
         </div>
         @endif
       </div>
@@ -89,13 +89,13 @@
           <tr>
             <td>{{ $value['nama_bulan'] }}</td>
             <td>
-              @if(Universe::statusPembayaran($dokter->id, $spp->tahun, $value['nama_bulan']) == 'DIBAYAR')
+              @if(Universe::statusPembayaran($dokter->id, $tagihan->tahun, $value['nama_bulan']) == 'DIBAYAR')
                 <a href="javascript:(0)" class="btn btn-success btn-sm"><i class=""></i> 
-                  {{ Universe::statusPembayaran($dokter->id, $spp->tahun, $value['nama_bulan']) }}
+                  {{ Universe::statusPembayaran($dokter->id, $tagihan->tahun, $value['nama_bulan']) }}
                 </a>
               @else
                 <a href="javascript:(0)" class="btn btn-danger btn-sm"><i class=""></i> 
-                  {{ Universe::statusPembayaran($dokter->id, $spp->tahun, $value['nama_bulan']) }}
+                  {{ Universe::statusPembayaran($dokter->id, $tagihan->tahun, $value['nama_bulan']) }}
                 </a>
               @endif
             </td>
@@ -106,7 +106,7 @@
         @else
         <div class="alert alert-danger" role="alert">
           <h4 class="alert-heading">Data Status Pembayaran Tidak Tersedia!</h4>
-          <p>Status Pembayaran Tagihan {{ $dokter->nama_dokter }} di Tahun {{ $spp->tahun }} tidak tersedia.</p>
+          <p>Status Pembayaran Tagihan {{ $dokter->nama_dokter }} di Tahun {{ $tagihan->tahun }} tidak tersedia.</p>
         </div>
         @endif
       </div>

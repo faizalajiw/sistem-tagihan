@@ -72,7 +72,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('pembayaran-spp.index') }}" class="nav-link {{ Request::segment(2) == 'pembayaran-spp' ? 'active' : '' }}">
+          <a href="{{ route('pembayaran-tagihan.index') }}" class="nav-link {{ Request::segment(2) == 'pembayaran-tagihan' ? 'active' : '' }}">
             <i class="nav-icon fas fa-list"></i>
             <p>
               Pembayaran
@@ -104,7 +104,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('spp.index') }}" class="nav-link {{ Request::segment(2) == 'spp' ? 'active' : '' }}">
+          <a href="{{ route('tagihan.index') }}" class="nav-link {{ Request::segment(2) == 'tagihan' ? 'active' : '' }}">
             <i class="nav-icon fas fa-money-bill"></i>
             <p>
               Tagihan
@@ -124,7 +124,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('pembayaran-spp.index') }}" class="nav-link {{ Request::segment(2) == 'pembayaran-spp' ? 'active' : '' }}">
+          <a href="{{ route('pembayaran-tagihan.index') }}" class="nav-link {{ Request::segment(2) == 'pembayaran-tagihan' ? 'active' : '' }}">
             <i class="nav-icon fas fa-list"></i>
             <p>
               Pembayaran
@@ -132,7 +132,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="{{ route('spp.index') }}" class="nav-link {{ Request::segment(2) == 'spp' ? 'active' : '' }}">
+          <a href="{{ route('tagihan.index') }}" class="nav-link {{ Request::segment(2) == 'tagihan' ? 'active' : '' }}">
             <i class="nav-icon fas fa-money-bill"></i>
             <p>
               Tagihan
@@ -180,7 +180,7 @@
         @role('dokter')
         <li class="nav-header">PEMBAYARAN</li>
         <li class="nav-item">
-          <a href="{{ route('dokter.pembayaran-spp') }}" class="nav-link {{ Request::segment(2) == 'pembayaran-spp' ? 'active' : '' }}">
+          <a href="{{ route('dokter.pembayaran-tagihan') }}" class="nav-link {{ Request::segment(2) == 'pembayaran-tagihan' ? 'active' : '' }}">
             <i class="nav-icon fas fa-money-bill"></i>
             <p>
               Pembayaran

@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Petugas;
 use App\Models\Dokter;
-use App\Models\Spp;
+use App\Models\Tagihan;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
@@ -57,21 +57,21 @@ class DatabaseSeeder extends Seeder
             'name' => 'delete-users',
         ]);
 
-        // spp
+        // tagihan
         Permission::create([
-            'name' => 'create-spp',
+            'name' => 'create-tagihan',
         ]);
 
         Permission::create([
-            'name' => 'read-spp',
+            'name' => 'read-tagihan',
         ]);
 
         Permission::create([
-            'name' => 'update-spp',
+            'name' => 'update-tagihan',
         ]);
 
         Permission::create([
-            'name' => 'delete-spp',
+            'name' => 'delete-tagihan',
         ]);
 
         // roles
@@ -125,18 +125,18 @@ class DatabaseSeeder extends Seeder
             'name' => 'delete-pembayaran',
         ]);
 
-        // seed spp
-        Spp::create([
+        // seed tagihan
+        Tagihan::create([
             'tahun' => '2020',
             'nominal' => 165000,
         ]);
 
-        Spp::create([
+        Tagihan::create([
             'tahun' => '2021',
             'nominal' => 170000,
         ]);
 
-        Spp::create([
+        Tagihan::create([
             'tahun' => '2022',
             'nominal' => 175000,
         ]);
@@ -148,7 +148,7 @@ class DatabaseSeeder extends Seeder
 
         $role1->syncPermissions([
             'create-dokter', 'read-dokter', 'update-dokter', 'delete-dokter', 
-            'create-spp', 'read-spp', 'update-spp', 'delete-spp',
+            'create-tagihan', 'read-tagihan', 'update-tagihan', 'delete-tagihan',
             'create-users', 'read-users', 'update-users', 'delete-users',
             'create-roles', 'read-roles', 'update-roles', 'delete-roles',
             'create-pembayaran', 'read-pembayaran', 'update-pembayaran', 'delete-pembayaran',
@@ -161,7 +161,7 @@ class DatabaseSeeder extends Seeder
 
         $role2->syncPermissions([
             'create-dokter', 'read-dokter', 'update-dokter', 'delete-dokter',
-            'create-spp', 'read-spp', 'update-spp', 'delete-spp',
+            'create-tagihan', 'read-tagihan', 'update-tagihan', 'delete-tagihan',
             'create-pembayaran', 'read-pembayaran', 'update-pembayaran', 'delete-pembayaran',
         ]);
 

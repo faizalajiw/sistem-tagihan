@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Dokter;
-use App\Models\Spp;
+use App\Models\Tagihan;
 use App\Models\Petugas;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
@@ -37,11 +37,11 @@ class DokterController extends Controller
         }
 
         $dokter = Dokter::all();
-        $spp = Spp::all();
+        $tagihan = Tagihan::all();
         // $spesialis = Spesialis::all();
 
-        return view('admin.dokter.index', compact('dokter', 'spp'));
-        // return view('admin.dokter.index', compact('dokter', 'spp', 'spesialis'));
+        return view('admin.dokter.index', compact('dokter', 'tagihan'));
+        // return view('admin.dokter.index', compact('dokter', 'tagihan', 'spesialis'));
     }
 
     /**
@@ -99,8 +99,8 @@ class DokterController extends Controller
      */
     public function edit($id)
     {
-        $dokter = Dokter::with(['spp'])->findOrFail($id);
-        // $dokter = Dokter::with(['spesialis', 'spp'])->findOrFail($id);
+        $dokter = Dokter::with(['tagihan'])->findOrFail($id);
+        // $dokter = Dokter::with(['spesialis', 'tagihan'])->findOrFail($id);
         return response()->json(['data' => $dokter]);
     }
 

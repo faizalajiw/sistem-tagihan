@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Dokter;
 
-class Spp extends Model
+class Tagihan extends Model
 {
     use HasFactory;
 
-    protected $table = 'spp';
+    protected $table = 'tagihan';
 
     protected $fillable = [
     	'tahun',

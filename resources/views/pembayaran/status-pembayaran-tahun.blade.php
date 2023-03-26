@@ -1,6 +1,6 @@
 @extends('layouts.backend.app')
-@section('title', 'Pembayaran Spp '.$dokter->nama_dokter)
-@section('content_title', 'Pembayaran Spp '.$dokter->nama_dokter)
+@section('title', 'Pembayaran Tagihan '.$dokter->nama_dokter)
+@section('content_title', 'Pembayaran Tagihan '.$dokter->nama_dokter)
 @section('content')
 <div class="row">
 	<div class="col-lg-6">
@@ -31,7 +31,7 @@
 			</div>
 			<div class="card-body">
 				<div class="list-group">
-				  @foreach($spp as $row)
+				  @foreach($tagihan as $row)
 				  	@if($row->tahun == date('Y'))
 				  	<a href="{{ route('pembayaran.status-pembayaran.show-status', [$dokter->npa,$row->tahun]) }}" class="list-group-item list-group-item-action active">
 				  		{{ $row->tahun }}

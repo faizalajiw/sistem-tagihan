@@ -71,7 +71,7 @@ $(function () {
       processing: true,
       serverSide: true,
       "responsive": true,
-      ajax: "{{ route('pembayaran-spp.index') }}",
+      ajax: "{{ route('pembayaran-tagihan.index') }}",
       columns: [
           {data: 'DT_RowIndex' , name: 'id'},
           {data: 'dokter.nama_dokter', name: 'dokter.nama_dokter'},
@@ -102,7 +102,7 @@ $("body").on('click', '.btn-delete', function() {
   }).then((result) => {
     if (result.isConfirmed) {
       $.ajax({
-        url: "/admin/pembayaran-spp/"+id,
+        url: "/admin/pembayaran-tagihan/"+id,
         method: "DELETE",
         success: function(response) {
           $('#dataTable2').DataTable().ajax.reload()
