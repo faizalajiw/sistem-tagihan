@@ -6,8 +6,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Petugas;
 use App\Models\Dokter;
-use App\Models\Spesialis;
-use App\Models\Spp;
+use App\Models\Tagihan;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
@@ -58,38 +57,21 @@ class DatabaseSeeder extends Seeder
             'name' => 'delete-users',
         ]);
 
-        // spp
+        // tagihan
         Permission::create([
-            'name' => 'create-spp',
+            'name' => 'create-tagihan',
         ]);
 
         Permission::create([
-            'name' => 'read-spp',
+            'name' => 'read-tagihan',
         ]);
 
         Permission::create([
-            'name' => 'update-spp',
+            'name' => 'update-tagihan',
         ]);
 
         Permission::create([
-            'name' => 'delete-spp',
-        ]);
-
-        // Spesialis
-        Permission::create([
-            'name' => 'create-spesialis',
-        ]);
-
-        Permission::create([
-            'name' => 'read-spesialis',
-        ]);
-
-        Permission::create([
-            'name' => 'update-spesialis',
-        ]);
-
-        Permission::create([
-            'name' => 'delete-spesialis',
+            'name' => 'delete-tagihan',
         ]);
 
         // roles
@@ -143,18 +125,18 @@ class DatabaseSeeder extends Seeder
             'name' => 'delete-pembayaran',
         ]);
 
-        // seed spp
-        Spp::create([
+        // seed tagihan
+        Tagihan::create([
             'tahun' => '2020',
             'nominal' => 165000,
         ]);
 
-        Spp::create([
+        Tagihan::create([
             'tahun' => '2021',
             'nominal' => 170000,
         ]);
 
-        Spp::create([
+        Tagihan::create([
             'tahun' => '2022',
             'nominal' => 175000,
         ]);
@@ -166,8 +148,7 @@ class DatabaseSeeder extends Seeder
 
         $role1->syncPermissions([
             'create-dokter', 'read-dokter', 'update-dokter', 'delete-dokter', 
-            'create-spesialis', 'read-spesialis', 'update-spesialis', 'delete-spesialis',
-            'create-spp', 'read-spp', 'update-spp', 'delete-spp',
+            'create-tagihan', 'read-tagihan', 'update-tagihan', 'delete-tagihan',
             'create-users', 'read-users', 'update-users', 'delete-users',
             'create-roles', 'read-roles', 'update-roles', 'delete-roles',
             'create-pembayaran', 'read-pembayaran', 'update-pembayaran', 'delete-pembayaran',
@@ -180,24 +161,12 @@ class DatabaseSeeder extends Seeder
 
         $role2->syncPermissions([
             'create-dokter', 'read-dokter', 'update-dokter', 'delete-dokter',
-            'create-spesialis', 'read-spesialis', 'update-spesialis', 'delete-spesialis',
-            'create-spp', 'read-spp', 'update-spp', 'delete-spp',
+            'create-tagihan', 'read-tagihan', 'update-tagihan', 'delete-tagihan',
             'create-pembayaran', 'read-pembayaran', 'update-pembayaran', 'delete-pembayaran',
         ]);
 
         $role3 = Role::create([
             'name' => 'dokter'
-        ]);
-
-        // seed spesialis
-        $spesialis1 = Spesialis::create([
-            'nama_spesialis' => 'Anak',
-            'kompetensi_keahlian' => 'Memeriksa kesehatan anak',
-        ]);
-
-        $spesialis2 = Spesialis::create([
-            'nama_spesialis' => 'Kandungan',
-            'kompetensi_keahlian' => 'Memeriksa kesehatan ibu hamil',
         ]);
 
     	$user1 = User::create([
@@ -211,7 +180,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user1->id,
             'kode_petugas' => 'PTG'.Str::upper(Str::random(5)),
             'nama_petugas' => 'Administrator',
-            'jenis_kelamin' => 'Laki-laki',
+            // 'jenis_kelamin' => 'Laki-laki',
         ]);
 
 		$user2 = User::create([
@@ -225,7 +194,7 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user2->id,
             'kode_petugas' => 'PTG'.Str::upper(Str::random(5)),
             'nama_petugas' => 'Elaina San',
-            'jenis_kelamin' => 'Perempuan',
+            // 'jenis_kelamin' => 'Perempuan',
         ]);
 
     	$user3 = User::create([
@@ -240,10 +209,9 @@ class DatabaseSeeder extends Seeder
             'kode_dokter' => 'DR'.Str::upper(Str::random(6)),
             'npa' => '08909978',
             'nama_dokter' => 'Dokter Indonesia',
-            'jenis_kelamin' => 'Perempuan',
+            // 'jenis_kelamin' => 'Perempuan',
             'alamat' => 'Metal Float',
             'no_telepon' => '08599876098',
-            'spesialis_id' => $spesialis1->id,
         ]);
     }
 }

@@ -4,7 +4,7 @@ $(function () {
       processing: true,
       serverSide: true,
       "responsive": true,
-      ajax: "{{ route('spp.index') }}",
+      ajax: "{{ route('tagihan.index') }}",
       columns: [
           {data: 'DT_RowIndex' , name: 'id'},
           {data: 'tahun', name: 'tahun'},
@@ -24,7 +24,7 @@ $(function () {
   $("#store").on("submit",function(e){
     e.preventDefault()
     $.ajax({
-      url: "{{ route('spp.store') }}",
+      url: "{{ route('tagihan.store') }}",
       method: "POST",
       data: $(this).serialize(),
       success:function(response){
@@ -67,7 +67,7 @@ $(function () {
     var id = $(this).attr("id")
 
     $.ajax({
-      url: "/admin/spp/"+id+"/edit",
+      url: "/admin/tagihan/"+id+"/edit",
       method: "GET",
       success:function(response){
         $("#editModal").modal("show")
@@ -92,7 +92,7 @@ $(function () {
     e.preventDefault()
     var id = $("#id_edit").val()
     $.ajax({
-        url: "/admin/spp/"+id,
+        url: "/admin/tagihan/"+id,
         method: "PATCH",
         data: $(this).serialize(),
         success:function(response){
@@ -134,7 +134,7 @@ $(function () {
     }).then((result) => {
       if (result.isConfirmed) {
         $.ajax({
-          url: "/admin/spp/"+id,
+          url: "/admin/tagihan/"+id,
           method: "DELETE",
           success: function(response) {
             $('#dataTable2').DataTable().ajax.reload()

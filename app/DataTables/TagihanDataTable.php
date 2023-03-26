@@ -2,14 +2,14 @@
 
 namespace App\DataTables;
 
-use App\Models\Spp;
+use App\Models\Tagihan;
 use Yajra\DataTables\DataTables;
 
-class SppDataTable
+class TagihanDataTable
 {
     public function data()
     {
-        $data = Spp::oldest('tahun');
+        $data = Tagihan::oldest('tahun');
         return DataTables::of($data)
             ->addIndexColumn()
             ->addColumn('action', function ($row) {

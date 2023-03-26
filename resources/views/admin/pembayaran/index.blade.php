@@ -23,7 +23,6 @@
           <tr>
             <th>No</th>
             <th>Nama Dokter</th>
-            <th>Spesialis</th>
             <th>NPA</th>
             <th>Tanggal Bayar</th>
             <th>Nama Petugas</th>
@@ -35,7 +34,6 @@
           </thead>
           <tbody>
           <tr>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -67,17 +65,16 @@
 <!-- Sweetalert 2 -->
 <script type="text/javascript" src="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/sweetalert2/sweetalert2.min.js"></script>
 <script>
- $(function () {
+$(function () {
   
   var table = $("#dataTable2").DataTable({
       processing: true,
       serverSide: true,
       "responsive": true,
-      ajax: "{{ route('pembayaran-spp.index') }}",
+      ajax: "{{ route('pembayaran-tagihan.index') }}",
       columns: [
           {data: 'DT_RowIndex' , name: 'id'},
           {data: 'dokter.nama_dokter', name: 'dokter.nama_dokter'},
-          {data: 'dokter.spesialis.nama_spesialis', name: 'dokter.spesialis.nama_spesialis'},
           {data: 'npa', name: 'npa'},
           {data: 'tanggal_bayar', name: 'tanggal_bayar'},
           {data: 'petugas.nama_petugas', name: 'petugas.nama_petugas'},
@@ -105,7 +102,7 @@ $("body").on('click', '.btn-delete', function() {
   }).then((result) => {
     if (result.isConfirmed) {
       $.ajax({
-        url: "/admin/pembayaran-spp/"+id,
+        url: "/admin/pembayaran-tagihan/"+id,
         method: "DELETE",
         success: function(response) {
           $('#dataTable2').DataTable().ajax.reload()

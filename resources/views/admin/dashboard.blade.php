@@ -24,25 +24,25 @@
     </div>
   </div>
   <!-- ./col -->
-  <!-- ./col -->
-  <div class="col-lg-3 col-6">
-    <!-- small box -->
-    <div class="small-box bg-danger">
-      <div class="inner">
-        <h3>{{ $total_spesialis }}</h3>
-
-        <p>Spesialis</p>
-      </div>
-      <div class="icon">
-        <i class="fas fa-school"></i>
-      </div>
-      <a href="{{ route('spesialis.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-    </div>
-  </div>
-  <!-- ./col -->
   <div class="col-lg-3 col-6">
     <!-- small box -->
     <div class="small-box bg-success">
+      <div class="inner">
+        <h3>{{ $pembayaran }}</h3>
+
+        <p>Pembayaran</p>
+      </div>
+      <div class="icon">
+        <i class="fas fa-money-bill"></i>
+      </div>
+      <a href="{{ route('pembayaran-tagihan.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+  </div>
+  <!-- ./col -->
+  <!-- ./col -->
+  <div class="col-lg-3 col-6">
+    <!-- small box -->
+    <div class="small-box bg-primary">
       <div class="inner">
         <h3>{{ $total_petugas }}</h3>
 
@@ -54,10 +54,10 @@
       <a href="{{ route('petugas.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
     </div>
   </div>
+
   <!-- ./col -->
   <div class="col-lg-3 col-6">
-    <!-- small box -->
-    <div class="small-box bg-warning">
+  <div class="small-box bg-danger">
       <div class="inner">
         <h3>{{ $total_admin }}</h3>
 
@@ -66,9 +66,12 @@
       <div class="icon">
         <i class="fas fa-user-secret"></i>
       </div>
-      <a href="{{ route('admin-list.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+      <a href="{{ route('pembayaran-tagihan.index') }}" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
     </div>
   </div>
+  
+  <!-- ./col -->
+  
 </div>
 <!-- /.row -->
 
@@ -97,8 +100,7 @@ var ctx = document.getElementById("canvas").getContext('2d');
       datasets: [{
         label: '',
         data: [
-        {!! $dokter_laki_laki !!},
-        {!! $dokter_perempuan !!},
+        {!! $total_dokter !!},
         ],
         backgroundColor: [
         'rgba(255, 99, 132, 0.2)',

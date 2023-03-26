@@ -5,33 +5,33 @@ namespace App\Http\Controllers;
 use App\Models\Dokter;
 use Illuminate\Http\Request;
 use App\Models\Pembayaran;
-use App\Models\Spp;
+use App\Models\Tagihan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
-use Barryvdh\DomPDF\PDF as PDF;
+use PDF;
 
 class DokterController extends Controller
 {
-    public function pembayaranSpp()
+    public function pembayaranTagihan()
     {
-        $spp = Spp::all();
+        $tagihan = Tagihan::all();
 
-        return view('dokter.pembayaran-spp', compact('spp'));
+        return view('dokter.pembayaran-tagihan', compact('tagihan'));
     }
 
-    public function pembayaranSppShow(Spp $spp)
+    public function pembayaranTagihanShow(Tagihan $tagihan)
     {
         $dokter = Dokter::where('user_id', Auth::user()->id)
             ->first();
 
         $pembayaran = Pembayaran::with(['petugas', 'dokter'])
             ->where('dokter_id', $dokter->id)
-            ->where('tahun_bayar', $spp->tahun)
+            ->where('tahun_bayar', $tagihan->tahun)
             ->oldest()
             ->get();
 
-        return view('dokter.pembayaran-spp-show', compact('pembayaran', 'dokter', 'spp'));
+        return view('dokter.pembayaran-tagihan-show', compact('pembayaran', 'dokter', 'tagihan'));
     }
 
     public function historyPembayaran(Request $request)
@@ -40,9 +40,7 @@ class DokterController extends Controller
             $dokter = Dokter::where('user_id', Auth::user()->id)
                 ->first();
             
-            $data = Pembayaran::with(['petugas', 'dokter' => function($query) {
-                $query->with(['spesialis']);
-            }])
+            $data = Pembayaran::with(['petugas', 'dokter'])
                 ->where('dokter_id', $dokter->id)
                 ->latest()
                 ->get();
@@ -78,8 +76,8 @@ class DokterController extends Controller
 
     public function laporanPembayaran()
     {
-        $spp = Spp::all();
-        return view('dokter.laporan', compact('spp'));
+        $tagihan = Tagihan::all();
+        return view('dokter.laporan', compact('tagihan'));
     }
 
     public function printPdf(Request $request)
@@ -96,12 +94,12 @@ class DokterController extends Controller
 
         if ($data['pembayaran']->count() > 0) {
             $pdf = PDF::loadView('dokter.laporan-preview', $data);
-            return $pdf->download('pembayaran-spp-'.$dokter->nama_dokter.'-'.
+            return $pdf->download('pembayaran-tagihan-'.$dokter->nama_dokter.'-'.
                 $dokter->npa.'-'.
                 $request->tahun_bayar.'-'.
                 Str::random(9).'.pdf');
         }else{
-            return back()->with('error', 'Data Pembayaran Spp Anda Tahun '.$request->tahun_bayar.' tidak tersedia');
+            return back()->with('error', 'Data Pembayaran Tagihan Anda Tahun '.$request->tahun_bayar.' tidak tersedia');
         }
     }
 }

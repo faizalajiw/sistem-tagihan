@@ -5,14 +5,14 @@
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 @endpush
-@section('content_title', 'Pembayaran Tahun '.$spp->tahun)
+@section('content_title', 'Pembayaran Tahun '.$tagihan->tahun)
 @section('content')
 <x-alert></x-alert>
 <div class="row">
   <div class="col-12">
     <div class="card">
       <div class="card-header">
-        <a href="{{ route('dokter.pembayaran-spp') }}" class="btn btn-danger btn-sm">
+        <a href="{{ route('dokter.pembayaran-tagihan') }}" class="btn btn-danger btn-sm">
           <i class="fas fa-fw fa-arrow-left"></i> KEMBALI
         </a>
       </div>
@@ -24,7 +24,6 @@
           <tr>
             <th>No</th>
             <th>Nama Dokter</th>
-            <th>Spesialis</th>
             <th>NPA</th>
             <th>Tanggal Bayar</th>
             <th>Nama Petugas</th>
@@ -39,7 +38,6 @@
           <tr>
           	<td>{{ $loop->iteration }}</td>
             <td>{{ $row->dokter->nama_dokter }}</td>
-            <td>{{ $row->dokter->spesialis->nama_spesialis }}</td>
             <td>{{ $row->npa }}</td>
             <td>{{ \Carbon\Carbon::parse($row->tanggal_bayar)->format('d-m-Y') }}</td>
             <td>{{ $row->petugas->nama_petugas }}</td>
@@ -56,7 +54,7 @@
         @else
         <div class="alert alert-danger" role="alert">
           <h4 class="alert-heading">Data Pembayaran Tidak Tersedia!</h4>
-          <p>Pembayaran Spp Anda di Tahun {{ $spp->tahun }} tidak tersedia.</p>
+          <p>Pembayaran Anda di Tahun {{ $tagihan->tahun }} tidak tersedia.</p>
         </div>
         @endif
       </div>
@@ -91,13 +89,13 @@
           <tr>
             <td>{{ $value['nama_bulan'] }}</td>
             <td>
-              @if(Universe::statusPembayaranBulan($value['nama_bulan'], $spp->tahun) == 'DIBAYAR')
+              @if(Universe::statusPembayaranBulan($value['nama_bulan'], $tagihan->tahun) == 'DIBAYAR')
                 <a href="javascript:(0)" class="btn btn-success btn-sm"><i class=""></i> 
-                  {{ Universe::statusPembayaranBulan($value['nama_bulan'], $spp->tahun) }}
+                  {{ Universe::statusPembayaranBulan($value['nama_bulan'], $tagihan->tahun) }}
                 </a>
               @else
                 <a href="javascript:(0)" class="btn btn-danger btn-sm"><i class=""></i> 
-                  {{ Universe::statusPembayaranBulan($value['nama_bulan'], $spp->tahun) }}
+                  {{ Universe::statusPembayaranBulan($value['nama_bulan'], $tagihan->tahun) }}
                 </a>
               @endif
             </td>
@@ -108,7 +106,7 @@
         @else
         <div class="alert alert-danger" role="alert">
           <h4 class="alert-heading">Data Status Pembayaran Tidak Tersedia!</h4>
-          <p>Status Pembayaran Spp Anda di Tahun {{ $spp->tahun }} tidak tersedia.</p>
+          <p>Status Pembayaran Anda di Tahun {{ $tagihan->tahun }} tidak tersedia.</p>
         </div>
         @endif
       </div>

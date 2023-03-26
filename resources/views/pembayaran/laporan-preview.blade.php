@@ -6,7 +6,7 @@
 <body>
 <br><br>
 <center>
-  <h2 style="font-family: sans-serif;">Laporan Pembayaran Spp</h2>
+  <h2 style="font-family: sans-serif;">Laporan Pembayaran</h2>
 </center>
 <br>
 <b>Dari tanggal {{ \Carbon\Carbon::parse(request()->tanggal_mulai)->format('d-m-Y') }} - {{ \Carbon\Carbon::parse(request()->tanggal_selesai)->format('d-m-Y') }}</b><br><br>
@@ -16,7 +16,6 @@
       <th scope="col" style="font-family: sans-serif;">No</th>
       <th scope="col" style="font-family: sans-serif;">Nama Dokter</th>
       <th scope="col" style="font-family: sans-serif;">NPA</th>
-      <th scope="col" style="font-family: sans-serif;">Spesilais</th>
       <th scope="col" style="font-family: sans-serif;">Tanggal Bayar</th>
       <th scope="col" style="font-family: sans-serif;">Petugas</th>
       <th scope="col" style="font-family: sans-serif;">Jumlah Bayar</th>
@@ -28,7 +27,6 @@
       <th scope="row" style="font-family: sans-serif;">{{ $loop->iteration }}</th>
       <td style="font-family: sans-serif;">{{ $row->dokter->nama_dokter }}</td>
       <td style="font-family: sans-serif;">{{ $row->npa }}</td>
-      <td style="font-family: sans-serif;">{{ $row->dokter->spesialis->nama_spesialis }}</td>
       <td style="font-family: sans-serif;">
         {{ \Carbon\Carbon::parse($row->tanggal_bayar)->format('d-m-Y') }}
       </td>

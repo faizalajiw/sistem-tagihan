@@ -4,18 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Spp;
+use App\Models\Tagihan;
 use Illuminate\Support\Facades\Validator;
-use App\DataTables\SppDataTable;
+use App\DataTables\TagihanDataTable;
 
-class SppController extends Controller
+class TagihanController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(['permission:read-spp'])->only(['index', 'show']);
-        $this->middleware(['permission:create-spp'])->only(['create', 'store']);
-        $this->middleware(['permission:update-spp'])->only(['edit', 'update']);
-        $this->middleware(['permission:delete-spp'])->only(['destroy']);
+        $this->middleware(['permission:read-tagihan'])->only(['index', 'show']);
+        $this->middleware(['permission:create-tagihan'])->only(['create', 'store']);
+        $this->middleware(['permission:update-tagihan'])->only(['edit', 'update']);
+        $this->middleware(['permission:delete-tagihan'])->only(['destroy']);
     }
 
     /**
@@ -23,13 +23,13 @@ class SppController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request, SppDataTable $datatable)
+    public function index(Request $request, TagihanDataTable $datatable)
     {
         if ($request->ajax()) {
             return $datatable->data();
         }
 
-        return view('admin.spp.index');
+        return view('admin.tagihan.index');
     }
 
     /**
@@ -41,12 +41,12 @@ class SppController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'tahun' => ['required', 'unique:spp'],
+            'tahun' => ['required', 'unique:tagihan'],
             'nominal' => ['required', 'numeric'],
         ]);
 
         if ($validator->passes()) {
-            Spp::create($request->all());
+            Tagihan::create($request->all());
             return response()->json(['message' => 'Data berhasil disimpan!']);
         }
 
@@ -61,8 +61,8 @@ class SppController extends Controller
      */
     public function edit($id)
     {
-        $spp = Spp::findOrFail($id);
-        return response()->json(['data' => $spp]);
+        $tagihan = Tagihan::findOrFail($id);
+        return response()->json(['data' => $tagihan]);
     }
 
     /**
@@ -79,7 +79,7 @@ class SppController extends Controller
         ]);
 
         if ($validator->passes()) {
-            Spp::findOrFail($id)->update($request->all());
+            Tagihan::findOrFail($id)->update($request->all());
             return response()->json(['message' => 'Data berhasil diupdate!']);
         }
 
@@ -94,7 +94,7 @@ class SppController extends Controller
      */
     public function destroy($id)
     {
-        Spp::findOrFail($id)->delete();
+        Tagihan::findOrFail($id)->delete();
         return response()->json(['message' => 'Data berhasil dihapus!']);
     }
 }

@@ -7,9 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Dokter;
-use App\Models\Spp;
+use App\Models\Tagihan;
 use App\Models\Petugas;
-use App\Models\Spesialis;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -38,10 +37,11 @@ class DokterController extends Controller
         }
 
         $dokter = Dokter::all();
-        $spp = Spp::all();
-        $spesialis = Spesialis::all();
+        $tagihan = Tagihan::all();
+        // $spesialis = Spesialis::all();
 
-        return view('admin.dokter.index', compact('dokter', 'spp', 'spesialis'));
+        return view('admin.dokter.index', compact('dokter', 'tagihan'));
+        // return view('admin.dokter.index', compact('dokter', 'tagihan', 'spesialis'));
     }
 
     /**
@@ -58,6 +58,9 @@ class DokterController extends Controller
             'npa' => 'required|unique:dokter',
             'alamat' => 'required',
             'no_telepon' => 'required',
+            'praktek1' => 'required',
+            'praktek2' => 'nullable',
+            'praktek3' => 'nullable',
         ]);
 
         if ($validator->passes()) {
@@ -74,10 +77,11 @@ class DokterController extends Controller
                     'kode_dokter' => 'DR'.Str::upper(Str::random(6)),
                     'npa' => $request->npa,
                     'nama_dokter' => $request->nama_dokter,
-                    'jenis_kelamin' => $request->jenis_kelamin,
                     'alamat' => $request->alamat,
                     'no_telepon' => $request->no_telepon,
-                    'spesialis_id' => $request->spesialis_id,
+                    'praktek1' => $request->praktek1,
+                    'praktek2' => $request->praktek2,
+                    'praktek3' => $request->praktek3,
                 ]);
             });
 
@@ -95,7 +99,8 @@ class DokterController extends Controller
      */
     public function edit($id)
     {
-        $dokter = Dokter::with(['spesialis', 'spp'])->findOrFail($id);
+        $dokter = Dokter::with(['tagihan'])->findOrFail($id);
+        // $dokter = Dokter::with(['spesialis', 'tagihan'])->findOrFail($id);
         return response()->json(['data' => $dokter]);
     }
 
@@ -112,15 +117,19 @@ class DokterController extends Controller
             'nama_dokter' => 'required',
             'alamat' => 'required',
             'no_telepon' => 'required',
+            'praktek1' => 'required',
+            'praktek2' => 'nullable',
+            'praktek3' => 'nullable',
         ]);
 
         if ($validator->passes()) {
             Dokter::findOrFail($id)->update([
                 'nama_dokter' => $request->nama_dokter,
-                'jenis_kelamin' => $request->jenis_kelamin,
                 'alamat' => $request->alamat,
                 'no_telepon' => $request->no_telepon,
-                'spesialis_id' => $request->spesialis_id,
+                'praktek1' => $request->praktek1,
+                'praktek2' => $request->praktek2,
+                'praktek3' => $request->praktek3,
             ]);
 
             return response()->json(['message' => 'Data berhasil diupdate!']);

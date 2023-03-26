@@ -25,7 +25,7 @@ Route::middleware(['auth'])->group(function(){
 Route::prefix('pembayaran')->middleware(['auth', 'role:admin|petugas'])->group(function(){
 	Route::get('bayar', 'PembayaranController@index')->name('pembayaran.index');
 	Route::get('bayar/{npa}', 'PembayaranController@bayar')->name('pembayaran.bayar');
-	Route::get('spp/{tahun}', 'PembayaranController@spp')->name('pembayaran.spp');
+	Route::get('tagihan/{tahun}', 'PembayaranController@tagihan')->name('pembayaran.tagihan');
 	Route::post('bayar/{npa}', 'PembayaranController@prosesBayar')->name('pembayaran.proses-bayar');
 	Route::get('status-pembayaran', 'PembayaranController@statusPembayaran')
 		->name('pembayaran.status-pembayaran');
@@ -74,9 +74,8 @@ Route::prefix('admin')
 	});
 	
 	Route::middleware(['role:admin|petugas'])->group(function(){
-		Route::resource('spp', 'SppController');
-		Route::resource('pembayaran-spp', 'PembayaranController');
-		Route::resource('spesialis', 'SpesialisController');
+		Route::resource('tagihan', 'TagihanController');
+		Route::resource('pembayaran-tagihan', 'PembayaranController');
 		Route::resource('dokter', 'DokterController');
 		Route::delete('delete-all-dokter', 'CheckBoxDeleteController@deleteAllDokter')
 			->name('delete-all-dokter');
@@ -86,8 +85,8 @@ Route::prefix('admin')
 Route::prefix('dokter')
 ->middleware(['auth', 'role:dokter'])
 ->group(function(){
-	Route::get('pembayaran-spp', 'DokterController@pembayaranSpp')->name('dokter.pembayaran-spp');
-	Route::get('pembayaran-spp/{spp:tahun}', 'DokterController@pembayaranSppShow')->name('dokter.pembayaran-spp.pembayaranSppShow');
+	Route::get('pembayaran-tagihan', 'DokterController@pembayaranTagihan')->name('dokter.pembayaran-tagihan');
+	Route::get('pembayaran-tagihan/{tagihan:tahun}', 'DokterController@pembayaranTagihanShow')->name('dokter.pembayaran-tagihan.pembayaranTagihanShow');
 	Route::get('history-pembayaran', 'DokterController@historyPembayaran')->name('dokter.history-pembayaran');
 	Route::get('history-pembayaran/preview/{id}', 'DokterController@previewHistoryPembayaran')->name('dokter.history-pembayaran.preview');
 	Route::get('laporan-pembayaran', 'DokterController@laporanPembayaran')->name('dokter.laporan-pembayaran');

@@ -8,7 +8,7 @@ $(function () {
       columns: [
           {data: 'DT_RowIndex' , name: 'id'},
           {data: 'nama_petugas', name: 'nama_petugas'},
-          {data: 'jenis_kelamin', name: 'jenis_kelamin'},
+          // {data: 'jenis_kelamin', name: 'jenis_kelamin'},
           {data: 'kode_petugas', name: 'kode_petugas'},
           {data: 'action', name: 'action', orderable: false, searchable: true},
       ]
@@ -65,7 +65,7 @@ $(function () {
             $("#editModal").modal("show")
             $("#id_edit").val(response.data.id)
             $("#nama_petugas_edit").val(response.data.nama_petugas)
-            $("#jenis_kelamin_edit").val(response.data.jenis_kelamin)
+            // $("#jenis_kelamin_edit").val(response.data.jenis_kelamin)
         }
     })
   });

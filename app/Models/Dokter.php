@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
-use App\Models\Spp;
+use App\Models\Tagihan;
 use App\Models\Petugas;
 use App\Models\Pembayaran;
-use App\Models\Spesialis;
 
 class Dokter extends Model
 {
@@ -21,10 +20,11 @@ class Dokter extends Model
     	'kode_dokter',
     	'npa',
     	'nama_dokter',
-        'jenis_kelamin',
     	'alamat',
     	'no_telepon',
-    	'spesialis_id',
+    	'praktek1',
+    	'praktek2',
+    	'praktek3',
     ];
 
     public function user()
@@ -32,19 +32,14 @@ class Dokter extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function spesialis()
-    {
-        return $this->belongsTo(Spesialis::class);
-    }
-
     public function petugas()
     {
         return $this->belongsTo(Petugas::class);
     }
 
-    public function spp()
+    public function tagihan()
     {
-        return $this->belongsTo(Spp::class);
+        return $this->belongsTo(Tagihan::class);
     }
 
     public function pembayaran()

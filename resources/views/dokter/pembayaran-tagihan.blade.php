@@ -8,13 +8,13 @@
 			<div class="card-header">Pilih Tahun</div>
 			<div class="card-body">
 				<div class="list-group">
-				  @foreach($spp as $row)
+				  @foreach($tagihan as $row)
 				  	@if($row->tahun == date('Y'))
-				  	<a href="{{ route('dokter.pembayaran-spp.pembayaranSppShow', $row->tahun) }}" class="list-group-item list-group-item-action active">
+				  	<a href="{{ route('dokter.pembayaran-tagihan.pembayaranTagihanShow', $row->tahun) }}" class="list-group-item list-group-item-action active">
 				  		{{ $row->tahun }}
 				  	</a>
 				  	@else
-				  	<a href="{{ route('dokter.pembayaran-spp.pembayaranSppShow', $row->tahun) }}" class="list-group-item list-group-item-action">
+				  	<a href="{{ route('dokter.pembayaran-tagihan.pembayaranTagihanShow', $row->tahun) }}" class="list-group-item list-group-item-action">
 				  		{{ $row->tahun }}
 				  	</a>
 				  	@endif

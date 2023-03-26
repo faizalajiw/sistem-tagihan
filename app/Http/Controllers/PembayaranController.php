@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Models\Spp;
+use App\Models\Tagihan;
 use App\Models\Petugas;
 use App\Models\Pembayaran;
 use Carbon\Carbon;
@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Validator;
 use App\Helpers\Bulan;
 use App\Models\Dokter;
-use Barryvdh\DomPDF\PDF as PDF;
+use PDF;
 use Yajra\DataTables\Facades\DataTables;
 
 class PembayaranController extends Controller
@@ -23,7 +23,8 @@ class PembayaranController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Dokter::with(['spesialis'])->latest();
+            $data = Dokter::latest();
+            // $data = Dokter::with(['spesialis'])->latest();
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row) {
@@ -41,23 +42,23 @@ class PembayaranController extends Controller
 
     public function bayar($npa)
     {	
-    	$dokter = Dokter::with(['spesialis'])
-            ->where('npa', $npa)
+    	$dokter = Dokter::where('npa', $npa)
+    	// $dokter = Dokter::with(['spesialis'])
             ->first();
 
-        $spp = Spp::all();
+        $tagihan = Tagihan::all();
 
-    	return view('pembayaran.bayar', compact('dokter', 'spp'));
+    	return view('pembayaran.bayar', compact('dokter', 'tagihan'));
     }
 
-    public function spp($tahun)
+    public function tagihan($tahun)
     {
-        $spp = Spp::where('tahun', $tahun)
+        $tagihan = Tagihan::where('tahun', $tahun)
             ->first();
         
         return response()->json([
-            'data' => $spp,
-            'nominal_rupiah' => 'Rp '.number_format($spp->nominal, 0, 2, '.'),
+            'data' => $tagihan,
+            'nominal_rupiah' => 'Rp '.number_format($tagihan->nominal, 0, 2, '.'),
         ]);
     }
 
@@ -107,8 +108,8 @@ class PembayaranController extends Controller
     public function statusPembayaran(Request $request)
     {
         if ($request->ajax()) {
-            $data = Dokter::with(['spesialis'])
-                ->latest()
+            $data = Dokter::latest()
+            // $data = Dokter::with(['spesialis'])
                 ->get();
                 
             return DataTables::of($data)
@@ -127,8 +128,8 @@ class PembayaranController extends Controller
 
     public function statusPembayaranShow(Dokter $dokter)
     {
-        $spp = Spp::all();
-        return view('pembayaran.status-pembayaran-tahun', compact('dokter', 'spp'));
+        $tagihan = Tagihan::all();
+        return view('pembayaran.status-pembayaran-tahun', compact('dokter', 'tagihan'));
     }
 
     public function statusPembayaranShowStatus($npa, $tahun)
@@ -136,23 +137,22 @@ class PembayaranController extends Controller
         $dokter = Dokter::where('npa', $npa)
             ->first();
         
-        $spp = Spp::where('tahun', $tahun)
+        $tagihan = Tagihan::where('tahun', $tahun)
             ->first();
 
         $pembayaran = Pembayaran::with(['dokter'])
             ->where('dokter_id', $dokter->id)
-            ->where('tahun_bayar', $spp->tahun)
+            ->where('tahun_bayar', $tagihan->tahun)
             ->get();
 
-        return view('pembayaran.status-pembayaran-show', compact('dokter', 'spp', 'pembayaran'));
+        return view('pembayaran.status-pembayaran-show', compact('dokter', 'tagihan', 'pembayaran'));
     }
 
     public function historyPembayaran(Request $request)
     {
         if ($request->ajax()) {
-            $data = Pembayaran::with(['petugas', 'dokter' => function($query){
-                $query->with('spesialis');
-            }])
+            $data = Pembayaran::with(['petugas', 'dokter'])
+                // $query->with('spesialis');
                 ->latest()->get();
 
             return DataTables::of($data)
@@ -196,12 +196,12 @@ class PembayaranController extends Controller
 
         if ($data['pembayaran']->count() > 0) {
             $pdf = PDF::loadView('pembayaran.laporan-preview', $data);
-            return $pdf->download('pembayaran-spp-'.
+            return $pdf->download('pembayaran-tagihan-'.
             Carbon::parse($request->tanggal_mulai)->format('d-m-Y').'-'.
             Carbon::parse($request->tanggal_selesai)->format('d-m-Y').
             Str::random(9).'.pdf');   
         }else{
-            return back()->with('error', 'Data pembayaran spp tanggal '.
+            return back()->with('error', 'Data pembayaran tanggal '.
                 Carbon::parse($request->tanggal_mulai)->format('d-m-Y').' sampai dengan '.
                 Carbon::parse($request->tanggal_selesai)->format('d-m-Y').' Tidak Tersedia');
         }

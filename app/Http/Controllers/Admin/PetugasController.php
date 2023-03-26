@@ -54,7 +54,7 @@ class PetugasController extends Controller
                     'user_id' => $user->id,
                     'kode_petugas' => 'PTGR'.Str::upper(Str::random(5)),
                     'nama_petugas' => $request->nama_petugas,
-                    'jenis_kelamin' => $request->jenis_kelamin,
+                    // 'jenis_kelamin' => $request->jenis_kelamin,
                 ]);
             });
 

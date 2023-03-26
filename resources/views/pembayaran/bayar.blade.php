@@ -42,38 +42,7 @@
 						</div>
 						<div class="col-lg-3">
 							<div class="form-group">
-								<label for="nis">No ID:</label>
-								<input required="" type="text" name="nis" value="{{ $dokter->nis }}" readonly id="nis" class="form-control">
-								@error('nis')
-									<small class="text-danger">{{ $message }}</small>
-								@enderror
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="form-group">
-								<label for="spesialis">Spesialis:</label>
-								<input required="" type="text" name="spesialis" value="{{ $dokter->spesialis->nama_spesialis }}" readonly id="spesialis" class="form-control">
-								@error('spesialis')
-									<small class="text-danger">{{ $message }}</small>
-								@enderror
-							</div>
-						</div>	
-					</div>
-					<div class="row">
-						<div class="col-lg-3">
-							<div class="form-group">
-								<label for="tahun_bayar">Untuk Tahun:</label>
-								<select required="" name="tahun_bayar" id="tahun_bayar" class="form-control select2bs4">
-										<option disabled="" selected="">- PILIH TAHUN -</option>
-									@foreach($spp as $row)
-										<option value="{{ $row->tahun }}">{{ $row->tahun }}</option>
-									@endforeach
-								</select>
-							</div>
-						</div>
-						<div class="col-lg-3">
-							<div class="form-group">
-								<label for="jumlah_bayar" id="nominal_spp_label">Nominal Pembayaran:</label>
+								<label for="jumlah_bayar" id="nominal_tagihan_label">Nominal Pembayaran:</label>
 								<input type="" name="nominal" readonly="" id="nominal" class="form-control">
 								<input required="" type="hidden" name="jumlah_bayar" readonly="" id="jumlah_bayar" class="form-control">
 								@error('jumlah_bayar')
@@ -81,7 +50,31 @@
 								@enderror
 							</div>
 						</div>
+					</div>
+					<div class="row">
 						<div class="col-lg-3">
+							<div class="form-group">
+								<label for="tahun_bayar">Untuk Tahun:</label>
+								<select required="" name="tahun_bayar" id="tahun_bayar" class="form-control select2bs4">
+										<option disabled="" selected="">- PILIH TAHUN -</option>
+									@foreach($tagihan as $row)
+										<option value="{{ $row->tahun }}">{{ $row->tahun }}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+						<div class="col-lg-3">
+						<div class="form-group select2-purple">
+								<label for="bulan_bayar">Untuk Bulan:</label>
+								<select required="" name="bulan_bayar[]" id="bulan_bayar" class="select2" multiple="multiple" data-dropdown-css-class="select2-purple" data-placeholder="Pilih Bulan" style="width: 100%;">
+									@foreach(Universe::bulanAll() as $bulan)
+										<option value="{{ $bulan['nama_bulan'] }}">{{ $bulan['nama_bulan'] }}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
+						
+						<!-- <div class="col-lg-3">
 							<div class="form-group select2-purple">
 								<label for="bulan_bayar">Untuk Bulan:</label>
 								<select required="" name="bulan_bayar[]" id="bulan_bayar" class="select2" multiple="multiple" data-dropdown-css-class="select2-purple" data-placeholder="Pilih Bulan" style="width: 100%;">
@@ -90,7 +83,7 @@
 									@endforeach
 								</select>
 							</div>
-						</div>	
+						</div>	 -->
 						<div class="col-lg-3">
 							<div class="form-group">
 								<label for="total_bayar">Total Bayar:</label>
@@ -134,10 +127,10 @@
     	var tahun = $(this).val()
 
     	$.ajax({
-    		url: "/pembayaran/spp/"+tahun,
+    		url: "/pembayaran/tagihan/"+tahun,
     		method: "GET",
     		success:function(response){
-    			$("#nominal_spp_label").html(`Nominal Spp Tahun `+tahun+':')
+    			$("#nominal_tagihan_label").html(`Nominal Tagihan Tahun `+tahun+':')
     			$("#nominal").val(response.nominal_rupiah)
     			$("#jumlah_bayar").val(response.data.nominal)
     		}

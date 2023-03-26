@@ -21,7 +21,6 @@
           <tr>
             <th>No</th>
             <th>Nama Dokter</th>
-            <th>Spesialis</th>
             <th>NPA</th>
             <th>Tanggal Bayar</th>
             <th>Nama Petugas</th>
@@ -33,7 +32,6 @@
           </thead>
           <tbody>
           <tr>
-          	<td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -73,7 +71,6 @@ $(function () {
       columns: [
           {data: 'DT_RowIndex' , name: 'id'},
           {data: 'dokter.nama_dokter', name: 'dokter.nama_dokter'},
-          {data: 'dokter.spesialis.nama_spesialis', name: 'dokter.spesialis.nama_spesialis'},
           {data: 'dokter.npa', name: 'dokter.npa'},
           {data: 'tanggal_bayar', name: 'tanggal_bayar'},
           {data: 'petugas.nama_petugas', name: 'petugas.nama_petugas'},

@@ -6,13 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Dokter;
 
-class Spesialis extends Model
+class Tagihan extends Model
 {
     use HasFactory;
 
+    protected $table = 'tagihan';
+
     protected $fillable = [
-    	'nama_spesialis',
-    	'kompetensi_keahlian',
+    	'tahun',
+    	'nominal',
     ];
 
     public function dokter()

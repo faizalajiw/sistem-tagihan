@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 @endpush
-@section('content_title', 'Pembayaran')
+@section('content_title', 'Pembayaran Tagihan')
 @section('content')
 <x-alert></x-alert>
 <div class="row">
@@ -18,15 +18,12 @@
             <th>No</th>
             <th>Nama Dokter</th>
             <th>NPA</th>
-            <th>Spesialis</th>
-            <th>Jenis Kelamin</th>
+            <!-- <th>Jenis Kelamin</th> -->
             <th>Detail</th>
           </tr>
           </thead>
           <tbody>
           <tr>
-          	<td></td>
-            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -62,8 +59,7 @@ $(function () {
           {data: 'DT_RowIndex' , name: 'id'},
           {data: 'nama_dokter', name: 'nama_dokter'},
           {data: 'npa', name: 'npa'},
-          {data: 'spesialis.nama_spesialis', name: 'spesialis.nama_spesialis'},
-          {data: 'jenis_kelamin', name: 'jenis_kelamin'},
+          // {data: 'jenis_kelamin', name: 'jenis_kelamin'},
           {data: 'action', name: 'action', orderable: false, searchable: true},
       ]
   });

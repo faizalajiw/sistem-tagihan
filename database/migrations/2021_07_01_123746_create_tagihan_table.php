@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSppTable extends Migration
+class CreateTagihanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateSppTable extends Migration
      */
     public function up()
     {
-        Schema::create('spp', function (Blueprint $table) {
+        Schema::create('tagihan', function (Blueprint $table) {
             $table->id();
             $table->string('tahun')->nullable();
             $table->string('nominal')->nullable();
@@ -28,6 +28,6 @@ class CreateSppTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('spp');
+        Schema::dropIfExists('tagihan');
     }
 }

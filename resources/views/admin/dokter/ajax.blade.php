@@ -10,9 +10,11 @@ $(function () {
           {data: 'DT_RowIndex' , name: 'id'},
           {data: 'nama_dokter', name: 'nama_dokter'},
           {data: 'npa', name: 'npa'},
-          {data: 'spesialis.nama_spesialis', name: 'spesialis.nama_spesialis'},
-          {data: 'jenis_kelamin', name: 'jenis_kelamin'},
+          {data: 'alamat', name: 'alamat'},
           {data: 'no_telepon', name: 'no_telepon'},
+          {data: 'praktek1', name: 'praktek1'},
+          {data: 'praktek2', name: 'praktek2'},
+          {data: 'praktek3', name: 'praktek3'},
           {data: 'action', name: 'action', orderable: false, searchable: true},
       ]
   });
@@ -26,6 +28,9 @@ function resetForm(){
     $("[name='npa']").val("")
     $("[name='alamat']").val("")
     $("[name='no_telepon']").val("")
+    $("[name='praktek1']").val("")
+    $("[name='praktek2']").val("")
+    $("[name='praktek3']").val("")
 }
 
 // create
@@ -70,10 +75,12 @@ $("body").on("click", ".btn-edit", function() {
     success: function(response) {
       $("#id_edit").val(response.data.id)
       $("#nama_dokter_edit").val(response.data.nama_dokter)
+      $("#npa_edit").val(response.data.npa)
       $("#alamat_edit").val(response.data.alamat)
       $("#no_telepon_edit").val(response.data.no_telepon)
-      $("#jenis_kelamin_edit").val(response.data.jenis_kelamin)
-      $("#spesialis_id_edit").val(response.data.spesialis_id)
+      $("#praktek1_edit").val(response.data.praktek1)
+      $("#praktek2_edit").val(response.data.praktek2)
+      $("#praktek3_edit").val(response.data.praktek3)
       $("#editModal").modal("show")
     },
     error: function(err) {

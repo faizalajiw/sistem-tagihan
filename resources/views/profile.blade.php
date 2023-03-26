@@ -52,24 +52,14 @@
 						<input type="" name="" value="{{ Universe::dokter()->nama_dokter }}" readonly="" id="" class="form-control">
 					</div>
 				</div>
-				<div class="col-lg-4">
-					<div class="form-group">
-						<label for="username">Spesialis:</label>
-						<input type="" name="" value="{{ Universe::dokter()->spesialis->nama_spesialis }}" readonly="" id="" class="form-control">
-					</div>
-				</div>
+				
 				<div class="col-lg-4">
 					<div class="form-group">
 						<label for="username">NPA:</label>
 						<input type="" name="" value="{{ Universe::dokter()->npa }}" readonly="" id="" class="form-control">
 					</div>
 				</div>
-				<!-- <div class="col-lg-6">
-					<div class="form-group">
-						<label for="username">Nis:</label>
-						<input type="" name="" value="{{ Universe::dokter()->nis }}" readonly="" id="" class="form-control">
-					</div>
-				</div> -->
+				
 				<div class="col-lg-6">
 					<div class="form-group">
 						<label for="username">Username Login:</label>
@@ -124,7 +114,7 @@
 	<div class="col-lg-7">
     	<div class="callout callout-danger">
 	        <h5>Pemberitahuan!</h5>
-	        <p>Password default / Password bawaan dari WEB E-Tagihan adalah : <b>idi2023</b></p>
+	        <p>Password default / Password bawaan dari WEB E-Tagihan adalah : <b>password</b></p>
       </div>
   	</div>
 
