@@ -40,6 +40,16 @@
 								@enderror
 							</div>
 						</div>
+						<div class="col-lg-3">
+						<div class="form-group select2-purple">
+								<label for="bulan_bayar">Untuk Bulan:</label>
+								<select required="" name="bulan_bayar[]" id="bulan_bayar" class="select2" multiple="multiple" data-dropdown-css-class="select2-purple" data-placeholder="Pilih Bulan" style="width: 100%;">
+									@foreach(Universe::bulanAll() as $bulan)
+										<option value="{{ $bulan['nama_bulan'] }}">{{ $bulan['nama_bulan'] }}</option>
+									@endforeach
+								</select>
+							</div>
+						</div>
 					</div>
 					<div class="row">
 						<div class="col-lg-3">
@@ -63,7 +73,7 @@
 								@enderror
 							</div>
 						</div>
-						<div class="col-lg-3">
+						<!-- <div class="col-lg-3">
 							<div class="form-group select2-purple">
 								<label for="bulan_bayar">Untuk Bulan:</label>
 								<select required="" name="bulan_bayar[]" id="bulan_bayar" class="select2" multiple="multiple" data-dropdown-css-class="select2-purple" data-placeholder="Pilih Bulan" style="width: 100%;">
@@ -72,7 +82,7 @@
 									@endforeach
 								</select>
 							</div>
-						</div>	
+						</div>	 -->
 						<div class="col-lg-3">
 							<div class="form-group">
 								<label for="total_bayar">Total Bayar:</label>
