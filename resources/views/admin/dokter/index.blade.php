@@ -32,7 +32,7 @@
             <th>No</th>
             <th>Nama Dokter</th>
             <th>NPA</th>
-            <th>Alamat Rumah</th>
+            <th>Alamat</th>
             <!-- <th>Jenis Kelamin</th> -->
             <th>No Whatsapp</th>
             <th>Praktek 1</th>
