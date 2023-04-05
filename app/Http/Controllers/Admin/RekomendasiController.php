@@ -42,7 +42,7 @@ class RekomendasiController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nama_dokter_rekomendasi' => 'nullable',
+            'nama_dokter_rekomendasi' => 'required',
             'alamat_rekomendasi' => 'nullable',
             'ttl' => 'nullable',
             'no_str' => 'nullable',
@@ -87,8 +87,8 @@ class RekomendasiController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'nama_dokter_rekomendasi' => 'required',
-            'alamat_rekomendasi' => 'required',
-            'ttl' => 'required',
+            'alamat_rekomendasi' => 'nullable',
+            'ttl' => 'nullable',
             'no_str' => 'nullable',
             'alamat_praktik_dimiliki' => 'nullable',
             'alamat_praktik_diminta' => 'nullable',
