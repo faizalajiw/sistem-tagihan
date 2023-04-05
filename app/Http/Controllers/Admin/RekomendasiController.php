@@ -69,6 +69,13 @@ class RekomendasiController extends Controller
         return response()->json(['error' => $validator->errors()->all()]);
     }
 
+    public function edit($id)
+    {
+        $rekomendasi = Rekomendasi::findOrFail($id);
+        // $dokter = Dokter::with(['spesialis', 'tagihan'])->findOrFail($id);
+        return response()->json(['data' => $rekomendasi]);
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -79,7 +86,7 @@ class RekomendasiController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'nama_dokter_rekomendasi' => 'required|alpha',
+            'nama_dokter_rekomendasi' => 'required',
             'alamat_rekomendasi' => 'required',
             'ttl' => 'required',
             'no_str' => 'nullable',

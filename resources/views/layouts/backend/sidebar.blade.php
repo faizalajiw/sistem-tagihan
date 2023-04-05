@@ -113,7 +113,7 @@
         </li>
         <li class="nav-item">
           <a href="{{ route('rekomendasi.index') }}" class="nav-link {{ Request::segment(2) == 'rekomendasi' ? 'active' : '' }}">
-            <i class="nav-icon fas fa-users"></i>
+            <i class="nav-icon fas fa-envelope"></i>
             <p>
               Rekomendasi
             </p>

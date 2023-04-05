@@ -25,10 +25,9 @@
       </div>
       <!-- /.card-header -->
       <div class="card-body">
-        <table id="dataTable2" class="table table-bordered table-striped">
+        <table id="dataTable2" class="table table-bordered table-striped" style="table-layout: auto;">
           <thead>
             <tr>
-              <th>No</th>
               <th>Nama Dokter</th>
               <th>Alamat</th>
               <th>Tempat, Tanggal Lahir</th>
@@ -37,6 +36,7 @@
               <th>Alamat Praktik Yang Diminta</th>
               <th>IDI Cabang</th>
               <th>No Rekomendasi</th>
+              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -49,7 +49,7 @@
               <td></td>
               <td></td>
               <td></td>
-              <td></td>
+              <!-- <td></td> -->
             </tr>
           </tbody>
         </table>
@@ -152,7 +152,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="createModalLabel">Edit Data</h5>
+        <h5 class="modal-title" id="createModalLabel">Edit Data Rekomendasi</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -164,28 +164,28 @@
           </div>
           <!-- BARIS KE 1 -->
           <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-5">
               <div class="form-group">
                 <label for="nama_dokter_rekomendasi_edit">Nama Dokter:</label>
-                <input type="hidden" name="id_edit" id="id_edit" class="form-control" readonly="">
+                <input type="hidden" name="id_edit" id="id_edit" class="form-control" >
                 <input type="text" name="nama_dokter_rekomendasi" id="nama_dokter_rekomendasi_edit" class="form-control">
               </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-5">
               <div class="form-group">
                 <label for="alamat_rekomendasi">Alamat:</label>
                 <input type="text" name="alamat_rekomendasi" id="alamat_rekomendasi_edit" class="form-control">
               </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-5">
               <div class="form-group">
-                <label for="ttl">ttl</label>
-                <input type="text" name="ttl" id="ttl_edit" class="form-control" readonly="">
+                <label for="ttl">Tempat Tanggal Lahir</label>
+                <input type="text" name="ttl" id="ttl_edit" class="form-control" >
               </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-5">
               <div class="form-group">
-                <label for="no_str">No Whatsapp:</label>
+                <label for="no_str">No STR:</label>
                 <input type="text" name="no_str" id="no_str_edit" class="form-control">
               </div>
             </div>
@@ -194,22 +194,28 @@
 
           <!-- BARIS KE 2 -->
           <div class="row">
-            <div class="col-lg-3">
+            <div class="col-lg-5">
               <div class="form-group">
-                <label for="no_str">Praktek 1:</label>
+                <label for="no_str">Alamat Praktik Yang Dimiliki</label>
                 <input type="text" name="alamat_praktik_dimiliki" id="alamat_praktik_dimiliki_edit" class="form-control">
               </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-5">
               <div class="form-group">
-                <label for="no_str">Praktek 2:</label>
+                <label for="no_str">Alamat Praktik Yang Diminta</label>
                 <input type="text" name="alamat_praktik_diminta" id="alamat_praktik_diminta_edit" class="form-control">
               </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-5">
               <div class="form-group">
-                <label for="no_str">Praktek 3:</label>
+                <label for="idi_cabang">IDI Cabang</label>
                 <input type="text" name="idi_cabang" id="idi_cabang_edit" class="form-control">
+              </div>
+            </div>
+            <div class="col-lg-5">
+              <div class="form-group">
+                <label for="no_rekomendasi">No Rekomendasi</label>
+                <input type="text" name="no_rekomendasi" id="no_rekomendasi_edit" class="form-control">
               </div>
             </div>
           </div>

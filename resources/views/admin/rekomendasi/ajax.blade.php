@@ -4,10 +4,10 @@ $(function () {
   var table = $("#dataTable2").DataTable({
       processing: true,
       serverSide: true,
-      "responsive": true,
+      "responsive": false,
       ajax: "{{ route('rekomendasi.index') }}",
       columns: [
-          {data: 'DT_RowIndex' , name: 'id'},
+          // {data: 'id' , name: 'id'},
           {data: 'nama_dokter_rekomendasi', name: 'nama_dokter_rekomendasi'},
           {data: 'alamat_rekomendasi', name: 'alamat_rekomendasi'},
           {data: 'ttl', name: 'ttl'},
