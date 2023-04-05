@@ -53,11 +53,11 @@ class DokterController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'nama_dokter' => 'required',
+            'nama_dokter' => 'required|alpha',
             'username' => 'required|unique:users',
-            'npa' => 'required|unique:dokter',
+            'npa' => 'required|unique:dokter|numeric',
             'alamat' => 'required',
-            'no_telepon' => 'required',
+            'no_telepon' => 'required|numeric',
             'praktek1' => 'required',
             'praktek2' => 'nullable',
             'praktek3' => 'nullable',
@@ -114,9 +114,9 @@ class DokterController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'nama_dokter' => 'required',
+            'nama_dokter' => 'required|alpha',
             'alamat' => 'required',
-            'no_telepon' => 'required',
+            'no_telepon' => 'required|numeric',
             'praktek1' => 'required',
             'praktek2' => 'nullable',
             'praktek3' => 'nullable',

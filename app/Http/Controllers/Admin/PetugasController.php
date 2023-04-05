@@ -38,7 +38,7 @@ class PetugasController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'username' => 'required|unique:users',
-            'nama_petugas' => 'required',
+            'nama_petugas' => 'required|alpha',
         ]);
 
         if ($validator->passes()) {
@@ -87,7 +87,7 @@ class PetugasController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'nama_petugas' => 'required',
+            'nama_petugas' => 'required|alpha',
         ]);
 
         if ($validator->passes()) {
