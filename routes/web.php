@@ -77,6 +77,7 @@ Route::prefix('admin')
 		Route::resource('tagihan', 'TagihanController');
 		Route::resource('pembayaran-tagihan', 'PembayaranController');
 		Route::resource('dokter', 'DokterController');
+		Route::resource('rekomendasi', 'RekomendasiController');
 		Route::delete('delete-all-dokter', 'CheckBoxDeleteController@deleteAllDokter')
 			->name('delete-all-dokter');
 	});
