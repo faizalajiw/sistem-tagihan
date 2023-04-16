@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/select2/css/select2.min.css">
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 @endpush
-@section('content_title', 'Rekomendasi')
+@section('content_title', 'Data Surat Rekomendasi')
 @section('content')
 <x-alert></x-alert>
 <div class="row">
@@ -28,6 +28,7 @@
         <table id="dataTable2" class="table table-bordered table-striped" style="table-layout: auto;">
           <thead>
             <tr>
+              <th>No</th>
               <th>Nama Dokter</th>
               <th>Alamat</th>
               <th>Tempat, Tanggal Lahir</th>
@@ -49,7 +50,8 @@
               <td></td>
               <td></td>
               <td></td>
-              <!-- <td></td> -->
+              <td></td>
+              <td></td>
             </tr>
           </tbody>
         </table>

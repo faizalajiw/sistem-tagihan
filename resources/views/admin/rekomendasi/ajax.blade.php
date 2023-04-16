@@ -7,7 +7,7 @@ $(function () {
       "responsive": false,
       ajax: "{{ route('rekomendasi.index') }}",
       columns: [
-          // {data: 'id' , name: 'id'},
+          {data: 'DT_RowIndex' , name: 'id'},
           {data: 'nama_dokter_rekomendasi', name: 'nama_dokter_rekomendasi'},
           {data: 'alamat_rekomendasi', name: 'alamat_rekomendasi'},
           {data: 'ttl', name: 'ttl'},

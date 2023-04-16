@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Rekomendasi;
 use Illuminate\Support\Facades\Validator;
+use Yajra\DataTables\Facades\DataTables;
+use PDF;
 
 class RekomendasiController extends Controller
 {
@@ -125,5 +127,34 @@ class RekomendasiController extends Controller
         $rekomendasi = Rekomendasi::findOrFail($id);
         $rekomendasi->delete();
         return response()->json(['message' => 'Data berhasil dihapus!']);
+    }
+
+    public function suratRekomendasi(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Rekomendasi::latest();
+                // $query->with('spesialis');
+                
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row) {
+                    $btn = '<div class="row"><a href="'.route('rekomendasi.surat-rekomendasi.print',$row->id).'"class="btn btn-danger btn-sm ml-2" target="_blank">
+                    <i class="fas fa-print fa-fw"></i></a>';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+    	return view('rekomendasi.surat-rekomendasi');
+    }
+
+    public function printRekomendasi($id)
+    {
+        $data['rekomendasi'] = Rekomendasi::where('id', $id)->first();
+
+        $pdf = PDF::loadView('rekomendasi.rekomendasi-preview',$data);
+        return $pdf->stream();
     }
 }

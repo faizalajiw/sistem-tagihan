@@ -4,10 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
-use App\Models\Tagihan;
 use App\Models\Petugas;
-use App\Models\Pembayaran;
 
 class Rekomendasi extends Model
 {
@@ -31,10 +28,10 @@ class Rekomendasi extends Model
     //     return $this->belongsTo(User::class);
     // }
 
-    // public function petugas()
-    // {
-    //     return $this->belongsTo(Petugas::class);
-    // }
+    public function petugas()
+    {
+        return $this->belongsTo(Petugas::class);
+    }
 
     // public function tagihan()
     // {

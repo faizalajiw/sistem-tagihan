@@ -114,7 +114,7 @@ class DokterController extends Controller
     public function update(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            'nama_dokter' => 'required|alpha',
+            'nama_dokter' => 'required',
             'alamat' => 'required',
             'no_telepon' => 'required|numeric',
             'praktek1' => 'required',
