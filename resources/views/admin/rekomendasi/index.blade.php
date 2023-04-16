@@ -37,6 +37,7 @@
               <th>IDI Cabang</th>
               <th>No Rekomendasi</th>
               <th>Aksi</th>
+              <th>Print</th>
             </tr>
           </thead>
           <tbody>
@@ -49,7 +50,7 @@
               <td></td>
               <td></td>
               <td></td>
-              <!-- <td></td> -->
+              <td></td>
             </tr>
           </tbody>
         </table>

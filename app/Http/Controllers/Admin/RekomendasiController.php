@@ -126,4 +126,35 @@ class RekomendasiController extends Controller
         $rekomendasi->delete();
         return response()->json(['message' => 'Data berhasil dihapus!']);
     }
+
+    public function Rekomendasi(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Rekomendasi::with(['petugas', 'dokter'])
+                // $query->with('spesialis');
+                ->latest()->get();
+
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row) {
+                    $btn = '<div class="row"><a href="'.route('rekomendasi.rekomendasi.print',$row->id).'"class="btn btn-danger btn-sm ml-2" target="_blank">
+                    <i class="fas fa-print fa-fw"></i></a>';
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+    	return view('rekomendasi.rekomendasi');
+    }
+
+    public function printRekomendasi($id)
+    {
+        $data['rekomendasi'] = Rekomendasi::with(['petugas', 'dokter'])
+            ->where('id', $id)
+            ->first();
+
+        $pdf = PDF::loadView('rekomendasi.rekomendasi-preview',$data);
+        return $pdf->stream();
+    }
 }
