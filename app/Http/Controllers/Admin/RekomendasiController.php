@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Rekomendasi;
 use Illuminate\Support\Facades\Validator;
+use Yajra\DataTables\Facades\DataTables;
+use PDF;
 
 class RekomendasiController extends Controller
 {
@@ -127,17 +129,17 @@ class RekomendasiController extends Controller
         return response()->json(['message' => 'Data berhasil dihapus!']);
     }
 
-    public function Rekomendasi(Request $request)
+    public function suratRekomendasi(Request $request)
     {
         if ($request->ajax()) {
-            $data = Rekomendasi::with(['petugas', 'dokter'])
+            $data = Rekomendasi::latest();
                 // $query->with('spesialis');
-                ->latest()->get();
+                
 
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row) {
-                    $btn = '<div class="row"><a href="'.route('rekomendasi.rekomendasi.print',$row->id).'"class="btn btn-danger btn-sm ml-2" target="_blank">
+                    $btn = '<div class="row"><a href="'.route('rekomendasi.surat-rekomendasi.print',$row->id).'"class="btn btn-danger btn-sm ml-2" target="_blank">
                     <i class="fas fa-print fa-fw"></i></a>';
                     return $btn;
                 })
@@ -145,14 +147,12 @@ class RekomendasiController extends Controller
                 ->make(true);
         }
 
-    	return view('rekomendasi.rekomendasi');
+    	return view('rekomendasi.surat-rekomendasi');
     }
 
     public function printRekomendasi($id)
     {
-        $data['rekomendasi'] = Rekomendasi::with(['petugas', 'dokter'])
-            ->where('id', $id)
-            ->first();
+        $data['rekomendasi'] = Rekomendasi::where('id', $id)->first();
 
         $pdf = PDF::loadView('rekomendasi.rekomendasi-preview',$data);
         return $pdf->stream();

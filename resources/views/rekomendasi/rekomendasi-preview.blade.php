@@ -10,8 +10,7 @@
 </center>
 <br>
 <div style="float: left;">
-  <b style="font-family: sans-serif;">Nama Dokter : {{ $rekomendasi->dokter->nama_dokter }}</h3><br>
-  <b style="font-family: sans-serif;">NPA : {{ $rekomendasi->dokter->npa }}</b><br>
+  <b style="font-family: sans-serif;">Nama Dokter : {{ $rekomendasi->nama_dokter_rekomendasi }}</h3><br>
 </div>
 
 <br><br><br><br><br>

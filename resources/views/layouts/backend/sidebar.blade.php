@@ -115,7 +115,7 @@
           <a href="{{ route('rekomendasi.index') }}" class="nav-link {{ Request::segment(2) == 'rekomendasi' ? 'active' : '' }}">
             <i class="nav-icon fas fa-envelope"></i>
             <p>
-              Rekomendasi
+              Surat Rekomendasi
             </p>
           </a>
         </li>
@@ -180,6 +180,14 @@
             <i class="nav-icon fas fa-file"></i>
             <p>
               Laporan Pembayaran
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('rekomendasi.surat-rekomendasi') }}" class="nav-link {{ Request::segment(2) == 'surat-rekomendasi' ? 'active' : '' }}">
+            <i class="nav-icon fas fa-envelope"></i>
+            <p>
+              Cetak Rekomendasi
             </p>
           </a>
         </li>
