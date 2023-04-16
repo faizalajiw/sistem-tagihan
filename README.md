@@ -7,7 +7,7 @@
 6. php artisan migrate --seed
 7. php artisan serve untuk menjalankan project
 
-# Website E-Tagihan Dibuat Dengan : 
+# Website Si-Payment IDI Dibuat Dengan : 
 - Framework Laravel 8
 - Template AdminLTE-3
 - Yajra Laravel DataTable Serverside

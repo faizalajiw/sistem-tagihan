@@ -1,6 +1,6 @@
 @extends('layouts.backend.app')
 @section('title', 'Laporan')
-@section('content_title', 'Laporan')
+@section('content_title', 'Laporan Pembayaran')
 @section('content')
 <x-alert></x-alert>
 
