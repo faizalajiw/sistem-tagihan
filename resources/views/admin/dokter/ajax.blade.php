@@ -15,6 +15,7 @@ $(function () {
           {data: 'praktek1', name: 'praktek1'},
           {data: 'praktek2', name: 'praktek2'},
           {data: 'praktek3', name: 'praktek3'},
+          {data: 'status', name: 'status'},
           {data: 'action', name: 'action', orderable: false, searchable: true},
       ]
   });
@@ -31,6 +32,7 @@ function resetForm(){
     $("[name='praktek1']").val("")
     $("[name='praktek2']").val("")
     $("[name='praktek3']").val("")
+    $("[name='status']").val("")
 }
 
 // create
@@ -81,6 +83,7 @@ $("body").on("click", ".btn-edit", function() {
       $("#praktek1_edit").val(response.data.praktek1)
       $("#praktek2_edit").val(response.data.praktek2)
       $("#praktek3_edit").val(response.data.praktek3)
+      $("#status_edit").val(response.data.status)
       $("#editModal").modal("show")
     },
     error: function(err) {

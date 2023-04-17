@@ -55,12 +55,13 @@ class DokterController extends Controller
         $validator = Validator::make($request->all(), [
             'nama_dokter' => 'required',
             'username' => 'required|unique:users',
-            'npa' => 'required|unique:dokter|numeric',
-            'alamat' => 'required',
+            'npa' => 'unique:dokter',
+            'alamat' => 'nullable|required',
             'no_telepon' => 'required|numeric',
             'praktek1' => 'required',
             'praktek2' => 'nullable',
             'praktek3' => 'nullable',
+            'status' => 'nullable|required',
         ]);
 
         if ($validator->passes()) {
@@ -82,6 +83,7 @@ class DokterController extends Controller
                     'praktek1' => $request->praktek1,
                     'praktek2' => $request->praktek2,
                     'praktek3' => $request->praktek3,
+                    'status' => $request->status,
                 ]);
             });
 
@@ -120,6 +122,7 @@ class DokterController extends Controller
             'praktek1' => 'required',
             'praktek2' => 'nullable',
             'praktek3' => 'nullable',
+            'status' => 'nullable',
         ]);
 
         if ($validator->passes()) {
@@ -130,6 +133,7 @@ class DokterController extends Controller
                 'praktek1' => $request->praktek1,
                 'praktek2' => $request->praktek2,
                 'praktek3' => $request->praktek3,
+                'status' => $request->status,
             ]);
 
             return response()->json(['message' => 'Data berhasil diupdate!']);

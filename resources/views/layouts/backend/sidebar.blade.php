@@ -142,7 +142,7 @@
         @endrole
 
         @role('admin|petugas')
-        <li class="nav-header">Surat</li>
+        <li class="nav-header">Rekomendasi</li>
         <li class="nav-item">
           <a href="{{ route('rekomendasi.index') }}" class="nav-link {{ Request::segment(2) == 'rekomendasi' ? 'active' : '' }}">
             <i class="nav-icon fas fa-envelope"></i>
@@ -151,14 +151,14 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="{{ route('rekomendasi.surat-rekomendasi') }}" class="nav-link {{ Request::segment(2) == 'surat-rekomendasi' ? 'active' : '' }}">
             <i class="nav-icon fas fa-print fa-fw"></i>
             <p>
               Cetak Rekomendasi
             </p>
           </a>
-        </li>
+        </li> -->
         @endrole
 
         @role('admin|petugas')
