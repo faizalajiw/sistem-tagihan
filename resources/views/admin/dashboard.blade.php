@@ -75,32 +75,33 @@
 </div>
 <!-- /.row -->
 
-<!-- <div class="container mt-5">
+<div class="container mt-5">
     <div class="row">
         <div class="col-md-10 offset-md-1">
             <div class="card">
-                <div class="card-header">Grafik Tagihan</div>
+                <div class="card-header">Grafik Dokter</div>
                 <div class="card-body">
                     <canvas id="canvas" height="200" width="500"></canvas>
                 </div>
             </div>
         </div>
     </div>
-</div> -->
+</div>
 @endsection
 
 @push('js')
-<!-- <script type="text/javascript" src="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/chart.js/Chart.min.js"></script>
+<script type="text/javascript" src="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/chart.js/Chart.min.js"></script>
 <script>
 var ctx = document.getElementById("canvas").getContext('2d');
   var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ["Dokter Laki-laki", "Dokter Perempuan"],
+      labels: ["Dokter IDI Brebes", "Dokter IDI Luar"],
       datasets: [{
         label: '',
         data: [
-        {!! $total_dokter !!},
+        {!! $dokter_idi_brebes !!},
+        {!! $dokter_idi_luar !!},
         ],
         backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
@@ -123,5 +124,5 @@ var ctx = document.getElementById("canvas").getContext('2d');
       }
     }
   });
-</script> -->
+</script>
 @endpush

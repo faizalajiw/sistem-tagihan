@@ -23,15 +23,17 @@
             <th>Nama Dokter</th>
             <th>NPA</th>
             <th>Tanggal Bayar</th>
-            <th>Nama Petugas</th>
+            <th>Status</th>
             <th>Untuk Bulan</th>
             <th>Untuk Tahun</th>
             <th>Nominal</th>
+            <th>Keterangan</th>
             <th>Print</th>
           </tr>
           </thead>
           <tbody>
           <tr>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -73,10 +75,11 @@ $(function () {
           {data: 'dokter.nama_dokter', name: 'dokter.nama_dokter'},
           {data: 'dokter.npa', name: 'dokter.npa'},
           {data: 'tanggal_bayar', name: 'tanggal_bayar'},
-          {data: 'petugas.nama_petugas', name: 'petugas.nama_petugas'},
+          {data: 'dokter.status', name: 'dokter.status'},
           {data: 'bulan_bayar', name: 'bulan_bayar'},
           {data: 'tahun_bayar', name: 'tahun_bayar'},
           {data: 'jumlah_bayar', name: 'jumlah_bayar'},
+          {data: 'keterangan', name: 'keterangan'},
           {data: 'action', name: 'action', orderable: false, searchable: true},
       ]
   });

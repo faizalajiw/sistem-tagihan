@@ -26,7 +26,7 @@
             <th>Nama Dokter</th>
             <th>NPA</th>
             <th>Tanggal Bayar</th>
-            <th>Nama Petugas</th>
+            <th>Status</th>
             <th>Untuk Bulan</th>
             <th>Untuk Tahun</th>
             <th>Nominal</th>
@@ -40,7 +40,7 @@
             <td>{{ $row->dokter->nama_dokter }}</td>
             <td>{{ $row->npa }}</td>
             <td>{{ \Carbon\Carbon::parse($row->tanggal_bayar)->format('d-m-Y') }}</td>
-            <td>{{ $row->petugas->nama_petugas }}</td>
+            <td>{{ $row->dokter->status }}</td>
             <td>{{ $row->bulan_bayar }}</td>
             <td>{{ $row->tahun_bayar }}</td>
             <td>{{ $row->jumlah_bayar }}</td>

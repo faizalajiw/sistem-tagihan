@@ -42,6 +42,15 @@
 						</div>
 						<div class="col-lg-3">
 							<div class="form-group">
+								<label for="status">Status</label>
+								<input required="" type="text" name="status" value="{{ $dokter->status }}" readonly id="status" class="form-control">
+								@error('status')
+									<small class="text-danger">{{ $message }}</small>
+								@enderror
+							</div>
+						</div>
+						<div class="col-lg-3">
+							<div class="form-group">
 								<label for="jumlah_bayar" id="nominal_tagihan_label">Nominal Pembayaran:</label>
 								<input type="" name="nominal" readonly="" id="nominal" class="form-control">
 								<input required="" type="hidden" name="jumlah_bayar" readonly="" id="jumlah_bayar" class="form-control">
@@ -70,6 +79,15 @@
 									@foreach(Universe::bulanAll() as $bulan)
 										<option value="{{ $bulan['nama_bulan'] }}">{{ $bulan['nama_bulan'] }}</option>
 									@endforeach
+								</select>
+							</div>
+						</div>
+						<div class='col-lg-3'>
+							<div class="form-group select2-purple">
+								<label for="keterangan">Keterangan:</label>
+								<select id="keterangan" name="keterangan" class="form-control">
+									  <option value="cash">Cash</option>
+									  <option value="transfer">Transfer</option>
 								</select>
 							</div>
 						</div>

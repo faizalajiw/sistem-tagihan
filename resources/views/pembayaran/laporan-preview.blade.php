@@ -17,7 +17,7 @@
       <th scope="col" style="font-family: sans-serif;">Nama Dokter</th>
       <th scope="col" style="font-family: sans-serif;">NPA</th>
       <th scope="col" style="font-family: sans-serif;">Tanggal Bayar</th>
-      <th scope="col" style="font-family: sans-serif;">Petugas</th>
+      <th scope="col" style="font-family: sans-serif;">Status</th>
       <th scope="col" style="font-family: sans-serif;">Jumlah Bayar</th>
     </tr>
   </thead>
@@ -30,7 +30,7 @@
       <td style="font-family: sans-serif;">
         {{ \Carbon\Carbon::parse($row->tanggal_bayar)->format('d-m-Y') }}
       </td>
-      <td style="font-family: sans-serif;">{{ $row->petugas->nama_petugas }}</td>
+      <td style="font-family: sans-serif;">{{ $row->dokter->status }}</td>
       <td style="font-family: sans-serif;">{{ $row->jumlah_bayar }}</td>
     </tr>
     @endforeach

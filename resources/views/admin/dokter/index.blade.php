@@ -84,25 +84,25 @@
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="nama_dokter">Nama Dokter:</label>
+                <label for="nama_dokter">Nama Dokter :</label>
                 <input required="" type="text" name="nama_dokter" id="nama_dokter" class="form-control">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="username">Email:</label>
-                <input required="" type="text" name="username" id="username" class="form-control">  
+                <label for="username">Email :</label>
+                <input required="" type="text" name="username" id="username" class="form-control" oninvalid="this.setCustomValidity('Masukkan email anda')">  
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="npa">NPA</label>
-                <input type="text" name="npa" id="npa" class="form-control">  
+                <label for="npa">NPA :</label>
+                <input required="" type="text" name="npa" id="npa" class="form-control" oninvalid="this.setCustomValidity('Masukkan npa anda')" >  
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="alamat">Alamat:</label>
+                <label for="alamat">Alamat :</label>
                 <input type="text" name="alamat" id="alamat" class="form-control">
               </div>
             </div>
@@ -113,36 +113,35 @@
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="no_telepon">No Whatsapp:</label>
-                <input required="" type="text" name="no_telepon" id="no_telepon" class="form-control">
+                <label for="no_telepon">No Whatsapp :</label>
+                <input required="" type="text" name="no_telepon" id="no_telepon" class="form-control" oninvalid="this.setCustomValidity('Masukkan nomor whatsapp anda')">
               </div>
             </div>  
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="praktek_1">Praktek 1:</label>
+                <label for="praktek_1">Praktek 1 :</label>
                 <input type="text" name="praktek1" id="praktek1" class="form-control">
               </div>
             </div>  
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="praktek_2">Praktek 2:</label>
+                <label for="praktek_2">Praktek 2 :</label>
                 <input type="text" name="praktek2" id="praktek2" class="form-control">
               </div>
             </div>  
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="praktek_3">Praktek 3:</label>
+                <label for="praktek_3">Praktek 3 :</label>
                 <input type="text" name="praktek3" id="praktek3" class="form-control">
               </div>
             </div>  
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="status">Status</label>
+                <label for="status">Status :</label>
                 <select id="status" name="status" class="form-control">
                   <option value="IDI Brebes">IDI Brebes</option>
                   <option value="IDI Luar">IDI Luar</option>
                 </select>
-                <!-- <input type="text" name="status" id="status" class="form-control"> -->
               </div>
             </div>  
           </div>
@@ -179,26 +178,26 @@
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="nama_dokter_edit">Nama Dokter:</label>
+                <label for="nama_dokter_edit">Nama Dokter :</label>
                 <input type="hidden" name="id_edit" id="id_edit" class="form-control" readonly="">
                 <input required="" type="text" name="nama_dokter" id="nama_dokter_edit" class="form-control">
               </div>
             </div>  
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="npa">NPA</label>
-                <input type="text" name="npa" id="npa_edit" class="form-control" readonly="">  
+                <label for="npa">NPA :</label>
+                <input type="text" name="npa" id="npa_edit" class="form-control">  
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="alamat">Alamat:</label>
+                <label for="alamat">Alamat :</label>
                 <input type="text" name="alamat" id="alamat_edit" class="form-control" rows="3">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="no_telepon">No Whatsapp:</label>
+                <label for="no_telepon">No Whatsapp :</label>
                 <input required="" type="text" name="no_telepon" id="no_telepon_edit" class="form-control">
               </div>
             </div>  
@@ -209,26 +208,29 @@
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="praktek_1">Praktek 1:</label>
+                <label for="praktek_1">Praktek 1 :</label>
                 <input type="text" name="praktek1" id="praktek1_edit" class="form-control">
               </div>
             </div>  
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="praktek-2">Praktek 2:</label>
+                <label for="praktek-2">Praktek 2 :</label>
                 <input type="text" name="praktek2" id="praktek2_edit" class="form-control">
               </div>
             </div>  
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="praktek_3">Praktek 3:</label>
+                <label for="praktek_3">Praktek 3 :</label>
                 <input type="text" name="praktek3" id="praktek3_edit" class="form-control">
               </div>
             </div>  
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="status">Status:</label>
-                <input type="text" name="status" id="status_edit" class="form-control">
+                <label for="status">Status :</label>
+                <select id="status" name="status" class="form-control">
+                  <option value="IDI Brebes">IDI Brebes</option>
+                  <option value="IDI Luar">IDI Luar</option>
+                </select>
               </div>
             </div>  
           </div>
