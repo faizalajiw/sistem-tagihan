@@ -123,14 +123,14 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="{{ route('pembayaran-tagihan.index') }}" class="nav-link {{ Request::segment(2) == 'pembayaran-tagihan' ? 'active' : '' }}">
             <i class="nav-icon fas fa-list"></i>
             <p>
               Pembayaran
             </p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="{{ route('tagihan.index') }}" class="nav-link {{ Request::segment(2) == 'tagihan' ? 'active' : '' }}">
             <i class="nav-icon fas fa-money-bill"></i>

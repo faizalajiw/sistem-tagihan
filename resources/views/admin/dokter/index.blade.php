@@ -97,7 +97,7 @@
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="npa">NPA :</label>
-                <input required="" type="text" name="npa" id="npa" class="form-control" oninvalid="this.setCustomValidity('Masukkan npa anda')" >  
+                <input type="text" name="npa" id="npa" class="form-control" >  
               </div>
             </div>
             <div class="col-lg-3">
