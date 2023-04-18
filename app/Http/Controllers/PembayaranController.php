@@ -100,9 +100,8 @@ class PembayaranController extends Controller
                 ->with('success', 'Pembayaran berhasil disimpan!');
         }else{
             return back()
-                ->with('error', 'Dokter Dengan Nama : '.$request->nama_dokter.' , No ID : '.
-                $request->npa.' Sudah Membayar Tagihan di bulan yang diinput ('.
-                implode($pembayaran,',').")".' , di Tahun : '.$request->tahun_bayar.' , Pembayaran Dibatalkan');
+                ->with('error', 'Dokter Dengan Nama : '.$request->nama_dokter.' Telah Membayar Tagihan di Bulan ('.
+                implode($pembayaran).")".' , di Tahun : '.$request->tahun_bayar.' , Pembayaran Dibatalkan');
         }
     }
 
