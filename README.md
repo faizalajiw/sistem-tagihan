@@ -36,6 +36,8 @@ password : password
 username : dokterindonesia
 password : password
 
+# PASSWORD DEFAULT NEW ACCOUNT : idibrebes
+
 # ROLE USER
 - admin
 - petugas
