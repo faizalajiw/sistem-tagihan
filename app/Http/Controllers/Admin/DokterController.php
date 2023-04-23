@@ -55,7 +55,7 @@ class DokterController extends Controller
         $validator = Validator::make($request->all(), [
             'nama_dokter' => 'required',
             'username' => 'required|unique:users',
-            'npa' => 'nullable|unique:dokter',
+            'npa' => 'nullable',
             'alamat' => 'nullable',
             'no_telepon' => 'required|numeric',
             'praktek1' => 'required',
@@ -68,7 +68,7 @@ class DokterController extends Controller
             DB::transaction(function() use($request){
                 $user = User::create([
                     'username' => Str::lower($request->username),
-                    'password' => Hash::make('idi2023'),
+                    'password' => Hash::make('idibrebes'),
                 ]);
 
                 $user->assignRole('dokter');

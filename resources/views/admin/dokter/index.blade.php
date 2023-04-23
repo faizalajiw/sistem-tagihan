@@ -25,7 +25,7 @@
       @endcan
       </div>
       <!-- /.card-header -->
-      <div class="card-body">
+      <div class="card-body table-responsive table-sm">
         <table id="dataTable2" class="table table-bordered table-striped">
           <thead>
           <tr>
@@ -85,25 +85,26 @@
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="nama_dokter">Nama Dokter :</label>
-                <input required="" type="text" name="nama_dokter" id="nama_dokter" class="form-control">
+                <input required="" type="text" name="nama_dokter" id="nama_dokter" class="form-control" autocomplete="off">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="username">Email :</label>
-                <input required="" type="text" name="username" id="username" class="form-control" oninvalid="this.setCustomValidity('Masukkan email anda')">  
+                <input required="" type="email" name="username" id="username" class="form-control" autocomplete="off">  
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="npa">NPA :</label>
-                <input type="text" name="npa" id="npa" class="form-control" >  
+                <input type="text" name="npa" id="npa" class="form-control" autocomplete="off">  
               </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 ">
               <div class="form-group">
                 <label for="alamat">Alamat :</label>
-                <input type="text" name="alamat" id="alamat" class="form-control">
+                <textarea type="text" name="alamat" id="alamat" class="form-control input-lg" autocomplete="off" ></textarea>
+                <!-- <input type="text" name="alamat" id="alamat" class="form-control input-lg" autocomplete="off"> -->
               </div>
             </div>
           </div>
@@ -114,7 +115,7 @@
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="no_telepon">No Whatsapp :</label>
-                <input required="" type="text" name="no_telepon" id="no_telepon" class="form-control" oninvalid="this.setCustomValidity('Masukkan nomor whatsapp anda')">
+                <input required="" type="tel" name="no_telepon" id="no_telepon" class="form-control" autocomplete="off">
               </div>
             </div>  
             <div class="col-lg-3">

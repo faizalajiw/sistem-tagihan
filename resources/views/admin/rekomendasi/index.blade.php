@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/select2/css/select2.min.css">
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
 @endpush
-@section('content_title', 'Data Surat Rekomendasi')
+@section('content_title', 'Data Rekomendasi')
 @section('content')
 <x-alert></x-alert>
 <div class="row">
@@ -24,8 +24,8 @@
         @endcan
       </div>
       <!-- /.card-header -->
-      <div class="card-body">
-        <table id="dataTable2" class="table table-bordered table-striped" style="table-layout: auto;">
+      <div class="card-body table-responsive table-sm">
+        <table id="dataTable2" class="table table-bordered table-striped">
           <thead>
             <tr>
               <th>No</th>
@@ -83,26 +83,27 @@
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="nama_dokter_rekomendasi">Nama Dokter:</label>
-                <input type="text" name="nama_dokter_rekomendasi" id="nama_dokter_rekomendasi" class="form-control">
+                <label for="nama_dokter_rekomendasi">Nama Dokter :</label>
+                <input type="text" name="nama_dokter_rekomendasi" id="nama_dokter_rekomendasi" class="form-control" autocomplete="off">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="alamat_rekomendasi">Alamat:</label>
-                <input type="text" name="alamat_rekomendasi" id="alamat_rekomendasi" class="form-control">
+                <label for="alamat_rekomendasi">Alamat :</label>
+                <textarea type="text" name="alamat_rekomendasi" id="alamat_rekomendasi" class="form-control" autocomplete="off"></textarea>
+                <!-- <input type="text" name="alamat_rekomendasi" id="alamat_rekomendasi" class="form-control" autocomplete="off"> -->
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="ttl">TTL</label>
-                <input type="text" name="ttl" id="ttl" class="form-control">
+                <label for="ttl">Tempat Tanggal Lahir :</label>
+                <input type="text" name="ttl" id="ttl" class="form-control" autocomplete="off">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="no_str">No STR:</label>
-                <input type="text" name="no_str" id="no_str" class="form-control">
+                <label for="no_str">No STR :</label>
+                <input type="text" name="no_str" id="no_str" class="form-control" autocomplete="off">
               </div>
             </div>
           </div>
@@ -112,26 +113,26 @@
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="alamat_praktik_dimiliki">Alamat Praktik Yang Dimiliki:</label>
-                <input type="text" name="alamat_praktik_dimiliki" id="alamat_praktik_dimiliki" class="form-control">
+                <label for="alamat_praktik_dimiliki">Alamat Praktik Yang Dimiliki :</label>
+                <input type="text" name="alamat_praktik_dimiliki" id="alamat_praktik_dimiliki" class="form-control" autocomplete="off">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="alamat_praktik_diminta">Alamat Praktik Yang Diminta:</label>
-                <input type="text" name="alamat_praktik_diminta" id="alamat_praktik_diminta" class="form-control">
+                <label for="alamat_praktik_diminta">Alamat Praktik Yang Diminta :</label>
+                <input type="text" name="alamat_praktik_diminta" id="alamat_praktik_diminta" class="form-control" autocomplete="off">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="idi_cabang">IDI Cabang:</label>
-                <input type="text" name="idi_cabang" id="idi_cabang" class="form-control">
+                <label for="idi_cabang">IDI Cabang :</label>
+                <input type="text" name="idi_cabang" id="idi_cabang" class="form-control" autocomplete="off">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="no_rekomendasi">No Rekomendasi:</label>
-                <input type="text" name="no_rekomendasi" id="no_rekomendasi" class="form-control">
+                <label for="no_rekomendasi">No Rekomendasi :</label>
+                <input type="text" name="no_rekomendasi" id="no_rekomendasi" class="form-control" autocomplete="off">
               </div>
             </div>
           </div>

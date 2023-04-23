@@ -71,14 +71,14 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="{{ route('pembayaran-tagihan.index') }}" class="nav-link {{ Request::segment(2) == 'pembayaran-tagihan' ? 'active' : '' }}">
             <i class="nav-icon fas fa-list"></i>
             <p>
               Pembayaran
             </p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="{{ route('admin-list.index') }}" class="nav-link {{ Request::segment(2) == 'admin-list' ? 'active' : '' }}">
             <i class="nav-icon fas fa-user-tie"></i>

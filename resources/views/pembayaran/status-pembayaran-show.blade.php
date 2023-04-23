@@ -32,7 +32,6 @@
               <th>Nominal</th>
               <th>Keterangan</th>
               <th>Status</th>
-              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -50,7 +49,6 @@
               <td>
                 <a href="javascript:(0)" class="btn btn-success btn-sm"><i class=""></i> DIBAYAR</a>
               </td>
-              <td></td>
             </tr>
             @endforeach
           </tbody>

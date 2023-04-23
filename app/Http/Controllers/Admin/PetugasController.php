@@ -45,7 +45,7 @@ class PetugasController extends Controller
             DB::transaction(function() use($request){
                 $user = User::create([
                     'username' => Str::lower($request->username),
-                    'password' => Hash::make('idi2023'),
+                    'password' => Hash::make('idibrebes'),
                 ]);
 
                 $user->assignRole('petugas');
