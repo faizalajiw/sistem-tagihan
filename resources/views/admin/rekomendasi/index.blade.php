@@ -91,7 +91,6 @@
               <div class="form-group">
                 <label for="alamat_rekomendasi">Alamat :</label>
                 <textarea type="text" name="alamat_rekomendasi" id="alamat_rekomendasi" class="form-control" autocomplete="off"></textarea>
-                <!-- <input type="text" name="alamat_rekomendasi" id="alamat_rekomendasi" class="form-control" autocomplete="off"> -->
               </div>
             </div>
             <div class="col-lg-3">
@@ -114,13 +113,13 @@
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="alamat_praktik_dimiliki">Alamat Praktik Yang Dimiliki :</label>
-                <input type="text" name="alamat_praktik_dimiliki" id="alamat_praktik_dimiliki" class="form-control" autocomplete="off">
+                <textarea type="text" name="alamat_praktik_dimiliki" id="alamat_praktik_dimiliki" class="form-control" autocomplete="off"></textarea>
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="alamat_praktik_diminta">Alamat Praktik Yang Diminta :</label>
-                <input type="text" name="alamat_praktik_diminta" id="alamat_praktik_diminta" class="form-control" autocomplete="off">
+                <textarea type="text" name="alamat_praktik_diminta" id="alamat_praktik_diminta" class="form-control" autocomplete="off"></textarea>
               </div>
             </div>
             <div class="col-lg-3">
@@ -177,7 +176,7 @@
             <div class="col-lg-5">
               <div class="form-group">
                 <label for="alamat_rekomendasi">Alamat:</label>
-                <input type="text" name="alamat_rekomendasi" id="alamat_rekomendasi_edit" class="form-control">
+                <textarea type="text" name="alamat_rekomendasi" id="alamat_rekomendasi_edit" class="form-control"></textarea>
               </div>
             </div>
             <div class="col-lg-5">
@@ -200,13 +199,13 @@
             <div class="col-lg-5">
               <div class="form-group">
                 <label for="no_str">Alamat Praktik Yang Dimiliki</label>
-                <input type="text" name="alamat_praktik_dimiliki" id="alamat_praktik_dimiliki_edit" class="form-control">
+                <textarea type="text" name="alamat_praktik_dimiliki" id="alamat_praktik_dimiliki_edit" class="form-control"></textarea>
               </div>
             </div>
             <div class="col-lg-5">
               <div class="form-group">
                 <label for="no_str">Alamat Praktik Yang Diminta</label>
-                <input type="text" name="alamat_praktik_diminta" id="alamat_praktik_diminta_edit" class="form-control">
+                <textarea type="text" name="alamat_praktik_diminta" id="alamat_praktik_diminta_edit" class="form-control"></textarea>
               </div>
             </div>
             <div class="col-lg-5">

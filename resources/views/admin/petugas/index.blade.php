@@ -110,7 +110,7 @@
             <ul></ul>
           </div>
           <div class="form-group">
-            <label for="nama_petugas_edit">Nama Petugas:</label>
+            <label for="nama_petugas_edit">Nama Petugas :</label>
             <input required="" readonly="" type="hidden" name="id" id="id_edit" class="form-control">
             <input required="" type="text" name="nama_petugas" id="nama_petugas_edit" class="form-control">
           </div>

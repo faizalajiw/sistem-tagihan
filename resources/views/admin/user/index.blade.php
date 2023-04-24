@@ -110,7 +110,7 @@
         </div>
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="" required="" id="email" name="email" class="form-control">
+            <input type="email" required="" id="email" name="email" class="form-control">
         </div>
       </div>
       <div class="modal-footer">

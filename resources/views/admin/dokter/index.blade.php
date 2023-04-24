@@ -193,7 +193,8 @@
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="alamat">Alamat :</label>
-                <input type="text" name="alamat" id="alamat_edit" class="form-control" rows="3">
+                <!-- <input type="text" name="alamat" id="alamat_edit" class="form-control" rows="3"> -->
+                <textarea type="text" name="alamat" id="alamat_edit" class="form-control"></textarea>
               </div>
             </div>
             <div class="col-lg-3">
