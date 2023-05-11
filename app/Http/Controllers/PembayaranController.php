@@ -28,7 +28,7 @@ class PembayaranController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row) {
-                    $btn = '<div class="row"><a href="'.route('pembayaran.bayar', $row->npa).'"class="btn btn-primary btn-sm ml-2">
+                    $btn = '<div class="row"><a href="'.route('pembayaran.bayar', $row->kode_dokter).'"class="btn btn-primary btn-sm ml-2">
                     <i class="fas fa-money-check"></i> BAYAR
                     </a>';
                     return $btn;
@@ -40,9 +40,9 @@ class PembayaranController extends Controller
     	return view('pembayaran.index');
     }
 
-    public function bayar($npa)
+    public function bayar($kode_dokter)
     {	
-    	$dokter = Dokter::where('npa', $npa)
+    	$dokter = Dokter::where('kode_dokter', $kode_dokter)
     	// $dokter = Dokter::with(['spesialis'])
             ->first();
 
@@ -62,7 +62,7 @@ class PembayaranController extends Controller
         ]);
     }
 
-    public function prosesBayar(Request $request, $npa)
+    public function prosesBayar(Request $request, $kode_dokter)
     {
         $request->validate([
             'jumlah_bayar' => 'required',
@@ -115,7 +115,7 @@ class PembayaranController extends Controller
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row) {
-                    $btn = '<div class="row"><a href="'.route('pembayaran.status-pembayaran.show',$row->npa).
+                    $btn = '<div class="row"><a href="'.route('pembayaran.status-pembayaran.show',$row->kode_dokter).
                     '"class="btn btn-primary btn-sm">DETAIL</a>';
                     return $btn;
                 })
@@ -132,9 +132,9 @@ class PembayaranController extends Controller
         return view('pembayaran.status-pembayaran-tahun', compact('dokter', 'tagihan'));
     }
 
-    public function statusPembayaranShowStatus($npa, $tahun)
+    public function statusPembayaranShowStatus($kode_dokter, $tahun)
     {
-        $dokter = Dokter::where('npa', $npa)
+        $dokter = Dokter::where('kode_dokter', $kode_dokter)
             ->first();
         
         $tagihan = Tagihan::where('tahun', $tahun)

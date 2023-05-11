@@ -24,16 +24,16 @@ Route::middleware(['auth'])->group(function () {
 
 Route::prefix('pembayaran')->middleware(['auth', 'role:admin|petugas'])->group(function () {
 	Route::get('bayar', 'PembayaranController@index')->name('pembayaran.index');
-	Route::get('bayar/{npa}', 'PembayaranController@bayar')->name('pembayaran.bayar');
+	Route::get('bayar/{kode_dokter}', 'PembayaranController@bayar')->name('pembayaran.bayar');
 	Route::get('tagihan/{tahun}', 'PembayaranController@tagihan')->name('pembayaran.tagihan');
-	Route::post('bayar/{npa}', 'PembayaranController@prosesBayar')->name('pembayaran.proses-bayar');
+	Route::post('bayar/{kode_dokter}', 'PembayaranController@prosesBayar')->name('pembayaran.proses-bayar');
 	Route::get('status-pembayaran', 'PembayaranController@statusPembayaran')
 		->name('pembayaran.status-pembayaran');
 
-	Route::get('status-pembayaran/{dokter:npa}', 'PembayaranController@statusPembayaranShow')
+	Route::get('status-pembayaran/{dokter:kode_dokter}', 'PembayaranController@statusPembayaranShow')
 		->name('pembayaran.status-pembayaran.show');
 
-	Route::get('status-pembayaran/{npa}/{tahun}', 'PembayaranController@statusPembayaranShowStatus')
+	Route::get('status-pembayaran/{kode_dokter}/{tahun}', 'PembayaranController@statusPembayaranShowStatus')
 		->name('pembayaran.status-pembayaran.show-status');
 
 	Route::get('history-pembayaran', 'PembayaranController@historyPembayaran')

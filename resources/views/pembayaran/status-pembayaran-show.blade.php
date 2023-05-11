@@ -12,7 +12,7 @@
   <div class="col-12">
     <div class="card">
       <div class="card-header">
-        <a href="{{ route('pembayaran.status-pembayaran.show',$dokter->npa) }}" class="btn btn-danger btn-sm">
+        <a href="{{ route('pembayaran.status-pembayaran.show',$dokter->kode_dokter) }}" class="btn btn-danger btn-sm">
           <i class="fas fa-fw fa-arrow-left"></i> KEMBALI
         </a>
       </div>

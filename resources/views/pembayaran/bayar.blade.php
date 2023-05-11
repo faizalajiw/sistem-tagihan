@@ -18,7 +18,7 @@
 			    </a>
 			</div>
 			<div class="card-body">
-				<form method="POST" action="{{ route('pembayaran.proses-bayar', $dokter->npa) }}">
+				<form method="POST" action="{{ route('pembayaran.proses-bayar', $dokter->kode_dokter) }}">
 					@csrf
 					<div class="row">
 						<div class="col-lg-3">

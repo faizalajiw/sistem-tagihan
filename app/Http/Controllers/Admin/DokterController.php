@@ -55,7 +55,7 @@ class DokterController extends Controller
         $validator = Validator::make($request->all(), [
             'nama_dokter' => 'required',
             'username' => 'required|unique:users',
-            'npa' => 'nullable|unique:dokter',
+            'npa' => 'nullable',
             'alamat' => 'nullable',
             'no_telepon' => 'required|numeric',
             'praktek1' => 'required',

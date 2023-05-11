@@ -33,11 +33,11 @@
 				<div class="list-group">
 				  @foreach($tagihan as $row)
 				  	@if($row->tahun == date('Y'))
-				  	<a href="{{ route('pembayaran.status-pembayaran.show-status', [$dokter->npa,$row->tahun]) }}" class="list-group-item list-group-item-action active">
+				  	<a href="{{ route('pembayaran.status-pembayaran.show-status', [$dokter->kode_dokter,$row->tahun]) }}" class="list-group-item list-group-item-action active">
 				  		{{ $row->tahun }}
 				  	</a>
 				  	@else
-				  	<a href="{{ route('pembayaran.status-pembayaran.show-status', [$dokter->npa,$row->tahun]) }}" class="list-group-item list-group-item-action">
+				  	<a href="{{ route('pembayaran.status-pembayaran.show-status', [$dokter->kode_dokter,$row->tahun]) }}" class="list-group-item list-group-item-action">
 				  		{{ $row->tahun }}
 				  	</a>
 				  	@endif
