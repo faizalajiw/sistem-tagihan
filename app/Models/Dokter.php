@@ -25,6 +25,7 @@ class Dokter extends Model
     	'praktek1',
     	'praktek2',
     	'praktek3',
+    	'status',
     ];
 
     public function user()

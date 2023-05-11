@@ -11,8 +11,7 @@
 <br>
 <div style="float: left;">
   <b style="font-family: sans-serif;">Nama Dokter : {{ $pembayaran->dokter->nama_dokter }}</h3><br>
-  <b style="font-family: sans-serif;">No ID : {{ $pembayaran->dokter->npa }}</b><br>
-  <b style="font-family: sans-serif;">NPA : {{ $pembayaran->dokter->nis }}</b><br>
+  <b style="font-family: sans-serif;">NPA : {{ $pembayaran->dokter->npa }}</b><br>
 </div>
 
 <br><br><br><br><br>

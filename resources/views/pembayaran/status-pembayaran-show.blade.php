@@ -21,34 +21,36 @@
         @if($pembayaran->count() > 0)
         <table id="dataTable2" class="table table-bordered table-striped">
           <thead>
-          <tr>
-            <th>No</th>
-            <th>Nama Dokter</th>
-            <th>NPA</th>
-            <th>Tanggal Bayar</th>
-            <th>Nama Petugas</th>
-            <th>Untuk Bulan</th>
-            <th>Untuk Tahun</th>
-            <th>Nominal</th>
-            <th>Status</th>
-          </tr>
+            <tr>
+              <th>No</th>
+              <th>Nama Dokter</th>
+              <th>NPA</th>
+              <th>Tanggal Bayar</th>
+              <th>Status Dokter</th>
+              <th>Untuk Bulan</th>
+              <th>Untuk Tahun</th>
+              <th>Nominal</th>
+              <th>Keterangan</th>
+              <th>Status</th>
+            </tr>
           </thead>
           <tbody>
-          @foreach($pembayaran as $row)
-          <tr>
-          	<td>{{ $loop->iteration }}</td>
-            <td>{{ $row->dokter->nama_dokter }}</td>
-            <td>{{ $row->npa }}</td>
-            <td>{{ \Carbon\Carbon::parse($row->tanggal_bayar)->format('d-m-Y') }}</td>
-            <td>{{ $row->petugas->nama_petugas }}</td>
-            <td>{{ $row->bulan_bayar }}</td>
-            <td>{{ $row->tahun_bayar }}</td>
-            <td>{{ $row->jumlah_bayar }}</td>
-            <td>
-            	<a href="javascript:(0)" class="btn btn-success btn-sm"><i class=""></i> DIBAYAR</a>
-            </td>
-          </tr>
- 		      @endforeach
+            @foreach($pembayaran as $row)
+            <tr>
+              <td>{{ $loop->iteration }}</td>
+              <td>{{ $row->dokter->nama_dokter }}</td>
+              <td>{{ $row->npa }}</td>
+              <td>{{ \Carbon\Carbon::parse($row->tanggal_bayar)->format('d-m-Y') }}</td>
+              <td>{{ $row->dokter->status }}</td>
+              <td>{{ $row->bulan_bayar }}</td>
+              <td>{{ $row->tahun_bayar }}</td>
+              <td>{{ $row->jumlah_bayar }}</td>
+              <td>{{ $row->keterangan }}</td>
+              <td>
+                <a href="javascript:(0)" class="btn btn-success btn-sm"><i class=""></i> DIBAYAR</a>
+              </td>
+            </tr>
+            @endforeach
           </tbody>
         </table>
         @else
@@ -79,28 +81,28 @@
         @if($pembayaran->count() > 0)
         <table id="" class="table table-bordered table-striped">
           <thead>
-          <tr>
-            <th>Bulan</th>
-            <th>Status</th>
-          </tr>
+            <tr>
+              <th>Bulan</th>
+              <th>Status</th>
+            </tr>
           </thead>
           <tbody>
-          @foreach(Universe::bulanAll() as $key => $value)
-          <tr>
-            <td>{{ $value['nama_bulan'] }}</td>
-            <td>
-              @if(Universe::statusPembayaran($dokter->id, $tagihan->tahun, $value['nama_bulan']) == 'DIBAYAR')
-                <a href="javascript:(0)" class="btn btn-success btn-sm"><i class=""></i> 
+            @foreach(Universe::bulanAll() as $key => $value)
+            <tr>
+              <td>{{ $value['nama_bulan'] }}</td>
+              <td>
+                @if(Universe::statusPembayaran($dokter->id, $tagihan->tahun, $value['nama_bulan']) == 'DIBAYAR')
+                <a href="javascript:(0)" class="btn btn-success btn-sm"><i class=""></i>
                   {{ Universe::statusPembayaran($dokter->id, $tagihan->tahun, $value['nama_bulan']) }}
                 </a>
-              @else
-                <a href="javascript:(0)" class="btn btn-danger btn-sm"><i class=""></i> 
+                @else
+                <a href="javascript:(0)" class="btn btn-danger btn-sm"><i class=""></i>
                   {{ Universe::statusPembayaran($dokter->id, $tagihan->tahun, $value['nama_bulan']) }}
                 </a>
-              @endif
-            </td>
-          </tr>
-          @endforeach
+                @endif
+              </td>
+            </tr>
+            @endforeach
           </tbody>
         </table>
         @else
@@ -126,7 +128,7 @@
 <script src="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script>
-  $(function () {
+  $(function() {
     $("#dataTable1").DataTable({
       "paging": true,
       "lengthChange": true,

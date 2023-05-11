@@ -91,6 +91,7 @@ class PembayaranController extends Controller
                         'tahun_bayar' => $request->tahun_bayar,
                         'bulan_bayar' => $bulan,
                         'jumlah_bayar' => $request->jumlah_bayar,
+                        'keterangan' => $request->keterangan,
                     ]);
                 }
             });

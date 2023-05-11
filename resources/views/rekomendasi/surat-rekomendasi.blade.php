@@ -1,11 +1,11 @@
 @extends('layouts.backend.app')
-@section('title', 'Data History Pembayaran')
+@section('title', 'Data Rekomendasi')
 @push('css')
 <!-- DataTables -->
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="{{ asset('templates/backend/AdminLTE-3.1.0') }}/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 @endpush
-@section('content_title', 'Riwayat Pembayaran')
+@section('content_title', 'Cetak Surat Rekomendasi')
 @section('content')
 <x-alert></x-alert>
 <div class="row">
@@ -21,13 +21,13 @@
           <tr>
             <th>No</th>
             <th>Nama Dokter</th>
-            <th>NPA</th>
-            <th>Tanggal Bayar</th>
-            <th>Status</th>
-            <th>Untuk Bulan</th>
-            <th>Untuk Tahun</th>
-            <th>Nominal</th>
-            <th>Keterangan</th>
+            <th>Alamat</th>
+            <th>Tempat, Tanggal Lahir</th>
+            <th>No STR</th>
+            <th>Alamat Praktik Yang Dimiliki</th>
+            <th>Alamat Praktik Yang Diminta</th>
+            <th>IDI Cabang</th>
+            <th>No Rekomendasi</th>
             <th>Print</th>
           </tr>
           </thead>
@@ -69,17 +69,17 @@ $(function () {
       processing: true,
       serverSide: true,
       "responsive": true,
-      ajax: "{{ route('pembayaran.history-pembayaran') }}",
+      ajax: "{{ route('rekomendasi.surat-rekomendasi') }}",
       columns: [
           {data: 'DT_RowIndex' , name: 'id'},
-          {data: 'dokter.nama_dokter', name: 'dokter.nama_dokter'},
-          {data: 'dokter.npa', name: 'dokter.npa'},
-          {data: 'tanggal_bayar', name: 'tanggal_bayar'},
-          {data: 'dokter.status', name: 'dokter.status'},
-          {data: 'bulan_bayar', name: 'bulan_bayar'},
-          {data: 'tahun_bayar', name: 'tahun_bayar'},
-          {data: 'jumlah_bayar', name: 'jumlah_bayar'},
-          {data: 'keterangan', name: 'keterangan'},
+          {data: 'nama_dokter_rekomendasi', name: 'nama_dokter_rekomendasi'},
+          {data: 'alamat_rekomendasi', name: 'alamat_rekomendasi'},
+          {data: 'ttl', name: 'ttl'},
+          {data: 'no_str', name: 'no_str'},
+          {data: 'alamat_praktik_dimiliki', name: 'alamat_praktik_dimiliki'},
+          {data: 'alamat_praktik_diminta', name: 'alamat_praktik_diminta'},
+          {data: 'idi_cabang', name: 'idi_cabang'},
+          {data: 'no_rekomendasi', name: 'no_rekomendasi'},
           {data: 'action', name: 'action', orderable: false, searchable: true},
       ]
   });

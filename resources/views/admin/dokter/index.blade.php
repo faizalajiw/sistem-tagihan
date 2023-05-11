@@ -25,7 +25,7 @@
       @endcan
       </div>
       <!-- /.card-header -->
-      <div class="card-body">
+      <div class="card-body table-responsive table-sm">
         <table id="dataTable2" class="table table-bordered table-striped">
           <thead>
           <tr>
@@ -33,16 +33,17 @@
             <th>Nama Dokter</th>
             <th>NPA</th>
             <th>Alamat</th>
-            <!-- <th>Jenis Kelamin</th> -->
             <th>No Whatsapp</th>
             <th>Praktek 1</th>
             <th>Praktek 2</th>
             <th>Praktek 3</th>
+            <th>Status</th>
             <th>Aksi</th>
           </tr>
           </thead>
           <tbody>
           <tr>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>
@@ -83,26 +84,27 @@
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="nama_dokter">Nama Dokter:</label>
-                <input required="" type="text" name="nama_dokter" id="nama_dokter" class="form-control">
+                <label for="nama_dokter">Nama Dokter :</label>
+                <input required="" type="text" name="nama_dokter" id="nama_dokter" class="form-control" autocomplete="off">
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="username">Username:</label>
-                <input required="" type="text" name="username" id="username" class="form-control">  
+                <label for="username">Email :</label>
+                <input required="" type="email" name="username" id="username" class="form-control" autocomplete="off">  
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="npa">NPA</label>
-                <input required="" type="text" name="npa" id="npa" class="form-control">  
+                <label for="npa">NPA :</label>
+                <input type="text" name="npa" id="npa" class="form-control" autocomplete="off">  
               </div>
             </div>
-            <div class="col-lg-3">
+            <div class="col-lg-3 ">
               <div class="form-group">
-                <label for="alamat">Alamat:</label>
-                <input type="text" name="alamat" id="alamat" class="form-control">
+                <label for="alamat">Alamat :</label>
+                <textarea type="text" name="alamat" id="alamat" class="form-control input-lg" autocomplete="off" ></textarea>
+                <!-- <input type="text" name="alamat" id="alamat" class="form-control input-lg" autocomplete="off"> -->
               </div>
             </div>
           </div>
@@ -112,26 +114,35 @@
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="no_telepon">No Whatsapp:</label>
-                <input required="" type="text" name="no_telepon" id="no_telepon" class="form-control">
+                <label for="no_telepon">No Whatsapp :</label>
+                <input required="" type="tel" name="no_telepon" id="no_telepon" class="form-control" autocomplete="off">
               </div>
             </div>  
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="no_telepon">Praktek 1:</label>
+                <label for="praktek_1">Praktek 1 :</label>
                 <input type="text" name="praktek1" id="praktek1" class="form-control">
               </div>
             </div>  
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="no_telepon">Praktek 2:</label>
+                <label for="praktek_2">Praktek 2 :</label>
                 <input type="text" name="praktek2" id="praktek2" class="form-control">
               </div>
             </div>  
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="no_telepon">Praktek 3:</label>
+                <label for="praktek_3">Praktek 3 :</label>
                 <input type="text" name="praktek3" id="praktek3" class="form-control">
+              </div>
+            </div>  
+            <div class="col-lg-3">
+              <div class="form-group">
+                <label for="status">Status :</label>
+                <select id="status" name="status" class="form-control">
+                  <option value="IDI Brebes">IDI Brebes</option>
+                  <option value="IDI Luar">IDI Luar</option>
+                </select>
               </div>
             </div>  
           </div>
@@ -168,26 +179,27 @@
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="nama_dokter_edit">Nama Dokter:</label>
+                <label for="nama_dokter_edit">Nama Dokter :</label>
                 <input type="hidden" name="id_edit" id="id_edit" class="form-control" readonly="">
                 <input required="" type="text" name="nama_dokter" id="nama_dokter_edit" class="form-control">
               </div>
             </div>  
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="npa">NPA</label>
-                <input required="" type="text" name="npa" id="npa_edit" class="form-control" readonly="">  
+                <label for="npa">NPA :</label>
+                <input type="text" name="npa_edit" id="npa_edit" class="form-control">  
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="alamat">Alamat:</label>
-                <input type="text" name="alamat" id="alamat_edit" class="form-control">
+                <label for="alamat">Alamat :</label>
+                <!-- <input type="text" name="alamat" id="alamat_edit" class="form-control" rows="3"> -->
+                <textarea type="text" name="alamat" id="alamat_edit" class="form-control"></textarea>
               </div>
             </div>
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="no_telepon">No Whatsapp:</label>
+                <label for="no_telepon">No Whatsapp :</label>
                 <input required="" type="text" name="no_telepon" id="no_telepon_edit" class="form-control">
               </div>
             </div>  
@@ -198,20 +210,29 @@
           <div class="row">
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="no_telepon">Praktek 1:</label>
+                <label for="praktek_1">Praktek 1 :</label>
                 <input type="text" name="praktek1" id="praktek1_edit" class="form-control">
               </div>
             </div>  
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="no_telepon">Praktek 2:</label>
+                <label for="praktek-2">Praktek 2 :</label>
                 <input type="text" name="praktek2" id="praktek2_edit" class="form-control">
               </div>
             </div>  
             <div class="col-lg-3">
               <div class="form-group">
-                <label for="no_telepon">Praktek 3:</label>
+                <label for="praktek_3">Praktek 3 :</label>
                 <input type="text" name="praktek3" id="praktek3_edit" class="form-control">
+              </div>
+            </div>  
+            <div class="col-lg-3">
+              <div class="form-group">
+                <label for="status">Status :</label>
+                <select id="status" name="status" class="form-control">
+                  <option value="IDI Brebes">IDI Brebes</option>
+                  <option value="IDI Luar">IDI Luar</option>
+                </select>
               </div>
             </div>  
           </div>

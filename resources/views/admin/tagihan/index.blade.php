@@ -67,11 +67,11 @@
         </div>
         <div class="form-group">
           <label for="tahun">Tahun:</label>
-          <input required="" type="text" name="tahun" id="tahun" class="form-control">  
+          <input required="" type="number" name="tahun" id="tahun" class="form-control">  
         </div>
         <div class="form-group">
           <label for="nominal">Nominal:</label>
-          <input required="" type="text" name="nominal" id="nominal" class="form-control">
+          <input required="" type="number" name="nominal" id="nominal" class="form-control">
         </div>
       </div>
       <div class="modal-footer">
@@ -104,11 +104,11 @@
         <div class="form-group">
           <label for="tahun_edit">Tahun:</label>
           <input required="" type="hidden" readonly="" name="id" id="id_edit" class="form-control">
-          <input required="" type="text" name="tahun" id="tahun_edit" class="form-control">  
+          <input required="" type="number" name="tahun" id="tahun_edit" class="form-control">  
         </div>
         <div class="form-group">
           <label for="nominal_edit">Nominal:</label>
-          <input required="" type="text" name="nominal" id="nominal_edit" class="form-control">
+          <input required="" type="number" name="nominal" id="nominal_edit" class="form-control">
         </div>
       </div>
       <div class="modal-footer">

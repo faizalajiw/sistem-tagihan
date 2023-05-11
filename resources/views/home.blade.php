@@ -13,7 +13,7 @@
 		@role('dokter')
 		  <h1 class="display-4">Hello, {{ Universe::dokter()->nama_dokter }}!</h1>
 		@endrole
-		  <p class="lead">Selamat datang di E-Tagihan IDI Brebes.</p>
+		  <p class="lead">Selamat datang di Si-Payment IDI Brebes.</p>
 		  <hr class="my-4">
 		</div>
 	</div>

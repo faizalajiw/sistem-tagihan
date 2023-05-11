@@ -18,20 +18,20 @@
 <table border="1" cellspacing="0" cellpadding="10" width="100%">
   <thead>
     <tr>
-      <th scope="col" style="font-family: sans-serif;">Petugas</th>
       <th scope="col" style="font-family: sans-serif;">Untuk Tahun</th>
       <th scope="col" style="font-family: sans-serif;">Untuk Bulan</th>
       <th scope="col" style="font-family: sans-serif;">Jumlah Bayar</th>
+      <th scope="col" style="font-family: sans-serif;">Status</th>
       <th scope="col" style="font-family: sans-serif;">Kode Pembayaran</th>
       <th scope="col" style="font-family: sans-serif;">Tanggal Bayar</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td style="font-family: sans-serif;">{{ $pembayaran->petugas->nama_petugas }}</td>
       <td style="font-family: sans-serif;">{{ $pembayaran->tahun_bayar }}</td>
       <td style="font-family: sans-serif;">{{ $pembayaran->bulan_bayar }}</td>
       <td style="font-family: sans-serif;">{{ $pembayaran->jumlah_bayar }}</td>
+      <td style="font-family: sans-serif;">{{ $pembayaran->dokter->status }}</td>
       <td style="font-family: sans-serif;">{{ $pembayaran->kode_pembayaran }}</td>
       <td style="font-family: sans-serif;">{{ \Carbon\Carbon::parse($pembayaran->tanggal_bayar)->format('d-m-Y') }}</td>
     </tr>

@@ -40,6 +40,22 @@ class DatabaseSeeder extends Seeder
             'name' => 'delete-dokter',
         ]);
 
+        Permission::create([
+            'name' => 'create-rekomendasi',
+        ]);
+
+        Permission::create([
+            'name' => 'read-rekomendasi',
+        ]);
+
+        Permission::create([
+            'name' => 'update-rekomendasi',
+        ]);
+
+        Permission::create([
+            'name' => 'delete-rekomendasi',
+        ]);
+
         // users
         Permission::create([
             'name' => 'create-users',

@@ -1,14 +1,14 @@
 <aside class="main-sidebar sidebar-light-blue elevation-4">
   <!-- Brand Logo -->
-  <!-- <a href="" class="brand-link">
-    <img src="{{ asset('templates/backend/AdminLTE-3.1.0') }}/dist/img/laravel.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">E-Tagihan</span>
-  </a>
+    <a href="" class="brand-link position-relative pb-1">
+      <img src="{{ asset('templates/backend/AdminLTE-3.1.0') }}/dist/img/IDI.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <p class="brand-text font-weight-bold text-sm" style="margin-bottom: -0.1rem;">Ikatan Dokter Indonesia<br/>Cabang Brebes</p>
+    </a>
 
   <!-- Sidebar -->
   <div class="sidebar">
     <!-- Sidebar user panel (optional) -->
-    <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+    <div class="user-panel pt-1 pb-1 d-flex">
       <div class="my-auto ml-3">
         <i class="nav-icon fas fa-user-circle fa-2x text-dark"></i>
       </div>
@@ -18,7 +18,7 @@
     </div>
 
     <!-- Sidebar Menu -->
-    <nav class="mt-2">
+    <nav class="mt-1">
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
@@ -71,14 +71,14 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="{{ route('pembayaran-tagihan.index') }}" class="nav-link {{ Request::segment(2) == 'pembayaran-tagihan' ? 'active' : '' }}">
             <i class="nav-icon fas fa-list"></i>
             <p>
               Pembayaran
             </p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="{{ route('admin-list.index') }}" class="nav-link {{ Request::segment(2) == 'admin-list' ? 'active' : '' }}">
             <i class="nav-icon fas fa-user-tie"></i>
@@ -123,14 +123,14 @@
             </p>
           </a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a href="{{ route('pembayaran-tagihan.index') }}" class="nav-link {{ Request::segment(2) == 'pembayaran-tagihan' ? 'active' : '' }}">
             <i class="nav-icon fas fa-list"></i>
             <p>
               Pembayaran
             </p>
           </a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a href="{{ route('tagihan.index') }}" class="nav-link {{ Request::segment(2) == 'tagihan' ? 'active' : '' }}">
             <i class="nav-icon fas fa-money-bill"></i>
@@ -139,6 +139,26 @@
             </p>
           </a>
         </li>
+        @endrole
+
+        @role('admin|petugas')
+        <li class="nav-header">Rekomendasi</li>
+        <li class="nav-item">
+          <a href="{{ route('rekomendasi.index') }}" class="nav-link {{ Request::segment(2) == 'rekomendasi' ? 'active' : '' }}">
+            <i class="nav-icon fas fa-envelope"></i>
+            <p>
+              Rekomendasi
+            </p>
+          </a>
+        </li>
+        <!-- <li class="nav-item">
+          <a href="{{ route('rekomendasi.surat-rekomendasi') }}" class="nav-link {{ Request::segment(2) == 'surat-rekomendasi' ? 'active' : '' }}">
+            <i class="nav-icon fas fa-print fa-fw"></i>
+            <p>
+              Cetak Rekomendasi
+            </p>
+          </a>
+        </li> -->
         @endrole
 
         @role('admin|petugas')

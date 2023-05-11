@@ -55,19 +55,20 @@ class DokterController extends Controller
         $validator = Validator::make($request->all(), [
             'nama_dokter' => 'required',
             'username' => 'required|unique:users',
-            'npa' => 'required|unique:dokter',
-            'alamat' => 'required',
-            'no_telepon' => 'required',
+            'npa' => 'nullable|unique:dokter',
+            'alamat' => 'nullable',
+            'no_telepon' => 'required|numeric',
             'praktek1' => 'required',
             'praktek2' => 'nullable',
             'praktek3' => 'nullable',
+            'status' => 'required',
         ]);
 
         if ($validator->passes()) {
             DB::transaction(function() use($request){
                 $user = User::create([
                     'username' => Str::lower($request->username),
-                    'password' => Hash::make('idi2023'),
+                    'password' => Hash::make('idibrebes'),
                 ]);
 
                 $user->assignRole('dokter');
@@ -82,6 +83,7 @@ class DokterController extends Controller
                     'praktek1' => $request->praktek1,
                     'praktek2' => $request->praktek2,
                     'praktek3' => $request->praktek3,
+                    'status' => $request->status,
                 ]);
             });
 
@@ -116,10 +118,11 @@ class DokterController extends Controller
         $validator = Validator::make($request->all(), [
             'nama_dokter' => 'required',
             'alamat' => 'required',
-            'no_telepon' => 'required',
+            'no_telepon' => 'required|numeric',
             'praktek1' => 'required',
             'praktek2' => 'nullable',
             'praktek3' => 'nullable',
+            'status' => 'required',
         ]);
 
         if ($validator->passes()) {
@@ -130,6 +133,7 @@ class DokterController extends Controller
                 'praktek1' => $request->praktek1,
                 'praktek2' => $request->praktek2,
                 'praktek3' => $request->praktek3,
+                'status' => $request->status,
             ]);
 
             return response()->json(['message' => 'Data berhasil diupdate!']);

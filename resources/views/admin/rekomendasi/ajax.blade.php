@@ -4,18 +4,18 @@ $(function () {
   var table = $("#dataTable2").DataTable({
       processing: true,
       serverSide: true,
-      "responsive": true,
-      ajax: "{{ route('dokter.index') }}",
+      "responsive": false,
+      ajax: "{{ route('rekomendasi.index') }}",
       columns: [
           {data: 'DT_RowIndex' , name: 'id'},
-          {data: 'nama_dokter', name: 'nama_dokter'},
-          {data: 'npa', name: 'npa'},
-          {data: 'alamat', name: 'alamat'},
-          {data: 'no_telepon', name: 'no_telepon'},
-          {data: 'praktek1', name: 'praktek1'},
-          {data: 'praktek2', name: 'praktek2'},
-          {data: 'praktek3', name: 'praktek3'},
-          {data: 'status', name: 'status'},
+          {data: 'nama_dokter_rekomendasi', name: 'nama_dokter_rekomendasi'},
+          {data: 'alamat_rekomendasi', name: 'alamat_rekomendasi'},
+          {data: 'ttl', name: 'ttl'},
+          {data: 'no_str', name: 'no_str'},
+          {data: 'alamat_praktik_dimiliki', name: 'alamat_praktik_dimiliki'},
+          {data: 'alamat_praktik_diminta', name: 'alamat_praktik_diminta'},
+          {data: 'idi_cabang', name: 'idi_cabang'},
+          {data: 'no_rekomendasi', name: 'no_rekomendasi'},
           {data: 'action', name: 'action', orderable: false, searchable: true},
       ]
   });
@@ -24,22 +24,21 @@ $(function () {
 
 // Reset Form
 function resetForm(){
-    $("[name='nama_dokter']").val("")
-    $("[name='username']").val("")
-    $("[name='npa']").val("")
-    $("[name='alamat']").val("")
-    $("[name='no_telepon']").val("")
-    $("[name='praktek1']").val("")
-    $("[name='praktek2']").val("")
-    $("[name='praktek3']").val("")
-    $("[name='status']").val("")
+    $("[name='nama_dokter_rekomendasi']").val("")
+    $("[name='alamat_rekomendasi']").val("")
+    $("[name='ttl']").val("")
+    $("[name='no_str']").val("")
+    $("[name='alamat_praktik_dimiliki']").val("")
+    $("[name='alamat_praktik_diminta']").val("")
+    $("[name='idi_cabang']").val("")
+    $("[name='no_rekomendasi']").val("")
 }
 
 // create
 $("#store").on("submit", function(e) {
   e.preventDefault()
   $.ajax({
-    url: "{{ route('dokter.store') }}",
+    url: "{{ route('rekomendasi.store') }}",
     method: "POST",
     data: $(this).serialize(),
     success:function(response) {
@@ -72,18 +71,18 @@ function printErrorMsg(msg) {
 $("body").on("click", ".btn-edit", function() {
   var id = $(this).attr("id")
   $.ajax({
-    url: "/admin/dokter/"+id+"/edit",
+    url: "/admin/rekomendasi/"+id+"/edit",
     method: "GET",
     success: function(response) {
       $("#id_edit").val(response.data.id)
-      $("#nama_dokter_edit").val(response.data.nama_dokter)
-      $("#npa_edit").val(response.data.npa)
-      $("#alamat_edit").val(response.data.alamat)
-      $("#no_telepon_edit").val(response.data.no_telepon)
-      $("#praktek1_edit").val(response.data.praktek1)
-      $("#praktek2_edit").val(response.data.praktek2)
-      $("#praktek3_edit").val(response.data.praktek3)
-      $("#status_edit").val(response.data.status)
+      $("#nama_dokter_rekomendasi_edit").val(response.data.nama_dokter_rekomendasi)
+      $("#alamat_rekomendasi_edit").val(response.data.alamat_rekomendasi)
+      $("#ttl_edit").val(response.data.ttl)
+      $("#no_str_edit").val(response.data.no_str)
+      $("#alamat_praktik_dimiliki_edit").val(response.data.alamat_praktik_dimiliki)
+      $("#alamat_praktik_diminta_edit").val(response.data.alamat_praktik_diminta)
+      $("#idi_cabang_edit").val(response.data.idi_cabang)
+      $("#no_rekomendasi_edit").val(response.data.no_rekomendasi)
       $("#editModal").modal("show")
     },
     error: function(err) {
@@ -103,7 +102,7 @@ $("#update").on("submit", function(e) {
   e.preventDefault()
   var id = $("#id_edit").val()
   $.ajax({
-    url: "/admin/dokter/"+id,
+    url: "/admin/rekomendasi/"+id,
     method: "PATCH",
     data: $(this).serialize(),
     success: function(response) {
@@ -146,7 +145,7 @@ $("body").on("click", ".btn-delete", function() {
   }).then((result) => {
     if (result.isConfirmed) {
       $.ajax({
-        url: "/admin/dokter/"+id,
+        url: "/admin/rekomendasi/"+id,
         method: "DELETE",
         success: function(response) {
           $('#dataTable2').DataTable().ajax.reload()

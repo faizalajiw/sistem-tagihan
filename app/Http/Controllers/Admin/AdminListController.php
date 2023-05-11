@@ -28,14 +28,14 @@ class AdminListController extends Controller
     {
     	$validator = Validator::make($request->all(), [
     		'username' => 'required|unique:users',
-    		'nama_petugas' => 'required',
+    		'nama_petugas' => 'required|alpha',
     	]);
 
     	if ($validator->passes()) {
             DB::transaction(function() use($request){
                 $user = User::create([
                     'username' => Str::lower($request->username),
-                    'password' => Hash::make('idi2023'),
+                    'password' => Hash::make('idibrebes'),
                 ]);
 
                 $user->assignRole('admin');
@@ -62,7 +62,7 @@ class AdminListController extends Controller
     public function update($id, Request $request)
     {
     	$validator = Validator::make($request->all(), [
-    		'nama_petugas' => 'required',
+    		'nama_petugas' => 'required|alpha',
     	]);
 
     	if ($validator->passes()) {
